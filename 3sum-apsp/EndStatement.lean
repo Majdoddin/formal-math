@@ -136,4 +136,33 @@ def ZeroWeightKClique (k : Nat) : Problem where
 def Corollary_39_ZeroWeight : Prop :=
   ∀ k ≥ 3, (ZeroWeightKClique k).SolvedInTime (k - ε_T * (k / 3 : Nat))
 
+/-! ### Remark 23: 3XOR, stated and not proved
+
+Added by Ruhollah Majdoddin.  The running time of the note R. Majdoddin, «A proof of Remark 23 of
+Alman and Vassilevska Williams: deterministic truly subquadratic 3XOR» (2026).  Unlike the five
+claims above, `Remark_23` is not proved here: no theorem of `Challenge/` says that it holds.  The
+mathematics of the note's proof is stated and proved in `PaperStatements.lean`, section Remark 23.
+A proof of `Remark_23` on this machine was begun in the library (runs A–C of a plan of ten runs)
+and stopped by the author's decision; it will not be completed. -/
+
+/-- The note's Definition 1: «Given three lists S₁, S₂, S₃ of at most n vectors in F^d, decide
+whether there are x₁ ∈ S₁, x₂ ∈ S₂, x₃ ∈ S₃ with x₁ ⊕ x₂ ⊕ x₃ = 0».  A vector is the natural number
+whose binary digits are its coordinates, so `⊕` is `^^^`.  Three lists of `n` vectors, one vector
+from each: unlike in `ThreeSum`, no two positions need to differ. -/
+def ThreeXor : Problem where
+  Instance n := (Fin n → Nat) × (Fin n → Nat) × (Fin n → Nat)
+  input := fun (S₁, S₂, S₃) => (List.ofFn S₁ ++ List.ofFn S₂ ++ List.ofFn S₃).map Int.ofNat
+  yes := fun (S₁, S₂, S₃) => ∃ i j k, S₁ i ^^^ S₂ j ^^^ S₃ k = 0
+
+/-- The note's main theorem: «Let ε′ := 0.00175, and let c > 0 be a constant.  3XOR on three lists
+of at most n vectors in F^d with d ≤ c log n is solved by a deterministic algorithm … in time
+O(n^(2−ε′/2) (log n)^(log₂ 27)) = n^(2−ε′/2+o(1)) ≤ O(n^1.9992)».  The exponent is the printed
+1.9992: 2 − ε′/2 = 1.999125, and the slack 0.000075 absorbs the factor (log n)^(log₂ 27).  The bound
+`n^κ` on the numbers renders `d ≤ c log n`: a vector of `d ≤ c log₂ n` bits is less than `n^c`.
+
+NOTE.  The note counts operations of a word RAM with shifts and bitwise Boolean operations; this
+machine has neither, and the note does not argue what it costs to do without them. -/
+def Remark_23 : Prop :=
+  ThreeXor.SolvedInTime 1.9992
+
 end EndStatement

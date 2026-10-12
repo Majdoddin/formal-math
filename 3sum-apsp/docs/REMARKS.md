@@ -30,7 +30,7 @@ Docstrings point into this document by the title of a section, for example: `doc
 * **The triangle problems for a middle part of more than n^{1/18} and up to n^{0.12} vertices** (Section 1.1, "for every ε < 0.1204"). Up to n^{1/18} they are Corollary 16; beyond that, Theorem 25 and Corollary 32 are stated for matrices only.
 * **Consequences through reductions that the paper only names**: the list "More new algorithms" of Section 1.2, "also on general graphs" after Corollary 39, the variant of Conjecture 5.7 at the end of Section 5.4, and the discussion of which results of [vdBNS19] rely on the conjectures in the refuted regime.
 * **Search versions** of the decision problems, and instances with N = 0 or D = 0 in the statements with two sizes.
-* **Remark 12** makes no mathematical claim. **Remark 23**, on 3XOR, indicates the method in one sentence and gives no proof. Figures 1, 2, 5 and 8 make no claim of their own. Figure 7 draws the count of Lemma 11; two remarks of its caption are not stated. Figure 9 illustrates the definitions of Section 4.2 in a small example and has no statement.
+* **Remark 12** makes no mathematical claim. **Remark 23**, on 3XOR, sketches the method in one sentence; the mathematics of the proof in a note on it is stated in the section "Remark 23 (3XOR)" at the end of `PaperStatements.lean`, added by Ruhollah Majdoddin, without its running time. Figures 1, 2, 5 and 8 make no claim of their own. Figure 7 draws the count of Lemma 11; two remarks of its caption are not stated. Figure 9 illustrates the definitions of Section 4.2 in a small example and has no statement.
 
 ## Section 2: differences
 
@@ -97,7 +97,7 @@ The points about the reduction of [CH20] are in "Section 3: cited results".
 
 **The printed numbers.** `Items.Theorem_22_first` and `Items.Theorem_22_second` contain the sharp forms (3 − 1/1944 = 2.99948…, 3 − ε′/3 = 2.99941…) and the printed roundings. Theorem 2 prints O(n^{2.9995}), a coarser rounding, and `Items.Theorem_2` has this numeral. `Items.Theorem_22_threeSum` has the printed form n^{a+o(1)}. The programs give factors (log n)^{O(1)}; this is the lemma `Theorem22.threeSum_polylog`, from which the printed form follows.
 
-**Not stated.** Footnote 9 (proof of Theorem 17), Remark 23, and the comparison with [CX24] and [VX20] in Remark 18, which would need the constructions of those papers.
+**Not stated.** Footnote 9 (proof of Theorem 17) and the comparison with [CX24] and [VX20] in Remark 18, which would need the constructions of those papers. Remark 23 is stated in the section "Remark 23 (3XOR)" at the end of `PaperStatements.lean`, added by Ruhollah Majdoddin, without its running time.
 
 ## Section 3: running times
 
@@ -330,6 +330,10 @@ This list is written by `scripts/index.py`. It has every paragraph of a comment 
   * The `ε_T` in the exponents of the claims on Exact Triangle and on `k`-Clique belongs to the route through Corollary 26 too: for this route Theorem 19 prints "O(n^{3−ε'} log n) ≤ O(n^{3−ε_T})".
   * Corollary 39 speaks also of a `k`-clique of minimum, or of maximum, total edge weight; this is stated in `Items.Corollary_39_min_max`.
 
+**`EndStatement.lean`**
+
+* `Remark_23`. NOTE. The note counts operations of a word RAM with shifts and bitwise Boolean operations; this machine has neither, and the note does not argue what it costs to do without them.
+
 **`PaperStatements.lean`**
 
 * `Lemma_10`. NOTE. The hypothesis `0 < L ∨ U.Nonempty` of the second claim is not in the paper. It excludes only the case `L = 0`, `U = ∅`, in which the root is itself a leaf, so that the call at the root visits it, while `Leaves(∅)` is empty. In the paper `L ≥ m ≥ 1`, and `Pruned` is run only on nonempty sets (Section 2.4.4).
@@ -423,6 +427,12 @@ This list is written by `scripts/index.py`. It has every paragraph of a comment 
 * `Theorem_3`. NOTE. The departures are those of the two definitions: `D ≥ 1` in the first part; `D ≥ 1` and `N ≥ 1` in the second; and in both the space is bounded like the time, while the theorem speaks of time only.
 
 * `Theorem_4`. NOTE. For the uMv version `τ₂ < 1` is assumed; see the NOTE at `Corollary_40_times`.
+
+* `Remark_23_lemma_5_exp.`. NOTE. The hypotheses `0 ≤ ε` (a bias is nonnegative; for `ℓ = 0` this does not follow from `IsBiased`) and `r ≥ 1` (so that `1/r` is a number) are added.
+
+* `Remark_23_lemma_10`. NOTE. The index set `F^k` is `F^{k₁} × F^{k₁}` (an index is the pair of its two halves), and the vertices of a part are the elements of `Fin (2 ^ k₁)`, numbered by `F^{k₁}` through an arbitrary bijection `e`; the statement holds for every `e`.
+
+* `Remark_23_lemma_14`. NOTE. In `solve`, the leaf's sort-and-binary-search is replaced by the exact test `HasSol3`, and the Convolution-3XOR instances of step (C) are answered by their specification `ConvHasSol`, not by the algorithm of Corollary 11; the note's induction on the height of the recursion tree ("finite by Lemma 13") is replaced by fuel, and `Remark_23_lemma_13_depth` says that fuel `3⌊log log n⌋ + 1` is not spent at an inner node.
 
 **`ThreeSumApsp/ConditionalTimes/Definitions.lean`**
 

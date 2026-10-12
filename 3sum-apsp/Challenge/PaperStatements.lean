@@ -264,3 +264,33 @@ theorem wordRam_theorem_4 : Items.Theorem_4 := by
 end ThreeSumApsp
 
 end RunningTimes
+
+namespace PaperStatements
+
+/-! ## Remark 23 (3XOR): statements -/
+
+theorem remark_23_lemma_4_average : Remark_23_lemma_4_average := by sorry
+theorem remark_23_lemma_4 : Remark_23_lemma_4 := by sorry
+theorem remark_23_definition_2_univ : Remark_23_definition_2_univ := by sorry
+theorem remark_23_lemma_5_greedyRows : Remark_23_lemma_5_greedyRows := by sorry
+theorem remark_23_lemma_5 : Remark_23_lemma_5 := by sorry
+theorem remark_23_lemma_5_exp : Remark_23_lemma_5_exp := by sorry
+theorem remark_23_lemma_7_sum_chi : Remark_23_lemma_7_sum_chi := by sorry
+theorem remark_23_lemma_7 : Remark_23_lemma_7 := by sorry
+theorem remark_23_theorem_8 : Remark_23_theorem_8 := by sorry
+theorem remark_23_theorem_8_greedy_Z : Remark_23_theorem_8_greedy_Z := by sorry
+theorem remark_23_theorem_8_false_positives : Remark_23_theorem_8_false_positives := by sorry
+theorem remark_23_theorem_8_failed_scans : Remark_23_theorem_8_failed_scans := by sorry
+theorem remark_23_lemma_10 : Remark_23_lemma_10 := by sorry
+theorem remark_23_corollary_11 : Remark_23_corollary_11 := by sorry
+theorem remark_23_sec7_k : Remark_23_sec7_k := by sorry
+theorem remark_23_lemma_12 : Remark_23_lemma_12 := by sorry
+theorem remark_23_lemma_13_card : Remark_23_lemma_13_card := by sorry
+theorem remark_23_lemma_13_count : Remark_23_lemma_13_count := by sorry
+theorem remark_23_lemma_13_depth : Remark_23_lemma_13_depth := by sorry
+theorem remark_23_lemma_13_tree : Remark_23_lemma_13_tree := by sorry
+theorem remark_23_lemma_13_real : Remark_23_lemma_13_real := by sorry
+theorem remark_23_lemma_13_goodStep : Remark_23_lemma_13_goodStep := by sorry
+theorem remark_23_lemma_14 : Remark_23_lemma_14 := by sorry
+
+end PaperStatements

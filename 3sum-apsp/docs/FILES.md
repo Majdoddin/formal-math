@@ -28,6 +28,7 @@ import the library, and `scripts/PrintAxioms.lean` is generated; they are not li
 |---|---|
 | `ConditionalTimes.lean` | The three conditional lemmas |
 | `ModelChecks.lean` | Checks of the model |
+| `Remark23.lean` | Remark 23 (3XOR): all files of the folder `Remark23` |
 | `RunningTimes.lean` | The running times on the word RAM |
 | `Sec1.lean` | Section 1 without a machine |
 | `Sec2.lean` | Section 2 without a machine |
@@ -127,6 +128,24 @@ import the library, and `scripts/PrintAxioms.lean` is generated; they are not li
 |---|---|
 | `LightModel.lean` | "Is solved in time T", read as a statement about programs of the light language |
 | `Tasks.lean` | The problems of the paper as tasks |
+
+## `ThreeSumApsp/Programs/Remark23/`
+
+| file | title |
+|---|---|
+| `Bridge.lean` | Remark 23 (3XOR): vectors over F₂ as natural numbers |
+| `Library.lean` | Remark 23 (3XOR): the tasks, the reading `xorModel`, and the bit library |
+| `Tasks.lean` | Remark 23 (3XOR): the problems of the note as tasks |
+| `XorModel.lean` | Remark 23 (3XOR): "is solved in time T" for the problems of the note |
+
+## `ThreeSumApsp/Programs/Remark23/Bits/`
+
+| file | title |
+|---|---|
+| `Digits.lean` | Remark 23 (3XOR): the table of binary digits of a list of vectors |
+| `Numbers.lean` | Remark 23 (3XOR): XOR and inner product of two numbers |
+| `Rows.lean` | Remark 23 (3XOR): operations on rows of digits |
+| `XorTable.lean` | Remark 23 (3XOR): the table of the XORs of all pairs of `Λ`-digit numbers |
 
 ## `ThreeSumApsp/Programs/Sec2/Theorem5/`
 
@@ -457,6 +476,19 @@ import the library, and `scripts/PrintAxioms.lean` is generated; they are not li
 | `UMvRoutines.lean` | uMv-hinted uMv: the routines of Phases 3 and 4 |
 | `VHinted.lean` | Corollary 40: v-hinted Mv as a light program that runs in phases |
 
+## `ThreeSumApsp/Remark23/`
+
+| file | title |
+|---|---|
+| `Basic.lean` | Remark 23 (3XOR): one row, and rows chosen one at a time |
+| `Biased.lean` | Remark 23 (3XOR): the explicit ε-biased multiset of Lemma 6 |
+| `Conv.lean` | Remark 23 (3XOR): Convolution-3XOR reduces to Exact-XOR-Triangle |
+| `Count.lean` | Remark 23 (3XOR): counting the triples that a linear map sends to zero |
+| `GF2Poly.lean` | Remark 23 (3XOR): polynomials over F₂ as coefficient lists |
+| `Recursion.lean` | Remark 23 (3XOR): 3XOR reduces to Convolution-3XOR |
+| `Reduction.lean` | Remark 23 (3XOR): Exact-XOR-Triangle reduces to Lop-AE-SparseTri |
+| `TriInst.lean` | Remark 23 (3XOR): Exact-XOR-Triangle with parts of any finite types |
+
 ## `ThreeSumApsp/RunningTimes/`
 
 | file | title |
@@ -468,6 +500,13 @@ import the library, and `scripts/PrintAxioms.lean` is generated; they are not li
 | file | title |
 |---|---|
 | `Bounds.lean` | From a realized running time to a program with the paper's bound |
+
+## `ThreeSumApsp/RunningTimes/Remark23/`
+
+| file | title |
+|---|---|
+| `Corollary16.lean` | Remark 23 (3XOR): Corollary 16 for the reading of the note |
+| `Layout.lean` | 3XOR: from a solver of the task to a program for the layout of the end statement |
 
 ## `ThreeSumApsp/RunningTimes/Sec1/`
 
@@ -787,6 +826,14 @@ import the library, and `scripts/PrintAxioms.lean` is generated; they are not li
 | `EndStatement.lean` | The five claims of the end statement |
 | `Exponents.lean` | From a real exponent to a rational one |
 | `PaperStatements.lean` | The propositions of `PaperStatements.lean` hold |
+
+## `ThreeSumApsp/TimeClaims/Remark23/`
+
+| file | title |
+|---|---|
+| `Definitions.lean` | Running-time claims of Remark 23 (3XOR), for an abstract notion of "solved in time T" |
+| `Theorem9.lean` | Theorem 9 of the note from its Theorem 8 and Corollary 16 |
+| `ThreeXor.lean` | The main theorem of the note: 3XOR in `n^{2−ε'/2+o(1)}` time |
 
 ## `ThreeSumApsp/TimeClaims/Sec3/`
 

@@ -1,3 +1,33 @@
+# Majdoddin/formal-math: Lean checks of "Thin matrix products up to D ≤ N^0.172"
+
+This fork of [anthropics/formal-math](https://github.com/anthropics/formal-math) adds three Lean 4
+projects (Lean v4.33.1, Mathlib v4.33.1) and an addition to `3sum-apsp/`. They accompany the paper
+*Thin matrix products up to D ≤ N^0.172 and lossless reductions for 3SUM, Exact Triangle and APSP,
+with 3SUM over abelian groups and a dichotomy for coordinatewise problems* by Ruhollah Majdoddin
+(12 October 2026), whose Section 22.2 describes them. The paper builds on the preprint of Alman and
+Vassilevska Williams (arXiv:2610.06783) that `3sum-apsp/` formalises.
+
+| Project | What it checks |
+|---|---|
+| [`thin-matrix-products/`](thin-matrix-products/) | the mathematics of the paper outside Sections 18–21: the matrix theorem of Part I, the reductions of Part II, and Appendix A |
+| [`xor-3xor/`](xor-3xor/) | Section 18 (3XOR), and the route for 3XOR that the preprint's Remark 23 sketches |
+| [`groups/`](groups/) | Sections 19–21: 3SUM over finite abelian groups, the dichotomy for coordinatewise problems, the triangle versions |
+| [`3sum-apsp/`](3sum-apsp/) (addition) | `ThreeSumApsp/Remark23/`: the remark's route for 3XOR item by item, with an explicit construction of the biased sets of Alon, Goldreich, Håstad and Peralta; and the statement `Remark_23` in `EndStatement.lean` (its running time), which is not proved (see that project's README) |
+
+Each project's README lists, item by item in the paper's numbering, what is proved and what is not.
+No file of the three new projects contains `sorry`, and their theorems depend on no axiom beyond
+Lean's three standard ones (`propext`, `Classical.choice`, `Quot.sound`). Running times are not
+formalised: the projects prove the identities, the counts, the correctness of the reductions and
+the arithmetic of the constants and exponents, not that an algorithm runs within a time bound.
+Results of the preprint and of other cited works enter as stated hypotheses. Build each project
+from inside its folder with `lake build`.
+
+Some files of `thin-matrix-products/` are adapted from `3sum-apsp/` (Apache 2.0, Anthropic PBC);
+their headers and the README of `thin-matrix-products/` say which. The files added in this fork are
+released, like the rest of the repository, under the Apache-2.0 licence in `LICENSE`.
+
+---
+
 # formal-math
 
 Machine-checked Lean 4 formalizations published by Anthropic. Each subdirectory is a self-contained Lake project with its own toolchain pin, README and build instructions; build from inside the subdirectory. Projects follow the layout of the [Palomar](https://palomar-registry.org/) submission template (`Challenge.lean` / `Solution.lean` / `comparator.json` / `formalization.yaml` at the project root) and are submitted to Palomar with the subdirectory as the selected project; the licence file Palomar reads is this repository's root `LICENSE`.

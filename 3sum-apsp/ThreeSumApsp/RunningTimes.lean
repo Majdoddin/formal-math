@@ -7,6 +7,8 @@ module
 
 public import ThreeSumApsp.RunningTimes.FromClaims
 public import ThreeSumApsp.RunningTimes.FromClaims.Bounds
+public import ThreeSumApsp.RunningTimes.Remark23.Corollary16
+public import ThreeSumApsp.RunningTimes.Remark23.Layout
 public import ThreeSumApsp.RunningTimes.Sec1.Theorems1_4
 public import ThreeSumApsp.RunningTimes.Sec2.Theorem5
 public import ThreeSumApsp.RunningTimes.Sec3.Corollary15_16

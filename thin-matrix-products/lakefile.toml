@@ -1,0 +1,34 @@
+name = "ThinMatrixProducts"
+version = "0.1.0"
+defaultTargets = ["Assumptions", "Statements", "ThinMatrixProducts", "Checks"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+
+# The same Mathlib revision as ../3sum-apsp (v4.33.1, commit 0df444a), so that its compiled files
+# are reused.
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.33.1"
+
+# Trusted: the results taken from the literature, each as a proposition with its reference and a
+# quotation.  One file; it imports Mathlib only.
+[[lean_lib]]
+name = "Assumptions"
+
+# Trusted: the statements of the paper, in its numbering, with the definitions that they use.
+# One file; it imports Mathlib and Assumptions only.
+[[lean_lib]]
+name = "Statements"
+
+# Untrusted: the proofs.
+[[lean_lib]]
+name = "ThinMatrixProducts"
+globs = ["ThinMatrixProducts", "ThinMatrixProducts.+"]
+
+# One theorem per statement, saying that it holds (from the proofs).
+[[lean_lib]]
+name = "Checks"

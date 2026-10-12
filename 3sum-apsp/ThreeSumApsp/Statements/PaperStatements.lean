@@ -11,6 +11,7 @@ public import ThreeSumApsp.Sec4
 public import ThreeSumApsp.Sec5
 public import ThreeSumApsp.Statements.Agreement
 public import ThreeSumApsp.RunningTimes
+public import ThreeSumApsp.Remark23
 
 /-!
 # The propositions of `PaperStatements.lean` hold
@@ -168,5 +169,45 @@ theorem agreement_cliqueWeight : Agreement_cliqueWeight := @ThreeSumApsp.agreeme
 theorem agreement_solves : Agreement_solves := @ThreeSumApsp.agreement_solves
 theorem agreement_bigO : Agreement_bigO := @ThreeSumApsp.agreement_bigO
 theorem agreement_solvedInTime : Agreement_solvedInTime := @ThreeSumApsp.agreement_solvedInTime
+
+end PaperStatements
+
+namespace PaperStatements
+
+/-! ## Remark 23 (3XOR): statements -/
+
+theorem remark_23_lemma_4_average : Remark_23_lemma_4_average :=
+  @ThreeSumApsp.remark_23_lemma_4_average
+theorem remark_23_lemma_4 : Remark_23_lemma_4 := @ThreeSumApsp.remark_23_lemma_4
+theorem remark_23_definition_2_univ : Remark_23_definition_2_univ :=
+  @ThreeSumApsp.remark_23_definition_2_univ
+theorem remark_23_lemma_5_greedyRows : Remark_23_lemma_5_greedyRows :=
+  @ThreeSumApsp.remark_23_lemma_5_greedyRows
+theorem remark_23_lemma_5 : Remark_23_lemma_5 := @ThreeSumApsp.remark_23_lemma_5
+theorem remark_23_lemma_5_exp : Remark_23_lemma_5_exp := @ThreeSumApsp.remark_23_lemma_5_exp
+theorem remark_23_lemma_7_sum_chi : Remark_23_lemma_7_sum_chi :=
+  @ThreeSumApsp.remark_23_lemma_7_sum_chi
+theorem remark_23_lemma_7 : Remark_23_lemma_7 := @ThreeSumApsp.remark_23_lemma_7
+theorem remark_23_theorem_8 : Remark_23_theorem_8 := @ThreeSumApsp.remark_23_theorem_8
+theorem remark_23_theorem_8_greedy_Z : Remark_23_theorem_8_greedy_Z :=
+  @ThreeSumApsp.remark_23_theorem_8_greedy_Z
+theorem remark_23_theorem_8_false_positives : Remark_23_theorem_8_false_positives :=
+  @ThreeSumApsp.remark_23_theorem_8_false_positives
+theorem remark_23_theorem_8_failed_scans : Remark_23_theorem_8_failed_scans :=
+  @ThreeSumApsp.remark_23_theorem_8_failed_scans
+theorem remark_23_lemma_10 : Remark_23_lemma_10 := @ThreeSumApsp.remark_23_lemma_10
+theorem remark_23_corollary_11 : Remark_23_corollary_11 := @ThreeSumApsp.remark_23_corollary_11
+theorem remark_23_sec7_k : Remark_23_sec7_k := @ThreeSumApsp.remark_23_sec7_k
+theorem remark_23_lemma_12 : Remark_23_lemma_12 := @ThreeSumApsp.remark_23_lemma_12
+theorem remark_23_lemma_13_card : Remark_23_lemma_13_card := @ThreeSumApsp.remark_23_lemma_13_card
+theorem remark_23_lemma_13_count : Remark_23_lemma_13_count :=
+  @ThreeSumApsp.remark_23_lemma_13_count
+theorem remark_23_lemma_13_depth : Remark_23_lemma_13_depth :=
+  @ThreeSumApsp.remark_23_lemma_13_depth
+theorem remark_23_lemma_13_tree : Remark_23_lemma_13_tree := @ThreeSumApsp.remark_23_lemma_13_tree
+theorem remark_23_lemma_13_real : Remark_23_lemma_13_real := @ThreeSumApsp.remark_23_lemma_13_real
+theorem remark_23_lemma_13_goodStep : Remark_23_lemma_13_goodStep :=
+  @ThreeSumApsp.remark_23_lemma_13_goodStep
+theorem remark_23_lemma_14 : Remark_23_lemma_14 := @ThreeSumApsp.remark_23_lemma_14
 
 end PaperStatements

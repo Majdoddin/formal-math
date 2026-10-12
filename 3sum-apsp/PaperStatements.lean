@@ -1473,10 +1473,13 @@ Not stated here:
   21(b) in its printed form ("If a deterministic algorithm solves Exact Triangle [...] in time T(s)
   [...], then [...]") have no statement.
 * [VW18, Theorem 4.2] has no mathematical statement.
-* Remark 23, where the paper indicates the method in one sentence and gives no proof, and
-  footnote 9.
+* Footnote 9.
 * The other sentences inside proofs, and unnumbered claims, are lemmas of the library or are not
   formalized.
+
+Remark 23, where the paper sketches the method for 3XOR in one sentence, is stated in the section
+"Remark 23 (3XOR)" at the end of this file, added by Ruhollah Majdoddin: the mathematics of the
+proof in a note on the remark, without its running time.
 
 `docs/INDEX.md` says for each item of the paper what is stated and what is not. `docs/REMARKS.md`,
 "Section 3: running times" and "Section 3: cited results", has the details.
@@ -4192,3 +4195,535 @@ end Items
 end ThreeSumApsp.WordRam
 
 end WordRamItems
+
+/-!
+## Remark 23 (3XOR): the mathematics of the proof in the note
+
+This section was added by Ruhollah Majdoddin.  Copyright (c) 2026 Ruhollah Majdoddin.  Released
+under the Apache 2.0 license as described in the file LICENSE (SPDX-License-Identifier:
+Apache-2.0).
+
+Remark 23 of the paper: "The same approach as for 3SUM gives a deterministic truly subquadratic
+algorithm for 3XOR [...], using linear hash functions over F₂ whose rows are chosen one at a time
+from an ε-biased set [AGHP92] by the method of conditional expectations."  The paper sketches the
+method in this one sentence.  This section states the mathematics of the proof in the note
+
+    R. Majdoddin, "A proof of Remark 23 of Alman and Vassilevska Williams: deterministic truly
+    subquadratic 3XOR", 2026.
+
+In this section the numbers of definitions, lemmas, theorems and sections (Lemma 4, Theorem 8,
+§7) are those of the note, not those of the paper, and a docstring quotes the note.  The note
+follows the paper's route for 3SUM with F₂ in place of the integers: its Theorem 8 is the analogue
+of Theorem 17, and its Sections 6 and 7 are the analogue of Theorem 21(a) and of the reduction of
+Chan and He.
+
+**Running times are not stated.**  No statement of this section mentions time.  The note's main
+theorem (3XOR in time O(n^{2−ε′/2} (log n)^{log₂ 27})), its Theorem 9 and Lemma 15, the sentences
+on running time inside its other items, its parameter and exponent arithmetic, and the time to
+list the explicit ε-biased set of the note's Lemma 6 (from [AGHP92]) have no statement here.  The
+construction itself, its size and its bias are proved in `ThreeSumApsp/Remark23/Biased.lean`
+(`remark_23_lemma_6`); the statements of this section keep an ε-biased multiset as a hypothesis
+(`IsBiased`), which that construction satisfies.  The
+results of the paper that the note cites (Corollaries 15, 16 and 26, Theorem 5) do not occur: the
+statements stop at the instances of Lop-AE-SparseTri and at what their answers mean.
+
+Two sub-procedures of the note's procedure Solve (§7) are rendered by their specifications in
+`Remark_23_lemma_14`: the leaf's sort-and-binary-search by the exact test `HasSol3`, and the
+Convolution-3XOR instances of step (C) by `ConvHasSol` (whose reduction to Exact-XOR-Triangle is
+`Remark_23_lemma_10`).  The note's "finite by Lemma 13" is replaced by a fuel parameter.
+
+Conventions.
+
+* `Vec ℓ`, that is `Fin ℓ → ZMod 2`, is the note's `F^ℓ`.  The note's `⊕` is `+`, and `⟨u, v⟩`
+  is `u ⬝ᵥ v`.
+* An instance of Exact-XOR-Triangle on `N` vertices per part with weights in `F^d` is a
+  `TriangleInstance (Vec d) N` of Section 3, with its `S` and `HasZeroTriangle`.
+* An instance of Lop(N, D) is a `LopInstance N` with `MiddleAtMost D` (Definition 13 of the
+  paper); the answer for a query pair is `InTriangle`.
+* ε-biased sets are multisets, as in the note's Definition 2.  The note's families `v_1, …, v_M`
+  with weights `ω_j`, in which a vector may occur twice, are indexed by a finite set `s`.
+* The linear map with rows `u_1, …, u_q` is `rowsMap [u_q, …, u_1]`: a row that is chosen next is
+  put at the head of the list.  The order of the rows changes neither the kernel nor any count.
+-/
+
+section Remark23Definitions
+
+namespace ThreeSumApsp.Remark23
+
+/-! ### Vectors over F₂, ε-biased multisets, rows chosen one at a time (the note's Section 3) -/
+
+/-- The note's `F^ℓ`, with `F = 𝔽₂`: the vectors of length `ℓ` over `ZMod 2`. -/
+abbrev Vec (ℓ : ℕ) : Type := Fin ℓ → ZMod 2
+
+/-- The character `(−1)^⟨u,v⟩` of Definition 2 and Lemma 7, as an integer. -/
+def chi {ℓ : ℕ} (u v : Vec ℓ) : ℤ := if u ⬝ᵥ v = 0 then 1 else -1
+
+/-- **Definition 2**: "A nonempty multiset E of vectors of F^ℓ is ε-biased if for every
+v ∈ F^ℓ ∖ {0}, |(1/|E|) Σ_{u∈E} (−1)^⟨u,v⟩| ≤ ε."  The average is multiplied out by `|E|`. -/
+def IsBiased {ℓ : ℕ} (ε : ℝ) (E : Multiset (Vec ℓ)) : Prop :=
+  E ≠ 0 ∧ ∀ v : Vec ℓ, v ≠ 0 → |((E.map fun u => (chi u v : ℝ)).sum)| ≤ ε * E.card
+
+/-- The linear map `F^ℓ → F^q` with the rows `rows`, `x ↦ (⟨rows[i], x⟩)_i`, where `q` is the
+length of the list. -/
+def rowsMap {ℓ : ℕ} (rows : List (Vec ℓ)) : Vec ℓ →ₗ[ZMod 2] Vec rows.length :=
+  Matrix.mulVecLin (Matrix.of fun i => rows.get i)
+
+/-- Lemma 5: "Φ(u_1, …, u_q) := Σ_{j: ⟨u_1,v_j⟩ = … = ⟨u_q,v_j⟩ = 0} ω_j (Φ() = Σ_j ω_j)", for the
+family of the vectors `v j` with the weights `ω j`, `j ∈ s`. -/
+noncomputable def surv {ℓ : ℕ} {ι : Type*} (s : Finset ι) (v : ι → Vec ℓ) (ω : ι → ℝ)
+    (rows : List (Vec ℓ)) : ℝ :=
+  ∑ j ∈ s with ∀ u ∈ rows, u ⬝ᵥ v j = 0, ω j
+
+/-- Lemma 5: "for q = 1, …, r the row u_q minimizes Φ(u_1, …, u_{q−1}, u) over u ∈ E".
+`IsGreedy E f rows`: each row of `rows` (the newest first) lies in `E` and minimizes, over `E`, the
+cost `f` of the list to which it is added. -/
+def IsGreedy {ℓ : ℕ} (E : Multiset (Vec ℓ)) (f : List (Vec ℓ) → ℝ) : List (Vec ℓ) → Prop
+  | [] => True
+  | u :: rows => IsGreedy E f rows ∧ u ∈ E ∧ ∀ u' ∈ E, f (u :: rows) ≤ f (u' :: rows)
+
+/-- An element of `E` at which `g` is smallest (the vector `0` if `E` is empty). -/
+noncomputable def argminOn {ℓ : ℕ} (E : Multiset (Vec ℓ)) (g : Vec ℓ → ℝ) : Vec ℓ :=
+  if h : E ≠ 0 then
+    Classical.choose (Finset.exists_min_image E.toFinset g (Multiset.toFinset_nonempty.mpr h))
+  else 0
+
+/-- Lemma 5: the rows `u_1, …, u_r` chosen one at a time, `u_q` minimizing the cost `f` of
+`u_1, …, u_{q−1}, u` over `u ∈ E` (the list is newest first). -/
+noncomputable def greedyRows {ℓ : ℕ} (E : Multiset (Vec ℓ)) (f : List (Vec ℓ) → ℝ) :
+    ℕ → List (Vec ℓ)
+  | 0 => []
+  | r + 1 => argminOn E (fun u => f (u :: greedyRows E f r)) :: greedyRows E f r
+
+/-! ### Exact-XOR-Triangle reduces to Lop-AE-SparseTri (the note's Section 4) -/
+
+/-- Lemma 7: "Z(G) := #{(a,b,c) ∈ A×B×C : G S(a,b,c) = 0}", the number of triples that the linear
+map `G` sends to zero. -/
+def Z {n d q : ℕ} (T : TriangleInstance (Vec d) n) (G : Vec d →ₗ[ZMod 2] Vec q) : ℕ :=
+  (Finset.univ.filter fun t : Fin n × Fin n × Fin n => G (T.S t.1 t.2.1 t.2.2) = 0).card
+
+/-- Proof of Theorem 8: "A false positive of a linear map h : F^{d′} → F^r is a triple (a,b,c)
+with S(a,b,c) ≠ 0 and h(S(a,b,c)) = 0; let F(h) be their number." -/
+def F {n d q : ℕ} (T : TriangleInstance (Vec d) n) (G : Vec d →ₗ[ZMod 2] Vec q) : ℕ :=
+  (Finset.univ.filter fun t : Fin n × Fin n × Fin n =>
+    T.S t.1 t.2.1 t.2.2 ≠ 0 ∧ G (T.S t.1 t.2.1 t.2.2) = 0).card
+
+/-- Proof of Theorem 8: Lemma 5 is applied "to the family of the vectors S(a,b,c) over the triples
+with S(a,b,c) ≠ 0, each with weight 1".  This is the set of these triples. -/
+def fpFamily {n d : ℕ} (T : TriangleInstance (Vec d) n) : Finset (Fin n × Fin n × Fin n) :=
+  Finset.univ.filter fun t => T.S t.1 t.2.1 t.2.2 ≠ 0
+
+/-- Proof of Theorem 8: the class "W_ϱ := {(a,b) : h(w(a,b)) = ϱ}" of `ϱ ∈ F^r`. -/
+def classOf {n d r : ℕ} (T : TriangleInstance (Vec d) n) (h : Vec d →ₗ[ZMod 2] Vec r)
+    (ϱ : Vec r) : Finset (Fin n × Fin n) :=
+  Finset.univ.filter fun q => h (T.wAB q.1 q.2) = ϱ
+
+/-- Proof of Theorem 8: "for a chunk Q ⊆ W_ϱ and a piece C_k the instance with middle part
+C_k × F^r, edges a ∼ (c,σ) ⟺ σ = h(w(a,c)) ⊕ ϱ and (c,σ) ∼ b ⟺ σ = h(w(b,c)), query pairs Q".
+`P` is the piece.  As in `TriangleInstance.lopInstance`, a middle vertex is a pair of a vertex of
+the piece and a label. -/
+def redInstance {n d r : ℕ} (T : TriangleInstance (Vec d) n) (h : Vec d →ₗ[ZMod 2] Vec r)
+    (ϱ : Vec r) (Q : Finset (Fin n × Fin n)) (P : Finset (Fin n)) : LopInstance n where
+  M := {c : Fin n // c ∈ P} × Vec r
+  adjA a m := m.2 = h (T.wAC a m.1) + ϱ
+  adjB m b := m.2 = h (T.wBC b m.1)
+  W := Q
+
+/-- Proof of Theorem 8: an instance of the reduction is given by a class `ϱ`, a chunk `Q` of the
+class `W_ϱ` and a piece `P` of the part `C`. -/
+structure RedIndex (n r : ℕ) where
+  /-- The class `ϱ ∈ F^r`. -/
+  ϱ : Vec r
+  /-- The chunk, a set of query pairs. -/
+  Q : Finset (Fin n × Fin n)
+  /-- The piece of `C`. -/
+  P : Finset (Fin n)
+
+/-- Proof of Theorem 8, the witness scans: "For every query pair that the oracle accepts, scan the
+piece C_k of its instance".  The scans are indexed by `(a, b, k)`, `P k` being the piece `C_k`; the
+scan fails if `(a, b)` is accepted, that is some `c ∈ P k` has `h(S(a,b,c)) = 0`, and no `c ∈ P k`
+has `S(a,b,c) = 0`. -/
+def failedScans {n d r : ℕ} {κ : Type*} [Fintype κ] (T : TriangleInstance (Vec d) n)
+    (h : Vec d →ₗ[ZMod 2] Vec r) (P : κ → Finset (Fin n)) : Finset (Fin n × Fin n × κ) :=
+  Finset.univ.filter fun t =>
+    (∃ c ∈ P t.2.2, h (T.S t.1 t.2.1 c) = 0) ∧ ∀ c ∈ P t.2.2, T.S t.1 t.2.1 c ≠ 0
+
+/-! ### Convolution-3XOR reduces to Exact-XOR-Triangle (the note's Section 6) -/
+
+/-- Definition 1, Convolution-3XOR: "Given k and three arrays A, B, C indexed by F^k with entries
+in F^d ∪ {⊥} (⊥ means "empty"), decide whether there are i, j ∈ F^k such that A[i], B[j], C[i⊕j]
+are all non-empty and A[i] ⊕ B[j] ⊕ C[i⊕j] = 0."  The index set is a type `ι` with an addition; an
+entry is an `Option (Vec d)`, and `none` is ⊥. -/
+def ConvHasSol {ι : Type*} [Add ι] {d : ℕ} (A B C : ι → Option (Vec d)) : Prop :=
+  ∃ i j : ι, ∃ a b c : Vec d, A i = some a ∧ B j = some b ∧ C (i + j) = some c ∧ a + b + c = 0
+
+/-- Proof of Lemma 10: the flag `100` of an empty entry of `A`. -/
+def flagA : Vec 3 := Pi.single 0 1
+
+/-- Proof of Lemma 10: the flag `010` of an empty entry of `B`. -/
+def flagB : Vec 3 := Pi.single 1 1
+
+/-- Proof of Lemma 10: the flag `001` of an empty entry of `C`. -/
+def flagC : Vec 3 := Pi.single 2 1
+
+/-- Proof of Lemma 10: "embed an entry as a weight by v̂ := (v,000) for v ∈ F^d, ⊥̂_A := (0,100),
+⊥̂_B := (0,010), ⊥̂_C := (0,001), the last three coordinates being flags".  `emb f` embeds an entry
+with the flag `f` for ⊥. -/
+def emb {d : ℕ} (f : Vec 3) : Option (Vec d) → Vec (d + 3)
+  | some v => Fin.append v 0
+  | none => Fin.append 0 f
+
+/-- Proof of Lemma 10: "For each j₂ ∈ F^{k₁} build the complete tripartite graph with parts
+X = {x_{i₁}}, Y = {y_{i₂}}, Z = {z_{s₁}}, each indexed by F^{k₁}, and weights
+w(x_{i₁},y_{i₂}) := Â[(i₁,i₂)], w(y_{i₂},z_{s₁}) := Ĉ[(s₁,i₂⊕j₂)],
+w(x_{i₁},z_{s₁}) := B̂[(s₁⊕i₁,j₂)]."  The index `i = (i₁, i₂)` of `F^k`, `k = 2k₁`, is a pair.  A
+part has `N = 2^{k₁}` vertices, the elements of `Fin (2 ^ k₁)`, and `e` says which vertex has which
+index in `F^{k₁}`. -/
+def convInstance {k₁ d : ℕ} (e : Fin (2 ^ k₁) ≃ Vec k₁)
+    (A B C : Vec k₁ × Vec k₁ → Option (Vec d)) (j₂ : Vec k₁) :
+    TriangleInstance (Vec (d + 3)) (2 ^ k₁) where
+  wAB x y := emb flagA (A (e x, e y))
+  wBC y z := emb flagC (C (e z, e y + j₂))
+  wAC x z := emb flagB (B (e z + e x, j₂))
+
+/-- Proof of Corollary 11: "If k is odd, extend the arrays to the index set F^{k+1} = F^k × F by
+A′[(i,0)] := A[i] and A′[(i,1)] := ⊥". -/
+def pad {k d : ℕ} (A : Vec k → Option (Vec d)) : Vec k × ZMod 2 → Option (Vec d) :=
+  fun p => if p.2 = 0 then A p.1 else none
+
+/-! ### 3XOR reduces to Convolution-3XOR (the note's Section 7) -/
+
+/-- The three lists of a node of the procedure Solve, as sets ("from now on each S_i is a set");
+`T 0`, `T 1`, `T 2` are the note's `T_1`, `T_2`, `T_3`. -/
+abbrev Lists (d : ℕ) : Type := Fin 3 → Finset (Vec d)
+
+/-- Definition 1, 3XOR: "decide whether there are x_1 ∈ S_1, x_2 ∈ S_2, x_3 ∈ S_3 with
+x_1 ⊕ x_2 ⊕ x_3 = 0". -/
+def HasSol3 {d : ℕ} (T : Lists d) : Prop :=
+  ∃ x₁ ∈ T 0, ∃ x₂ ∈ T 1, ∃ x₃ ∈ T 2, x₁ + x₂ + x₃ = 0
+
+/-- Section 7: "k := the least even integer ≥ log n + 4"; that this number is it, for `n ≥ 2`, is
+`Remark_23_sec7_k`. -/
+def kOf (n : ℕ) : ℕ := 2 * ((Nat.clog 2 n + 5) / 2)
+
+/-- Section 7, step (B): the bucket "T_i(β) := {x ∈ T_i : h(x) = β}". -/
+def bucket {d k : ℕ} (h : Vec d →ₗ[ZMod 2] Vec k) (T : Finset (Vec d)) (β : Vec k) :
+    Finset (Vec d) :=
+  T.filter fun x => h x = β
+
+/-- Section 7, step (B): "The bucket is overfull for i if |T_i(β)| > t + 1 = 3.  Let bad(T_i) be the
+union of the overfull buckets of T_i". -/
+def bad {d k : ℕ} (h : Vec d →ₗ[ZMod 2] Vec k) (T : Finset (Vec d)) : Finset (Vec d) :=
+  T.filter fun x => 3 < (bucket h T (h x)).card
+
+/-- Section 7, step (H): "P_i(H) := #{(x,y) ∈ T_i² : x ≠ y, Hx = Hy} (ordered pairs)". -/
+def collisions {d k : ℕ} (h : Vec d →ₗ[ZMod 2] Vec k) (T : Finset (Vec d)) : ℕ :=
+  (T.offDiag.filter fun p => h p.1 = h p.2).card
+
+/-- Proof of Lemma 12: Lemma 5 is applied "to the family of the vectors x ⊕ y for the ordered
+pairs (x,y) ∈ T_i², x ≠ y, i = 1,2,3".  This is the set of the triples `(i, (x, y))`. -/
+def pairFamily {d : ℕ} (T : Lists d) : Finset (Σ _ : Fin 3, Vec d × Vec d) :=
+  Finset.univ.sigma fun i => (T i).offDiag
+
+/-- Proof of Lemma 12: the vector `x ⊕ y` of the pair `(i, (x, y))`. -/
+def pairVec {d : ℕ} : (Σ _ : Fin 3, Vec d × Vec d) → Vec d := fun p => p.2.1 + p.2.2
+
+/-- Proof of Lemma 12: the weight `1/|T_i|²` of the pair `(i, (x, y))`. -/
+noncomputable def pairWeight {d : ℕ} (T : Lists d) : (Σ _ : Fin 3, Vec d × Vec d) → ℝ :=
+  fun p => 1 / ((T p.1).card : ℝ) ^ 2
+
+/-- Section 7, step (H): "Φ(H) := Σ_{i=1}^3 P_i(H)/|T_i|².  Choose rows u_1, …, u_k ∈ E one at a time,
+u_q minimizing Φ of the map with rows u_1, …, u_{q−1}, u over u ∈ E".  The potential is Lemma 5's
+`surv` for the family `pairFamily T` (a lemma of the library says that it is `Φ`). -/
+noncomputable def hashOf {d : ℕ} (E : Multiset (Vec d)) (k : ℕ) (T : Lists d) : List (Vec d) :=
+  greedyRows E (surv (pairFamily T) pairVec (pairWeight T)) k
+
+/-- Section 7, step (C): "A^ρ_i[β] [is] the ρ_i-th element of T_i(β) if this bucket is not overfull and
+has at least ρ_i elements, and ⊥ otherwise".  `ρ : Fin 3` stands for the rank `ρ + 1`.  The note
+orders a bucket "increasingly as integers"; here the order is that of `Finset.toList`, a fixed
+order of each set. -/
+noncomputable def rankEntry {d k : ℕ} (h : Vec d →ₗ[ZMod 2] Vec k) (T : Finset (Vec d))
+    (ρ : Fin 3) (β : Vec k) : Option (Vec d) :=
+  if (bucket h T β).card ≤ 3 then (bucket h T β).toList[(ρ : ℕ)]? else none
+
+/-- Section 7, the procedure Solve, for a hash function `hash` that gives the rows of `h` at each node,
+with fuel `f`.  A leaf (some list has at most 2 elements, or the fuel is spent) answers by the exact
+test `HasSol3`, the specification of the note's step (L); an inner node answers yes if one of the 27
+instances of step (C) has a solution, by the specification `ConvHasSol` of Convolution-3XOR, or one
+of the three children of step (R) answers yes. -/
+noncomputable def solve {d : ℕ} (hash : Lists d → List (Vec d)) : ℕ → Lists d → Prop
+  | 0, T => HasSol3 T
+  | f + 1, T =>
+    if ∃ i, (T i).card ≤ 2 then HasSol3 T else
+      (∃ ρ : Fin 3 × Fin 3 × Fin 3,
+        ConvHasSol (rankEntry (rowsMap (hash T)) (T 0) ρ.1)
+                   (rankEntry (rowsMap (hash T)) (T 1) ρ.2.1)
+                   (rankEntry (rowsMap (hash T)) (T 2) ρ.2.2)) ∨
+      ∃ i, solve hash f (Function.update T i (bad (rowsMap (hash T)) (T i)))
+
+/-- Lemma 13: the node of the recursion reached from the root `S` along a path of child indices
+(the last step first); the child `i` of a node `T` replaces `T i` by `step T i`. -/
+def nodeAt {d : ℕ} (step : Lists d → Fin 3 → Finset (Vec d)) (S : Lists d) :
+    List (Fin 3) → Lists d
+  | [] => S
+  | i :: p => Function.update (nodeAt step S p) i (step (nodeAt step S p) i)
+
+/-- Lemma 13: a node at which Solve does not stop at (L): every list has at least 3 elements. -/
+def IsInner {d : ℕ} (T : Lists d) : Prop := ∀ i, 3 ≤ (T i).card
+
+/-- Lemma 13: a path belongs to the recursion tree if every node strictly above its end is
+inner. -/
+def InTree {d : ℕ} (step : Lists d → Fin 3 → Finset (Vec d)) (S : Lists d) :
+    List (Fin 3) → Prop
+  | [] => True
+  | _ :: p => InTree step S p ∧ IsInner (nodeAt step S p)
+
+/-- Lemma 13: "d_0 := 1 and d_{r+1} := 2d_r²". -/
+def dSeq : ℕ → ℕ
+  | 0 => 1
+  | r + 1 => 2 * dSeq r ^ 2
+
+/-- Lemma 13, the hypothesis that its proof takes from Lemma 12: each child list is a subset of
+the list that it replaces and has at most `|T_i|²/(2n)` elements. -/
+def GoodStep {d : ℕ} (n : ℕ) (step : Lists d → Fin 3 → Finset (Vec d)) : Prop :=
+  ∀ T i, step T i ⊆ T i ∧ ((step T i).card : ℝ) ≤ ((T i).card : ℝ) ^ 2 / (2 * n)
+
+/-- Lemma 13: the recursion tree, the set of the paths that belong to it.  It is taken among the
+paths of length at most `3⌊log log n⌋ + 1`; a lemma of the library says that every path of the tree
+has such a length. -/
+noncomputable def tree {d : ℕ} (n : ℕ) (step : Lists d → Fin 3 → Finset (Vec d)) (S : Lists d) :
+    Finset (List (Fin 3)) :=
+  open Classical in
+  ((Finset.range (3 * Nat.log 2 (Nat.log 2 n) + 2)).biUnion fun j =>
+    (Finset.univ : Finset (Fin j → Fin 3)).image List.ofFn).filter (InTree step S)
+
+end ThreeSumApsp.Remark23
+
+end Remark23Definitions
+
+section Remark23Statements
+
+namespace PaperStatements
+
+open ThreeSumApsp (TriangleInstance LopInstance queryCap)
+open ThreeSumApsp.Remark23
+
+/-! ### The note's Section 3: one row, and rows chosen one at a time -/
+
+/-- **Lemma 4** (one row), the average: "Let E be an ε-biased multiset in F^ℓ, and let
+v_1, …, v_M ∈ F^ℓ ∖ {0} carry weights ω_1, …, ω_M ≥ 0.  Then
+(1/|E|) Σ_{u∈E} Σ_{j: ⟨u,v_j⟩=0} ω_j ≤ ((1+ε)/2) Σ_j ω_j".  The average is multiplied out by
+`|E|`. -/
+def Remark_23_lemma_4_average.{u} : Prop :=
+  ∀ {ℓ : ℕ} {ι : Type u} {ε : ℝ} {E : Multiset (Vec ℓ)}, IsBiased ε E →
+  ∀ (s : Finset ι) (v : ι → Vec ℓ) (ω : ι → ℝ), (∀ j ∈ s, v j ≠ 0) → (∀ j ∈ s, 0 ≤ ω j) →
+    (E.map fun u => ∑ j ∈ s with u ⬝ᵥ v j = 0, ω j).sum
+      ≤ E.card * ((1 + ε) / 2 * ∑ j ∈ s, ω j)
+
+/-- **Lemma 4** (one row): "[...] so some u ∈ E has Σ_{j:⟨u,v_j⟩=0} ω_j ≤ ((1+ε)/2) Σ_j ω_j." -/
+def Remark_23_lemma_4.{u} : Prop :=
+  ∀ {ℓ : ℕ} {ι : Type u} {ε : ℝ} {E : Multiset (Vec ℓ)}, IsBiased ε E →
+  ∀ (s : Finset ι) (v : ι → Vec ℓ) (ω : ι → ℝ), (∀ j ∈ s, v j ≠ 0) → (∀ j ∈ s, 0 ≤ ω j) →
+    ∃ u ∈ E, ∑ j ∈ s with u ⬝ᵥ v j = 0, ω j ≤ (1 + ε) / 2 * ∑ j ∈ s, ω j
+
+/-- The sentence after **Definition 2**: "The set F^ℓ itself is 0-biased." -/
+def Remark_23_definition_2_univ : Prop :=
+  ∀ ℓ : ℕ, IsBiased 0 (Finset.univ : Finset (Vec ℓ)).val
+
+/-- **Lemma 5**, the hypothesis can be met: for a nonempty `E`, rows chosen one at a time, "u_q
+minimiz[ing] Φ(u_1, …, u_{q−1}, u) over u ∈ E", exist for every cost and every number of rows. -/
+def Remark_23_lemma_5_greedyRows : Prop :=
+  ∀ {ℓ : ℕ} (E : Multiset (Vec ℓ)), E ≠ 0 →
+  ∀ (f : List (Vec ℓ) → ℝ) (r : ℕ), IsGreedy E f (greedyRows E f r)
+
+/-- **Lemma 5** (rows chosen one at a time), first bound: "Let E, v_j, ω_j be as in Lemma 4 [...].
+If for q = 1, …, r the row u_q minimizes Φ(u_1, …, u_{q−1}, u) over u ∈ E, then
+Φ(u_1, …, u_r) ≤ ((1+ε)/2)^r Φ()". -/
+def Remark_23_lemma_5.{u} : Prop :=
+  ∀ {ℓ : ℕ} {ι : Type u} {ε : ℝ} {E : Multiset (Vec ℓ)}, IsBiased ε E →
+  ∀ (s : Finset ι) (v : ι → Vec ℓ) (ω : ι → ℝ), (∀ j ∈ s, v j ≠ 0) → (∀ j ∈ s, 0 ≤ ω j) →
+  ∀ rows : List (Vec ℓ), IsGreedy E (surv s v ω) rows →
+    surv s v ω rows ≤ ((1 + ε) / 2) ^ rows.length * ∑ j ∈ s, ω j
+
+/-- **Lemma 5**, second bound: "and if ε ≤ 1/r, then Φ(u_1, …, u_r) ≤ e · 2^{−r} Φ()".
+
+NOTE.  The hypotheses `0 ≤ ε` (a bias is nonnegative; for `ℓ = 0` this does not follow from
+`IsBiased`) and `r ≥ 1` (so that `1/r` is a number) are added. -/
+def Remark_23_lemma_5_exp.{u} : Prop :=
+  ∀ {ℓ : ℕ} {ι : Type u} {ε : ℝ} {E : Multiset (Vec ℓ)}, IsBiased ε E → 0 ≤ ε →
+  ∀ (s : Finset ι) (v : ι → Vec ℓ) (ω : ι → ℝ), (∀ j ∈ s, v j ≠ 0) → (∀ j ∈ s, 0 ≤ ω j) →
+  ∀ rows : List (Vec ℓ), IsGreedy E (surv s v ω) rows → 0 < rows.length →
+    ε ≤ 1 / rows.length →
+    surv s v ω rows ≤ Real.exp 1 * (2 : ℝ)⁻¹ ^ rows.length * ∑ j ∈ s, ω j
+
+/-! ### The note's Section 4: Exact-XOR-Triangle reduces to Lop-AE-SparseTri -/
+
+/-- Proof of **Lemma 7**: the sum of the characters `χ_y(z)` over `y ∈ F^q` is `2^q` if `z = 0`
+and `0` otherwise, the identity behind the formula of Lemma 7. -/
+def Remark_23_lemma_7_sum_chi : Prop :=
+  ∀ {q : ℕ} (z : Vec q), ∑ y : Vec q, chi y z = if z = 0 then 2 ^ q else 0
+
+/-- **Lemma 7** (counting the triples that a linear map sends to 0), without the running time:
+"Let G : F^{d′} → F^q be linear, and for y ∈ F^q let χ_y(z) := (−1)^⟨y,z⟩.  Let
+P_y[a,c] := χ_y(G w(a,c)) and Q_y[c,b] := χ_y(G w(b,c)) be N × N matrices.  Then
+Z(G) := #{(a,b,c) ∈ A×B×C : G S(a,b,c) = 0} = 2^{−q} Σ_{y∈F^q} Σ_{(a,b)∈A×B} χ_y(G w(a,b))
+(P_y Q_y)[a,b]".  The factor `2^{−q}` is moved to the left, which also says that the sum is
+divisible by `2^q`. -/
+def Remark_23_lemma_7 : Prop :=
+  ∀ {n d q : ℕ} (T : TriangleInstance (Vec d) n) (G : Vec d →ₗ[ZMod 2] Vec q),
+    (2 : ℤ) ^ q * Z T G =
+      ∑ y : Vec q, ∑ a : Fin n, ∑ b : Fin n, chi y (G (T.wAB a b)) *
+        ((Matrix.of fun a c => chi y (G (T.wAC a c))) *
+         (Matrix.of fun c b => chi y (G (T.wBC b c)))) a b
+
+/-- **Theorem 8** (Exact-XOR-Triangle to Lop), the instances and what their answers mean: "Let
+16 ≤ D ≤ N, let 1 ≤ g ≤ √D be an integer [...].  Exact-XOR-Triangle on N vertices per part with
+weights in F^{d′} [...] reduces deterministically to at most 4Ng instances of Lop(N, D), each with
+at most N²/√D query pairs".  The proof: "Let r := ⌊log √D⌋"; the rows of the linear map `h` are
+any `r` vectors here (the bound on the false positives of the rows chosen by Lemma 5 is
+`Remark_23_theorem_8_false_positives`); the instances are `redInstance` for a class `ϱ`, a chunk
+`Q ⊆ W_ϱ` of at most `⌊N²/√D⌋` query pairs and a piece `P` of `C`.  Distinct pieces are disjoint;
+every pair `(a, b)` is a query pair of exactly one instance with a given piece (so the scans of
+the proof are indexed by `(a, b, piece)`, as in `Remark_23_theorem_8_failed_scans`); and there is
+a zero triangle exactly if some instance accepts a query pair whose piece holds a zero triangle
+with it. -/
+def Remark_23_theorem_8 : Prop :=
+  ∀ {n d D g : ℕ} (T : TriangleInstance (Vec d) n), 16 ≤ D → D ≤ n → 1 ≤ g →
+  (g : ℝ) ≤ Real.sqrt D →
+  ∀ rows : List (Vec d), rows.length = Nat.log 2 (Nat.sqrt D) →
+    ∃ inst : Finset (RedIndex n rows.length),
+      (∀ J ∈ inst, J.Q ⊆ classOf T (rowsMap rows) J.ϱ ∧
+        (redInstance T (rowsMap rows) J.ϱ J.Q J.P).MiddleAtMost D ∧ J.Q.card ≤ queryCap n D) ∧
+      inst.card ≤ 4 * n * g ∧
+      (∀ J ∈ inst, ∀ J' ∈ inst, J.P ≠ J'.P → Disjoint J.P J'.P) ∧
+      (∀ J ∈ inst, ∀ p : Fin n × Fin n, ∃! J' ∈ inst, J'.P = J.P ∧ p ∈ J'.Q) ∧
+      (T.HasZeroTriangle ↔
+        ∃ J ∈ inst, ∃ p ∈ J.Q, (redInstance T (rowsMap rows) J.ϱ J.Q J.P).InTriangle p.1 p.2 ∧
+          ∃ c ∈ J.P, T.S p.1 p.2 c = 0)
+
+/-- Proof of **Theorem 8**: "Since Z_0 does not depend on the rows, minimizing Z(G), which Lemma 7
+computes, minimizes Φ".  Rows chosen one at a time for the cost `Z` are rows chosen one at a time
+for the potential `Φ` of Lemma 5 for the triples with `S ≠ 0`. -/
+def Remark_23_theorem_8_greedy_Z : Prop :=
+  ∀ {n d : ℕ} (T : TriangleInstance (Vec d) n) (E : Multiset (Vec d)) (rows : List (Vec d)),
+    IsGreedy E (fun l => (Z T (rowsMap l) : ℝ)) rows ↔
+      IsGreedy E (surv (fpFamily T) (fun t => T.S t.1 t.2.1 t.2.2) (fun _ => 1)) rows
+
+/-- Proof of **Theorem 8**: "Choosing u_1, …, u_r this way, h := (u_1, …, u_r) has
+F(h) ≤ e 2^{−r} N³ < 2e N³/√D", for `r = ⌊log √D⌋` rows chosen one at a time, for the cost `Z`,
+from a `(1/r)`-biased multiset. -/
+def Remark_23_theorem_8_false_positives : Prop :=
+  ∀ {n d D : ℕ} (T : TriangleInstance (Vec d) n), 16 ≤ D → D ≤ n →
+  ∀ (E : Multiset (Vec d)) (rows : List (Vec d)), rows.length = Nat.log 2 (Nat.sqrt D) →
+    IsBiased (1 / rows.length) E → IsGreedy E (fun l => (Z T (rowsMap l) : ℝ)) rows →
+    (F T (rowsMap rows) : ℝ) ≤ Real.exp 1 * (2 : ℝ)⁻¹ ^ rows.length * n ^ 3 ∧
+    (F T (rowsMap rows) : ℝ) < 2 * Real.exp 1 * n ^ 3 / Real.sqrt D
+
+/-- Proof of **Theorem 8**, the witness scans: for pairwise disjoint pieces, there are at most
+`F(h)` failed scans, since each contains a false positive of its own. -/
+def Remark_23_theorem_8_failed_scans.{u} : Prop :=
+  ∀ {n d r : ℕ} {κ : Type u} [Fintype κ] (T : TriangleInstance (Vec d) n)
+    (h : Vec d →ₗ[ZMod 2] Vec r) (P : κ → Finset (Fin n)),
+    Pairwise (fun k k' => Disjoint (P k) (P k')) → (failedScans T h P).card ≤ F T h
+
+/-! ### The note's Section 6: Convolution-3XOR reduces to Exact-XOR-Triangle -/
+
+/-- **Lemma 10**, without the running time: "Let k be even, k_1 := k/2, and N := 2^{k_1}.
+Convolution-3XOR with index set F^k and entries in F^d ∪ {⊥} reduces to N instances of
+Exact-XOR-Triangle on N vertices per part with weights in F^{d+3} [...]; the answer is 'yes' if
+and only if some instance has a zero triangle."
+
+NOTE.  The index set `F^k` is `F^{k₁} × F^{k₁}` (an index is the pair of its two halves), and the
+vertices of a part are the elements of `Fin (2 ^ k₁)`, numbered by `F^{k₁}` through an arbitrary
+bijection `e`; the statement holds for every `e`. -/
+def Remark_23_lemma_10 : Prop :=
+  ∀ {k₁ d : ℕ} (e : Fin (2 ^ k₁) ≃ Vec k₁) (A B C : Vec k₁ × Vec k₁ → Option (Vec d)),
+    ConvHasSol A B C ↔ ∃ j₂, (convInstance e A B C j₂).HasZeroTriangle
+
+/-- Proof of **Corollary 11**, odd `k`: "a solution (i′,j′) of the new instance has A′[i′], B′[j′],
+C′[i′⊕j′] non-empty, so i′, j′ and i′⊕j′ end with 0, and it is a solution of the old one, and
+conversely."  The index set `F^{k+1}` is `F^k × F`. -/
+def Remark_23_corollary_11 : Prop :=
+  ∀ {k d : ℕ} (A B C : Vec k → Option (Vec d)),
+    ConvHasSol (pad A) (pad B) (pad C) ↔ ConvHasSol A B C
+
+/-! ### The note's Section 7: 3XOR reduces to Convolution-3XOR -/
+
+/-- Section 7: "k := the least even integer ≥ log n + 4, m := 2^k (so 16n ≤ m < 64n)".  `log` is to the
+base 2. -/
+def Remark_23_sec7_k : Prop :=
+  ∀ n : ℕ, 2 ≤ n →
+    Even (kOf n) ∧ Real.logb 2 n + 4 ≤ kOf n ∧
+    (∀ k' : ℕ, Even k' → Real.logb 2 n + 4 ≤ k' → kOf n ≤ k') ∧
+    16 * n ≤ 2 ^ kOf n ∧ 2 ^ kOf n < 64 * n
+
+/-- **Lemma 12** (the hash): "At step (H), P_i(h) ≤ 3e|T_i|²/m for each i = 1,2,3, and
+|bad(T_i)| ≤ e|T_i|²/m ≤ |T_i|²/(2n)."  Here `m = 2^k`, the rows of `h` are chosen by step (H)
+from a `(1/k)`-biased multiset, and the last inequality is stated under its hypothesis
+`16n ≤ m`. -/
+def Remark_23_lemma_12 : Prop :=
+  ∀ {d : ℕ} (E : Multiset (Vec d)) (k n : ℕ), 0 < k → 0 < n → IsBiased (1 / (k : ℝ)) E →
+  ∀ (T : Lists d) (i : Fin 3),
+    (collisions (rowsMap (hashOf E k T)) (T i) : ℝ) ≤
+        3 * Real.exp 1 * ((T i).card : ℝ) ^ 2 / 2 ^ k ∧
+    ((bad (rowsMap (hashOf E k T)) (T i)).card : ℝ) ≤
+        Real.exp 1 * ((T i).card : ℝ) ^ 2 / 2 ^ k ∧
+    (16 * n ≤ 2 ^ k →
+      ((bad (rowsMap (hashOf E k T)) (T i)).card : ℝ) ≤ ((T i).card : ℝ) ^ 2 / (2 * n))
+
+/-- **Lemma 13** (the recursion tree), the size of the lists: "At a node of the recursion at which
+list i has been replaced by its bad elements r_i times along the path from the root,
+|T_i| ≤ n/d_{r_i}."  For any step that satisfies the bound of Lemma 12 (`GoodStep`), and lists of
+at most `n` elements at the root. -/
+def Remark_23_lemma_13_card : Prop :=
+  ∀ {d : ℕ} (n : ℕ), 2 ≤ n → ∀ (step : Lists d → Fin 3 → Finset (Vec d)), GoodStep n step →
+  ∀ S : Lists d, (∀ i, (S i).card ≤ n) → ∀ (p : List (Fin 3)) (i : Fin 3),
+    ((nodeAt step S p i).card : ℝ) ≤ n / dSeq (p.count i)
+
+/-- **Lemma 13**: "Every node at which Solve does not stop at (L) has r_i ≤ ⌊log log n⌋ for each
+i". -/
+def Remark_23_lemma_13_count : Prop :=
+  ∀ {d : ℕ} (n : ℕ), 2 ≤ n → ∀ (step : Lists d → Fin 3 → Finset (Vec d)), GoodStep n step →
+  ∀ S : Lists d, (∀ i, (S i).card ≤ n) → ∀ p : List (Fin 3), IsInner (nodeAt step S p) →
+  ∀ i : Fin 3, p.count i ≤ Nat.log 2 (Nat.log 2 n)
+
+/-- Proof of **Lemma 13**: "Hence such a node has depth r_1 + r_2 + r_3 ≤ 3(r* − 1)", with
+`r* − 1 = ⌊log log n⌋`. -/
+def Remark_23_lemma_13_depth : Prop :=
+  ∀ {d : ℕ} (n : ℕ), 2 ≤ n → ∀ (step : Lists d → Fin 3 → Finset (Vec d)), GoodStep n step →
+  ∀ S : Lists d, (∀ i, (S i).card ≤ n) → ∀ p : List (Fin 3), IsInner (nodeAt step S p) →
+    p.length ≤ 3 * Nat.log 2 (Nat.log 2 n)
+
+/-- Proof of **Lemma 13**: "the tree has at most 1 + 3 · (3/2) · 27^{r*−1} [...] nodes", with
+`r* − 1 = ⌊log log n⌋`. -/
+def Remark_23_lemma_13_tree : Prop :=
+  ∀ {d : ℕ} (n : ℕ), 2 ≤ n → ∀ (step : Lists d → Fin 3 → Finset (Vec d)), GoodStep n step →
+  ∀ S : Lists d, (∀ i, (S i).card ≤ n) →
+    ((tree n step S).card : ℝ) ≤ 1 + 9 / 2 * 27 ^ Nat.log 2 (Nat.log 2 n)
+
+/-- **Lemma 13**: "the recursion tree has at most 6(log n)^{log₂ 27} nodes", the comparison of the
+bound of `Remark_23_lemma_13_tree` with the real logarithm. -/
+def Remark_23_lemma_13_real : Prop :=
+  ∀ n : ℕ, 2 ≤ n →
+    1 + 9 / 2 * (27 : ℝ) ^ Nat.log 2 (Nat.log 2 n) ≤ 6 * Real.logb 2 n ^ Real.logb 2 27
+
+/-- Proof of **Lemma 13**: the step of the procedure, the replacement of `T_i` by `bad(T_i)` for
+the hash of step (H) with `k` of §7, satisfies the bound of Lemma 12 that the lemma uses. -/
+def Remark_23_lemma_13_goodStep : Prop :=
+  ∀ {d : ℕ} (E : Multiset (Vec d)) (n : ℕ), 2 ≤ n → IsBiased (1 / (kOf n : ℝ)) E →
+    GoodStep n (fun T i => bad (rowsMap (hashOf E (kOf n) T)) (T i))
+
+/-- **Lemma 14** (correctness): "Solve(T_1,T_2,T_3) returns 'yes' if and only if there are
+x_1 ∈ T_1, x_2 ∈ T_2, x_3 ∈ T_3 with x_1 ⊕ x_2 ⊕ x_3 = 0", for every hash and every fuel.
+
+NOTE.  In `solve`, the leaf's sort-and-binary-search is replaced by the exact test `HasSol3`, and
+the Convolution-3XOR instances of step (C) are answered by their specification `ConvHasSol`, not by
+the algorithm of Corollary 11; the note's induction on the height of the recursion tree ("finite by
+Lemma 13") is replaced by fuel, and `Remark_23_lemma_13_depth` says that fuel `3⌊log log n⌋ + 1` is
+not spent at an inner node. -/
+def Remark_23_lemma_14 : Prop :=
+  ∀ {d : ℕ} (hash : Lists d → List (Vec d)) (f : ℕ) (T : Lists d),
+    solve hash f T ↔ HasSol3 T
+
+end PaperStatements
+
+end Remark23Statements
