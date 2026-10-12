@@ -12,6 +12,7 @@ Vassilevska Williams (arXiv:2610.06783) that `3sum-apsp/` formalises.
 | [`thin-matrix-products/`](thin-matrix-products/) | the mathematics of the paper outside Sections 18–21: the matrix theorem of Part I, the reductions of Part II, and Appendix A |
 | [`xor-3xor/`](xor-3xor/) | Section 18 (3XOR), and the route for 3XOR that the preprint's Remark 23 sketches |
 | [`groups/`](groups/) | Sections 19–21: 3SUM over finite abelian groups, the dichotomy for coordinatewise problems, the triangle versions |
+| [`scripts/`](scripts/) | the Python scripts of the paper (its arXiv ancillary files) with their recorded outputs |
 | [`3sum-apsp/`](3sum-apsp/) (addition) | `ThreeSumApsp/Remark23/`: the remark's route for 3XOR item by item, with an explicit construction of the biased sets of Alon, Goldreich, Håstad and Peralta; and the statement `Remark_23` in `EndStatement.lean` (its running time), which is not proved (see that project's README) |
 
 Each project's README lists, item by item in the paper's numbering, what is proved and what is not.
