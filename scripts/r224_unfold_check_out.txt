@@ -1,0 +1,11 @@
+R224 unfolded check of the folded certificates of r155_fold.py (Table t:tab:cert)
+(Pf) product: e0 = 13121/100000, gamma0 = 33647/500000, eps_f = 4 e0/(4 + e0) = 52484/413121 = 0.127042682
+    unfolded checks at (eps_f, gamma0): Lf -9.806e-08, En -5.843e-06, Tf -9.809e-03  -> CERTIFIED
+    e0 gamma0 = eps_f gamma0/(1 - eps_f/4) exactly: True; s0 = 0.00882965; folded run of r155_fold ok: True
+(Uf) unsplit: e0 = 126377/1000000, gamma0 = 4971/62500, eps_f = 4 e0/(4 + e0) = 505508/4126377 = 0.122506499
+    unfolded checks at (eps_f, gamma0): Lf -1.394e-07, En -1.444e-05, Tf -8.607e-06, Sc -1.681e-02  -> CERTIFIED
+    e0 gamma0 = eps_f gamma0/(1 - eps_f/4) exactly: True; s0 = 0.01005152; folded run of r155_fold ok: True
+(Sf) split: e0 = 31867/250000, gamma0 = 79347/1000000, eps_f = 4 e0/(4 + e0) = 127468/1031867 = 0.123531424
+    unfolded checks at (eps_f, gamma0): Lf -1.296e-07, En -2.428e-03, Tf -7.364e-06, Sc -1.703e-02  -> CERTIFIED
+    e0 gamma0 = eps_f gamma0/(1 - eps_f/4) exactly: True; s0 = 0.01011420; folded run of r155_fold ok: True
+ALL CERTIFIED

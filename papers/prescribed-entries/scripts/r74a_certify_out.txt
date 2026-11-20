@@ -1,0 +1,49 @@
+(0) the rational point P0 = (lam6, u6(q+2), u7(q+2)) = (7/19, 97/100, 979/1000), interval arithmetic (60 digits, outward rounding)
+  slack H_X - H_Z in [3.46636633030555e-5, 3.46636633030555e-5]  (> 0: admissible)
+  ln a_1 in [0.725488559770971, 0.725488559770971]
+  alpha(P0) in [0.294597647050482, 0.294597647050482]
+
+(1) float optimum of t/2 - Lambda(t)/alpha, Lambda(t) = sum_q lam_q G_q(t)/ln a_1 (G_q by Nelder-Mead)
+  t_opt = 0.019570, gamma(t_opt) = 3.998355e-03 (float)
+    t = 0.0100: gamma = 3.154745e-03
+    t = 0.0150: gamma = 3.813647e-03
+    t = 0.0180: gamma = 3.977009e-03
+    t = 0.0196: gamma = 3.998347e-03
+    t = 0.0200: gamma = 3.996779e-03
+    t = 0.0220: gamma = 3.948577e-03
+    t = 0.0250: gamma = 3.754158e-03
+    t = 0.0300: gamma = 3.121677e-03
+
+(2) certification at rational t (G_q(t) <= F(z0) + sum|grad F(z0)|, interval arithmetic)
+  t = 0.0150: Lambda_cert(t) <= 0.00108599093468,  gamma_cert(t) >= 0.00381364695015
+  t = 0.0180: Lambda_cert(t) <= 0.00147976128665,  gamma_cert(t) >= 0.00397700914633
+  t = 0.0190: Lambda_cert(t) <= 0.00162159590907,  gamma_cert(t) >= 0.00399555715971
+  t = 0.0195: Lambda_cert(t) <= 0.00169443374382,  gamma_cert(t) >= 0.00399831202562
+  t = 49/2500 (= 0.0196), q = 6:
+    z0 = (u, v, y) = (1.088219244665097e-02, 1.020439473197784e-02, 2.492105697038580e-05) (rational, 40 significant digits)
+    F(z0) in [0.0012944331520783420895, 0.0012944331520783420895]  (float max 1.294433152079e-03)
+    grad F(z0) in [3.07e-41, 3.07e-41], [-1.61e-41, -1.61e-41], [-7.05e-42, -7.05e-42]
+    certified G_q(t) <= 0.0012944331520783420895
+  t = 49/2500 (= 0.0196), q = 7:
+    z0 = (u, v, y) = (9.979535023884933e-03, 9.318175459918943e-03, 1.723975725129561e-05) (rational, 40 significant digits)
+    F(z0) in [0.0012082016806783223563, 0.0012082016806783223563]  (float max 1.208201680678e-03)
+    grad F(z0) in [4.25e-42, 4.25e-42], [-2.77e-42, -2.77e-42], [1.62e-42, 1.62e-42]
+    certified G_q(t) <= 0.0012082016806783223563
+  t = 0.0196: Lambda_cert(t) <= 0.00170915330565,  gamma_cert(t) >= 0.00399834705824
+  t = 0.0197: Lambda_cert(t) <= 0.00172392329896,  gamma_cert(t) >= 0.00399821090319
+  t = 0.0200: Lambda_cert(t) <= 0.00176853488333,  gamma_cert(t) >= 0.00399677865375
+  t = 0.0210: Lambda_cert(t) <= 0.00192047838736,  gamma_cert(t) >= 0.00398101247044
+  t = 0.0250: Lambda_cert(t) <= 0.00257650444916,  gamma_cert(t) >= 0.00375415808661
+  best certified: gamma_inf := t/2 - Lambda_cert(t)/alpha >= 0.00399834705824 at t = 49/2500 = 0.0196
+  the encoding term 1/eps - 1/alpha >= gamma_inf iff eps <= eps1 = 1/(1/alpha + gamma_inf), eps1 in [0.2942510477, 0.2942510477]
+  best eps*gamma = eps1*gamma_inf >= 0.001176517811 (approached at eps = eps1)
+
+(3) checks
+  q=6: analytic gradient vs central differences at 1.3 z*: max diff 3.11e-08 (gradient size 3.19e-02)
+    max F over 200000 random feasible points (boundary included) = 1.2935571813e-03 <= certified 1.2944331521e-03: True
+    r59p2_typical.Lam(q, t) = 1.2944331521e-03 (float max here 1.2944331521e-03)
+    Hessian eigenvalues at the maximiser: [-790.67354912  -12.68021837   -9.61091128]
+  q=7: analytic gradient vs central differences at 1.3 z*: max diff 6.50e-08 (gradient size 3.27e-02)
+    max F over 200000 random feasible points (boundary included) = 1.2070770239e-03 <= certified 1.2082016807e-03: True
+    r59p2_typical.Lam(q, t) = 1.2082016807e-03 (float max here 1.2082016807e-03)
+    Hessian eigenvalues at the maximiser: [-1142.29877635   -13.83296071   -10.70331504]

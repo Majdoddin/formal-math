@@ -1,8 +1,8 @@
 """Ancillary file of the paper "Thin matrix products up to D <= N^0.172 and lossless reductions for 3SUM, Exact Triangle and APSP"
 (Part I).  Supports the last paragraph of Section 8: with W known in advance and the exact leaf count of
 Remark 6.2, the range of D <= N^eps extends to about eps = 0.1784 for the squared construction (Schoenhage's
-identity: 0.1292).  These are numerical roots (kind N), not theorems, and they concern only the non-adaptive
-theorem (W given in advance).
+identity: 0.1292).  These are numerical roots (kind N), not theorems.  The same limit holds for the data structure
+with the exact box count, where it is proved (second version, section "The exact box count and a fixed query exponent").
 
 Notation.  Rates are per m, in natural logarithms, for one half of the squared run; every rate of the squared run
 doubles, so gamma and eps equal the half's values.  Here q is the inner length per level (the paper's q_0 of

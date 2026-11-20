@@ -1,0 +1,21 @@
+(1) Lemma B.1 exhaustive, Lambda = 1..6: 299592 triples, 0 wrong; kind-2 padding (all s): 0 wrong
+(2a) Theorem A toy primes: 300 instances, 0 wrong answers; Lemma A.2 violations (i) 0 (ii) 0 (iii) 0; counts cf=10100 ct=8406 unc=11223 merge_yes=1701 stages=342
+(2b) Theorem A theorem parameters: 40 instances (0 skipped: pool/8zeta condition false), 0 wrong answers; halving violations 0 in 40 stages, max |P_t|/|P_{t-1}| = 0.000; Lemma A.2 violations 0/0/0; cf=2987 ct=159 unc=0
+     U=100000 r=1 sigma=2: zeta=12.206 P=782 |Pi|=109 ell=1 pool condition True
+     U=100000 r=2 sigma=2: zeta=12.206 P=196 |Pi|=33 ell=2 pool condition True
+     U=100000 r=2 sigma=3: zeta=12.206 P=293 |Pi|=45 ell=2 pool condition True
+     U=1000000 r=1 sigma=2: zeta=14.509 P=929 |Pi|=126 ell=2 pool condition True
+     U=1000000 r=2 sigma=2: zeta=14.509 P=233 |Pi|=40 ell=2 pool condition True
+     U=1000000 r=2 sigma=3: zeta=14.509 P=349 |Pi|=56 ell=2 pool condition True
+     U=10000000 r=1 sigma=2: zeta=16.811 P=1076 |Pi|=144 ell=2 pool condition True
+     U=10000000 r=2 sigma=2: zeta=16.811 P=269 |Pi|=43 ell=3 pool condition True
+     U=10000000 r=2 sigma=3: zeta=16.811 P=404 |Pi|=60 ell=2 pool condition True
+(2c) r=3, sigma=4, U=10^7: P=269 |Pi|=43 ell=3, uncertified needs f_m >= 12.67 <= sigma^2=16, pool condition True; 30 structured instances, 0 wrong; halving violations 0 in 30 stages, max ratio 0.000; cf=2174 ct=467 unc=0
+(3) Theorem B chain vs brute-force MinConv: 60 instances with brute-force core oracle, 0 wrong; 12 instances with the Theorem A algorithm (toy primes) as core oracle, 0 wrong (A.2 violations 0/0/0)
+(4) exponents, rounded up at the 5th decimal:
+    v1 Hyp(1/14,0.077): eps*gamma = 0.005500000, 2-x = 1.994500000 -> 1.99450, 2-x/2 = 1.997250000 -> 1.99725
+    R14 Hyp(1/14,0.079): eps*gamma = 0.005642857, 2-x = 1.994357143 -> 1.99436, 2-x/2 = 1.997178571 -> 1.99718
+    R14 Thm1 Hyp(0.08199,0.07099): eps*gamma = 0.005820470, 2-x = 1.994179530 -> 1.99418, 2-x/2 = 1.997089765 -> 1.99709
+    R111b Hyp(2/25,0.0765): eps*gamma = 0.006120000, 2-x = 1.993880000 -> 1.99388, 2-x/2 = 1.996940000 -> 1.99694
+(5) CMWW19 Thm 17 (MCSP by one MaxConv of length 2n): 400 instances, 0 wrong; Thm 18 (SuperAdditivity via MCSP of -b): 0 wrong
+DONE

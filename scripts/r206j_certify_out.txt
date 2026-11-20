@@ -1,0 +1,51 @@
+# R206j certificate of R114a's two thresholds (own code; decimal search, rigorous check)
+[r114a point] lower side q=1 c0=4.510885293600 (5638606617/1250000000) t0=0.052381533500
+    maximisers x1 in [0.182204796455564, 0.182204796455564], x2 in [0.202756095601074, 0.202756095601074]
+    upper bound ln4*Lambda_col(t0,c0) <= 7.2616204286452e-02   t0*q*ln4 >= 7.2616224517863e-02
+    margin (nats) >= 2.023141e-08;  gamma = t0 q - Lambda_col >= 1.459388e-08 (units of ln D)
+    eps^col_q >= ln4/A(c0) >= 0.1907801584928   (exact lower bound as rational kept)
+    CERTIFIED: True
+[r114a point, printed digits] upper side q=1 c1=4.510884893600 x1=0.1822 x2=0.20276
+    g1(x1)+g2(x2) - q ln4 >= 7.975324e-08;  F(x1,c1)+F(x2,c1) >= 1.690196e-08 (<= 1.690196e-08)
+    eps^col_q <= ln4/A(c1) <= 0.1907801751065
+    CERTIFIED: True
+[r114a point] lower side q=1/2 c0=4.810401286700 (48104012867/10000000000) t0=0.013718088900
+    maximisers x1 in [0.072203534726039, 0.072203534726039], x2 in [0.078469552622354, 0.078469552622354]
+    upper bound ln4*Lambda_col(t0,c0) <= 9.5086469186572e-03   t0*q*ln4 >= 9.5086546437057e-03
+    margin (nats) >= 7.725049e-09;  gamma = t0 q - Lambda_col >= 5.572445e-09 (units of ln D)
+    eps^col_q >= ln4/A(c0) >= 0.1790391598456   (exact lower bound as rational kept)
+    CERTIFIED: True
+[r114a point, printed digits] upper side q=1/2 c1=4.810400886700 x1=0.0722 x2=0.07847
+    g1(x1)+g2(x2) - q ln4 >= -1.000669e-05;  F(x1,c1)+F(x2,c1) >= 1.470018e-07 (<= 1.470018e-07)
+    eps^col_q <= ln4/A(c1) <= 0.1790391746399
+    CERTIFIED: False
+    printed (x1,x2) does not certify; KKT point at c1: x1=0.0722035732488555613148340 x2=0.0784695859708416922835972 (t=0.013718075841)
+[r114a c1, own KKT point] upper side q=1/2 c1=4.810400886700 x1=0.07220357324885557 x2=0.0784695859708417
+    g1(x1)+g2(x2) - q ln4 >= 7.096138e-22;  F(x1,c1)+F(x2,c1) >= 7.829951e-09 (<= 7.829951e-09)
+    eps^col_q <= ln4/A(c1) <= 0.1790391746399
+    CERTIFIED: True
+[float] q=1: c*_q = 4.510885093583655352, t* = 0.052381534684, x1* = 0.182204827054, x2* = 0.202756126419, eps = ln4/A(c*) = 0.190780166800321
+[own tight point] lower side q=1 c0=4.510885093594 (451088509359365535153/100000000000000000000) t0=0.052381534684
+    maximisers x1 in [0.182204827053755, 0.182204827053755], x2 in [0.202756126418506, 0.202756126418506]
+    upper bound ln4*Lambda_col(t0,c0) <= 7.2616226158914e-02   t0*q*ln4 >= 7.2616226159926e-02
+    margin (nats) >= 1.011488e-12;  gamma = t0 q - Lambda_col >= 7.296343e-13 (units of ln D)
+    eps^col_q >= ln4/A(c0) >= 0.1907801667999   (exact lower bound as rational kept)
+    CERTIFIED: True
+[own tight point] upper side q=1 c1=4.510885093574 x1=0.1822048270543038 x2=0.20275612641843654
+    g1(x1)+g2(x2) - q ln4 >= 4.950112e-22;  F(x1,c1)+F(x2,c1) >= 1.067400e-12 (<= 1.067400e-12)
+    eps^col_q <= ln4/A(c1) <= 0.1907801668007
+    CERTIFIED: True
+    => CERTIFIED enclosure q=1: c*_q in (4.5108850935737, 4.5108850935937), eps^col_q in (0.1907801667999, 0.1907801668007)
+[float] q=1/2: c*_q = 4.810401086667480039, t* = 0.013718089845, x1* = 0.072203570159, x2* = 0.078469588576, eps = ln4/A(c*) = 0.179039167243912
+[own tight point] lower side q=1/2 c0=4.810401086677 (3848320869341984031/800000000000000000) t0=0.013718089846
+    maximisers x1 in [0.072203570159023, 0.072203570159023], x2 in [0.078469588576466, 0.078469588576466]
+    upper bound ln4*Lambda_col(t0,c0) <= 9.5086552987377e-03   t0*q*ln4 >= 9.5086552991239e-03
+    margin (nats) >= 3.861897e-13;  gamma = t0 q - Lambda_col >= 2.785770e-13 (units of ln D)
+    eps^col_q >= ln4/A(c0) >= 0.1790391672435   (exact lower bound as rational kept)
+    CERTIFIED: True
+[own tight point] upper side q=1/2 c1=4.810401086657 x1=0.07220357015938154 x2=0.07846958857626438
+    g1(x1)+g2(x2) - q ln4 >= 7.096155e-22;  F(x1,c1)+F(x2,c1) >= 3.915612e-13 (<= 3.915612e-13)
+    eps^col_q <= ln4/A(c1) <= 0.1790391672443
+    CERTIFIED: True
+    => CERTIFIED enclosure q=1/2: c*_q in (4.8104010866575, 4.8104010866775), eps^col_q in (0.1790391672435, 0.1790391672443)
+ALL CERTIFIED: True

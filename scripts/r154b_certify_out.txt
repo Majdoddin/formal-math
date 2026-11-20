@@ -1,0 +1,69 @@
+R154(b): independent certificates (Lagrange dual of the simplex constraint, separable, interval arithmetic, mpmath iv.prec = 160).
+
+C1 r = 1843/5000: kind product
+  mu = 0.15865030, C = 0.10196179, primal v = [0.0021116, 0.0332374, 0.0332374, 0.9314135], f1 = -5.584227447e-03, f2 = -5.584221338e-03
+  rigorous: LB = -0.00558422744726 <= Lam(p) <= UB = -0.00558422230687 (gap 5.14e-09); leaf saving gamma < -UB/(pw ln2) = 0.059296161
+  claimed (eps0, gamma0) = (3209/25000, 11859/200000) = (0.128360, 0.059295), eps0*gamma0 = 0.00761111: gamma0 < leaf bound 0.05929616093: True; 1/eps0 = 7.790589 > E/(pw ln2) + gamma0 = 7.79050989: True; reading a + d, b + d <= L: True
+  best certified pair at this type (grid 1e-6): (3209/25000, 11859/200000) = (0.128360, 0.059295), eps0*gamma0 = 0.00761111
+
+C1 alt r = 7373/20000: kind product
+  mu = 0.15860811, C = 0.10197035, primal v = [0.0021123, 0.0332387, 0.0332387, 0.9314103], f1 = -5.584015990e-03, f2 = -5.584016401e-03
+  rigorous: LB = -0.0055840164013 <= Lam(p) <= UB = -0.00558401633601 (gap 6.53e-11); leaf saving gamma < -UB/(pw ln2) = 0.059277891
+  claimed (eps0, gamma0) = (128399/1000000, 14819/250000) = (0.128399, 0.059276), eps0*gamma0 = 0.00761098: gamma0 < leaf bound 0.05927789083: True; 1/eps0 = 7.788223 > E/(pw ln2) + gamma0 = 7.788108239: True; reading a + d, b + d <= L: True
+  best certified pair at this type (grid 1e-6): (128399/1000000, 14819/250000) = (0.128399, 0.059276), eps0*gamma0 = 0.00761098
+
+C1 alt r = 3687/10000: kind product
+  mu = 0.15856590, C = 0.10197891, primal v = [0.002113, 0.03324, 0.03324, 0.9314071], f1 = -5.583806673e-03, f2 = -5.583810099e-03
+  rigorous: LB = -0.00558381009922 <= Lam(p) <= UB = -0.00558380955591 (gap 5.43e-10); leaf saving gamma < -UB/(pw ln2) = 0.059259620
+  claimed (eps0, gamma0) = (128439/1000000, 29629/500000) = (0.128439, 0.059258), eps0*gamma0 = 0.00761104: gamma0 < leaf bound 0.05925961988: True; 1/eps0 = 7.785797 > E/(pw ln2) + gamma0 = 7.785708709: True; reading a + d, b + d <= L: True
+  best certified pair at this type (grid 1e-6): (128439/1000000, 29629/500000) = (0.128439, 0.059258), eps0*gamma0 = 0.00761104
+
+C1 alt r = 7/19: kind product
+  mu = 0.15880135, C = 0.10193110, primal v = [0.0021092, 0.0332329, 0.0332329, 0.9314251], f1 = -5.584949261e-03, f2 = -5.584953515e-03
+  rigorous: LB = -0.00558495351508 <= Lam(p) <= UB = -0.00558495283954 (gap 6.76e-10); leaf saving gamma < -UB/(pw ln2) = 0.059361542
+  claimed (eps0, gamma0) = (64109/500000, 371/6250) = (0.128218, 0.059360), eps0*gamma0 = 0.00761102: gamma0 < leaf bound 0.05936154162: True; 1/eps0 = 7.799217 > E/(pw ln2) + gamma0 = 7.799111478: True; reading a + d, b + d <= L: True
+  best certified pair at this type (grid 1e-6): (64109/500000, 371/6250) = (0.128218, 0.059360), eps0*gamma0 = 0.00761102
+
+C2 p = (1487,1487,1383,643)/5000: kind unsplit
+  mu = 0.18718770, C = 0.09385482, primal v = [0.0181459, 0.0181459, 0.0244852, 0.939223], f1 = -6.602930995e-03, f2 = -6.602930770e-03
+  rigorous: LB = -0.00660293099506 <= Lam(p) <= UB = -0.00660293081233 (gap 1.83e-10); leaf saving gamma < -UB/(pw ln2) = 0.074074771
+  claimed (eps0, gamma0) = (6127/50000, 74073/1000000) = (0.122540, 0.074073), eps0*gamma0 = 0.00907691: gamma0 < leaf bound 0.0740747709: True; 1/eps0 = 8.160601 > E/(pw ln2) + gamma0 = 8.160472449: True; reading a + d, b + d <= L: True; row side dominated (H(p) < 2 H2(p2+pw)): True
+  best certified pair at this type (grid 1e-6): (6127/50000, 74073/1000000) = (0.122540, 0.074073), eps0*gamma0 = 0.00907691
+
+C2 sym p = (2909,2909,2909,1273)/10^4: kind unsplit
+  mu = 0.18934447, C = 0.09334340, primal v = [0.0201408, 0.0201408, 0.0201408, 0.9395775], f1 = -6.627755778e-03, f2 = -6.627752537e-03
+  rigorous: LB = -0.00662775577751 <= Lam(p) <= UB = -0.00662775315082 (gap 2.63e-09); leaf saving gamma < -UB/(pw ln2) = 0.075112542
+  claimed (eps0, gamma0) = (24087/200000, 75111/1000000) = (0.120435, 0.075111), eps0*gamma0 = 0.00904599: gamma0 < leaf bound 0.07511254205: True; 1/eps0 = 8.303234 > E/(pw ln2) + gamma0 = 8.303097453: True; reading a + d, b + d <= L: True; row side dominated (H(p) < 2 H2(p2+pw)): True
+  best certified pair at this type (grid 1e-6): (24087/200000, 75111/1000000) = (0.120435, 0.075111), eps0*gamma0 = 0.00904599
+
+C2 alt p = (371/1250, 2869/10^4, 2869/10^4, 647/5000): kind unsplit
+  mu = 0.18629763, C = 0.09401189, primal v = [0.0183726, 0.0211658, 0.0211658, 0.9392958], f1 = -6.614051089e-03, f2 = -6.614052832e-03
+  rigorous: LB = -0.00661405283178 <= Lam(p) <= UB = -0.00661405250719 (gap 3.25e-10); leaf saving gamma < -UB/(pw ln2) = 0.073740810
+  claimed (eps0, gamma0) = (307/2500, 73739/1000000) = (0.122800, 0.073739), eps0*gamma0 = 0.00905515: gamma0 < leaf bound 0.07374080952: True; 1/eps0 = 8.143322 > E/(pw ln2) + gamma0 = 8.143240088: True; reading a + d, b + d <= L: True; row side dominated (H(p) < 2 H2(p2+pw)): True
+  best certified pair at this type (grid 1e-6): (307/2500, 73739/1000000) = (0.122800, 0.073739), eps0*gamma0 = 0.00905515
+
+split covering at p = (2909,2909,2909,1273)/10^4: kind split
+  mu = 0.18934447, C = 0.09334340, primal v = [0.0201408, 0.0201408, 0.0201408, 0.9395775], f1 = -6.627755778e-03, f2 = -6.627752537e-03
+  rigorous: LB = -0.00662775577751 <= Lam(p) <= UB = -0.00662775315082 (gap 2.63e-09); leaf saving gamma < -UB/(pw ln2) = 0.075112542
+  best certified pair at this type (grid 1e-6): (61027/500000, 75111/1000000) = (0.122054, 0.075111), eps0*gamma0 = 0.00916760
+
+split covering at C2 p = (1487,1487,1383,643)/5000: kind split
+  mu = 0.18718770, C = 0.09385482, primal v = [0.0181459, 0.0181459, 0.0244852, 0.939223], f1 = -6.602930995e-03, f2 = -6.602930770e-03
+  rigorous: LB = -0.00660293099506 <= Lam(p) <= UB = -0.00660293081233 (gap 1.83e-10); leaf saving gamma < -UB/(pw ln2) = 0.074074771
+  best certified pair at this type (grid 1e-6): (123353/1000000, 74073/1000000) = (0.123353, 0.074073), eps0*gamma0 = 0.00913713
+
+r61b Thm 6 rho = 0.5085: kind product
+  mu = 0.01601224, C = 0.10594130, primal v = [0.0388794, 0.0184452, 0.0184452, 0.9242302], f1 = -5.048772887e-05, f2 = -5.048262318e-05
+  rigorous: LB = -5.04877288674e-5 <= Lam(p) <= UB = -5.04827049346e-5 (gap 5.02e-09); leaf saving gamma < -UB/(pw ln2) = 0.000281667
+  best certified pair at this type (grid 1e-6): (129249/500000, 7/25000) = (0.258498, 0.000280), eps0*gamma0 = 0.00007238
+
+r61b 6.2 rho = 0.509: kind product
+  mu = 0.01540885, C = 0.10593620, primal v = [0.0399775, 0.0180324, 0.0180324, 0.9239576], f1 = +7.258376339e-06, f2 = +7.256119715e-06
+  rigorous: LB = 7.25611971534e-6 <= Lam(p) <= UB = 7.25615448727e-6 (gap 3.48e-11); leaf saving gamma < -UB/(pw ln2) = -0.000040406
+
+r61b 6.2 rho = 1/2: kind product
+  mu = 0.02687704, C = 0.10631244, primal v = [0.024461, 0.024461, 0.024461, 0.9266171], f1 = -9.128073790e-04, f2 = -9.127995824e-04
+  rigorous: LB = -0.000912807378961 <= Lam(p) <= UB = -0.000912799791915 (gap 7.59e-09); leaf saving gamma < -UB/(pw ln2) = 0.005267567
+  best certified pair at this type (grid 1e-6): (24967/100000, 2633/500000) = (0.249670, 0.005266), eps0*gamma0 = 0.00131476
+
+Summary of the claimed pairs: C1 r = 1843/5000: CERTIFIED; C1 alt r = 7373/20000: CERTIFIED; C1 alt r = 3687/10000: CERTIFIED; C1 alt r = 7/19: CERTIFIED; C2 p = (1487,1487,1383,643)/5000: CERTIFIED; C2 sym p = (2909,2909,2909,1273)/10^4: CERTIFIED; C2 alt p = (371/1250, 2869/10^4, 2869/10^4, 647/5000): CERTIFIED

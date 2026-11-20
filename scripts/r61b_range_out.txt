@@ -1,0 +1,66 @@
+Part 1. R_c(0) (every-q range of Corollary 3) for c -> 4:
+   c =   4.0000: R_c(0) = 0.250000
+   c =   4.0001: R_c(0) = 0.249994
+   c =   4.0010: R_c(0) = 0.249938
+   c =   4.0100: R_c(0) = 0.249376
+   c =   4.0500: R_c(0) = 0.246907
+   c =   4.1000: R_c(0) = 0.243876
+   c =   4.2500: R_c(0) = 0.235143
+   c =   4.5000: R_c(0) = 0.221699
+   c =   5.0000: R_c(0) = 0.198402
+   c =   6.0000: R_c(0) = 0.162692
+   c =   8.0000: R_c(0) = 0.117614
+   c =  10.0000: R_c(0) = 0.090928
+   c =  14.0000: R_c(0) = 0.061444
+   c =  18.0000: R_c(0) = 0.045831
+   c =  25.0000: R_c(0) = 0.031297
+   R_c(0) strictly decreasing on a grid of 20001 points in [4, 40]: True; R_4(0) = np.float64(0.25) (exact: ln2/(4(ln4 - ln2)) = 1/4)
+   g'(c) >= ln2 on the grid: True (min 0.693147, ln2 = 0.693147)
+
+Part 2. Rate values (sup of gamma; numerical, rounded down to 4 digits), cf. v1 Table m:tab:rates
+   threshold   | data structure q=0.25  q=0.43  q=0.50 | wanted entries kappa=0.50  kappa=1.00
+   N >= D^4.2   |   0.0020   0.0040   0.0049   |   0.0048 (c=4.19, th=0.073)   0.0117 (c=4.18, th=0.186)
+   N >= D^4.5   |   0.0049   0.0096   0.0116   |   0.0112 (c=4.47, th=0.072)   0.0278 (c=4.46, th=0.182)
+   N >= D^5     |   0.0091   0.0178   0.0216   |   0.0204 (c=4.94, th=0.070)   0.0496 (c=4.91, th=0.176)
+   N >= D^6     |   0.0157   0.0307   0.0372   |   0.0340 (c=5.83, th=0.068)   0.0824 (c=5.79, th=0.167)
+   N >= D^8     |   0.0251   0.0492   0.0596   |   0.0519 (c=7.54, th=0.065)   0.1245 (c=7.48, th=0.157)
+   N >= D^10    |   0.0318   0.0625   0.0757   |   0.0635 (c=9.16, th=0.062)   0.1516 (c=9.09, th=0.150)
+   N >= D^12    |   0.0369   0.0725   0.0880   |   0.0720 (c=10.70, th=0.061)   0.1706 (c=10.60, th=0.145)
+   N >= D^14    |   0.0411   0.0808   0.0980   |   0.0785 (c=12.20, th=0.060)   0.1857 (c=12.10, th=0.142)
+   N >= D^18    |   0.0479   0.0938   0.1137   |   0.0884 (c=15.10, th=0.058)   0.2085 (c=15.10, th=0.136)
+
+Part 3. Explicit instances (Corollary 5).
+   grid optimum at N >= D^5 (theta = 1/k, gamma + q < 1/2): c = 4.9, theta = 1/15: gamma = 0.01862, q = 0.45902
+   grid optimum at N >= D^6 (theta = 1/k, gamma + q < 1/2): c = 5.8, theta = 1/15: gamma = 0.03293, q = 0.45902
+   grid optimum at N >= D^8 (theta = 1/k, gamma + q < 1/2): c = 7.5, theta = 1/16: gamma = 0.04987, q = 0.43635
+   grid optimum at N >= D^14 (theta = 1/k, gamma + q < 1/2): c = 12.2, theta = 1/17: gamma = 0.07752, q = 0.41599
+
+   instances checked in detail:
+   N >= D^5: c = 4.5, theta = 0.1: gamma = theta log2(sqrt c - 1) = 0.016520, q = 0.627492, x = 9.0000 (3x > 1: True), gamma + q = 0.644012 (< 1/2: False)
+      Lambda = 4^c e^(-c H2(1/sqrt c)) 2^gamma = 2.305716e+01; 2^(1/eps) = 3.200000e+01; ratio = 1.387855; analytic validity (ratio^d >= 4 (cd+2)^3 2^(1/eps)) from d = 68
+      shape conditions (floor(a^2/L) = d, n0 >= n, 2a <= L, lambda < 1/(sqrt c - 1)) fail last at d = 10 (checked d <= 3000); exact encoding inequality fails last at d = 53
+   N >= D^5: c = 5.0, theta = 0.125: gamma = theta log2(sqrt c - 1) = 0.038220, q = 0.741685, x = 7.0000 (3x > 1: True), gamma + q = 0.779905 (< 1/2: False)
+      Lambda = 4^c e^(-c H2(1/sqrt c)) 2^gamma = 3.378929e+01; 2^(1/eps) = 3.200000e+01; ratio = 0.947046; analytic validity (ratio^d >= 4 (cd+2)^3 2^(1/eps)) from d = None
+      shape conditions (floor(a^2/L) = d, n0 >= n, 2a <= L, lambda < 1/(sqrt c - 1)) fail last at d = 5 (checked d <= 3000); exact encoding inequality fails last at d = 3000
+   N >= D^6: c = 6.0, theta = 0.125: gamma = theta log2(sqrt c - 1) = 0.066943, q = 0.741685, x = 7.0000 (3x > 1: True), gamma + q = 0.808628 (< 1/2: False)
+      Lambda = 4^c e^(-c H2(1/sqrt c)) 2^gamma = 7.420858e+01; 2^(1/eps) = 6.400000e+01; ratio = 0.862434; analytic validity (ratio^d >= 4 (cd+2)^3 2^(1/eps)) from d = None
+      shape conditions (floor(a^2/L) = d, n0 >= n, 2a <= L, lambda < 1/(sqrt c - 1)) fail last at d = 1 (checked d <= 3000); exact encoding inequality fails last at d = 3000
+
+Part 4. Prescribed W, |W| <= N^2/sqrt(D), exact leaf count per type (numerical).
+   product types p = ((1-rho)^2, rho(1-rho), rho(1-rho), rho^2), full encodings, Pi_L covering:
+   rho = 0.4500: pw = 0.20250, Lam/dD = -0.027954, eps(rho) = 0.201047  (v at the max: [0.005  0.0341 0.0341 0.9269])
+   rho = 0.4800: pw = 0.23040, Lam/dD = -0.015051, eps(rho) = 0.230134  (v at the max: [0.0105 0.0315 0.0315 0.9266])
+   rho = 0.4900: pw = 0.24010, Lam/dD = -0.010370, eps(rho) = 0.240031  (v at the max: [0.0153 0.029  0.029  0.9268])
+   rho = 0.5000: pw = 0.25000, Lam/dD = -0.005268, eps(rho) = 0.250000  (v at the max: [0.0245 0.0245 0.0245 0.9266])
+   rho = 0.5010: pw = 0.25100, Lam/dD = -0.004721, eps(rho) = 0.251000  (v at the max: [0.0258 0.0239 0.0239 0.9265])
+   rho = 0.5020: pw = 0.25200, Lam/dD = -0.004165, eps(rho) = 0.252001  (v at the max: [0.0272 0.0232 0.0232 0.9263])
+   rho = 0.5030: pw = 0.25301, Lam/dD = -0.003599, eps(rho) = 0.253002  (v at the max: [0.0287 0.0226 0.0226 0.9262])
+   rho = 0.5040: pw = 0.25402, Lam/dD = -0.003023, eps(rho) = 0.254004  (v at the max: [0.0303 0.0219 0.0219 0.9259])
+   rho = 0.5050: pw = 0.25503, Lam/dD = -0.002436, eps(rho) = 0.255007  (v at the max: [0.032  0.0212 0.0212 0.9257])
+   rho = 0.5060: pw = 0.25604, Lam/dD = -0.001837, eps(rho) = 0.256009  (v at the max: [0.0338 0.0204 0.0204 0.9253])
+   rho = 0.5080: pw = 0.25806, Lam/dD = -0.000600, eps(rho) = 0.258016  (v at the max: [0.0378 0.0189 0.0189 0.9245])
+   rho = 0.5100: pw = 0.26010, Lam/dD = +0.000696, eps(rho) = 0.260025  (v at the max: [0.0423 0.0172 0.0172 0.9234])
+   crossing Lam = 0 at rho* = 0.508938: range (product types) = eps(rho*) = 0.258958
+   general types (randomized covering by ~1/f relabelings split between rows and columns, full encodings):
+   best on the grid (p1 = p2): eps = 0.25797 at p = (np.float64(0.248), np.float64(0.247), np.float64(0.247), np.float64(0.258)), Lam/dD = -0.00092
+   refined: eps = 0.25965 at p = (0.2467, 0.2468, 0.2468, 0.2597)

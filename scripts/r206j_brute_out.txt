@@ -1,0 +1,79 @@
+== L+L = 3+3, m = 1: K_g = 2 good sets of 3
+   R20 Lemma 1 (Leaves(U) = Leaves'(U'_v) x Leaves''(U''), |Leaves''_d2| = 2^(L-m) C(m,d2) 4^d2): True
+   R20 Lemma 3(a) d1=0: avg_v D'(v) = 8.00 <= bound 12: True; max_v/avg = 1.000
+   R20 Lemma 3(a) d1=1: avg_v D'(v) = 24.00 <= bound 40: True; max_v/avg = 1.000
+   Step 4: D'_d1(v) from the (Q,Z,A2,R) enumeration equals the direct count for all v, d1: True
+   High=[]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 0 <= 0: True, predicate = bijection image: True
+   High=[(1, 1)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 4096 <= 12288: True, predicate = bijection image: True
+   High=[(0, 1), (1, 1)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 10240 <= 21504: True, predicate = bijection image: True
+   High=[(1, 0), (1, 1)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 10240 <= 21504: True, predicate = bijection image: True
+   High=[(0, 1), (1, 0), (1, 1)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 16384 <= 30720: True, predicate = bijection image: True
+   High=[(0, 0), (0, 1), (1, 0), (1, 1)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 23296 <= 37632: True, predicate = bijection image: True
+   largest (pairs at one level)/|Leaves_Low+(U)| = 1.000
+== L+L = 3+3, m = 2: K_g = 2 good sets of 3
+   R20 Lemma 1 (Leaves(U) = Leaves'(U'_v) x Leaves''(U''), |Leaves''_d2| = 2^(L-m) C(m,d2) 4^d2): True
+   R20 Lemma 3(a) d1=0: avg_v D'(v) = 4.00 <= bound 6: True; max_v/avg = 1.000
+   R20 Lemma 3(a) d1=1: avg_v D'(v) = 28.00 <= bound 48: True; max_v/avg = 1.000
+   R20 Lemma 3(a) d1=2: avg_v D'(v) = 48.00 <= bound 104: True; max_v/avg = 1.000
+   Step 4: D'_d1(v) from the (Q,Z,A2,R) enumeration equals the direct count for all v, d1: True
+   High=[]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 0 <= 0: True, predicate = bijection image: True
+   High=[(2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 4096 <= 20480: True, predicate = bijection image: True
+   High=[(1, 2), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 10240 <= 35840: True, predicate = bijection image: True
+   High=[(0, 2), (1, 2), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 12544 <= 39680: True, predicate = bijection image: True
+   High=[(2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 10240 <= 35840: True, predicate = bijection image: True
+   High=[(1, 2), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 16384 <= 51200: True, predicate = bijection image: True
+   High=[(0, 2), (1, 2), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 18688 <= 55040: True, predicate = bijection image: True
+   High=[(1, 1), (1, 2), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 23296 <= 62720: True, predicate = bijection image: True
+   High=[(0, 2), (1, 1), (1, 2), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 25600 <= 66560: True, predicate = bijection image: True
+   High=[(0, 1), (0, 2), (1, 1), (1, 2), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 27904 <= 69440: True, predicate = bijection image: True
+   High=[(2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 12544 <= 39680: True, predicate = bijection image: True
+   High=[(1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 18688 <= 55040: True, predicate = bijection image: True
+   High=[(0, 2), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 20992 <= 58880: True, predicate = bijection image: True
+   High=[(1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 25600 <= 66560: True, predicate = bijection image: True
+   High=[(0, 2), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 27904 <= 70400: True, predicate = bijection image: True
+   High=[(0, 1), (0, 2), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 30208 <= 73280: True, predicate = bijection image: True
+   High=[(1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 27904 <= 69440: True, predicate = bijection image: True
+   High=[(0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 30208 <= 73280: True, predicate = bijection image: True
+   High=[(0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 32512 <= 76160: True, predicate = bijection image: True
+   High=[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 33232 <= 76880: True, predicate = bijection image: True
+   largest (pairs at one level)/|Leaves_Low+(U)| = 1.000
+== L+L = 4+4, m = 1: K_g = 2 good sets of 4
+   R20 Lemma 1 (Leaves(U) = Leaves'(U'_v) x Leaves''(U''), |Leaves''_d2| = 2^(L-m) C(m,d2) 4^d2): True
+   R20 Lemma 3(a) d1=0: avg_v D'(v) = 16.00 <= bound 32: True; max_v/avg = 1.000
+   R20 Lemma 3(a) d1=1: avg_v D'(v) = 56.00 <= bound 96: True; max_v/avg = 1.143
+   Step 4: D'_d1(v) from the (Q,Z,A2,R) enumeration equals the direct count for all v, d1: True
+   High=[]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 0 <= 0: True, predicate = bijection image: True
+   High=[(1, 1)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 65536 <= 196608: True, predicate = bijection image: True
+   High=[(0, 1), (1, 1)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 196608 <= 393216: True, predicate = bijection image: True
+   High=[(1, 0), (1, 1)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 196608 <= 393216: True, predicate = bijection image: True
+   High=[(0, 1), (1, 0), (1, 1)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 327680 <= 589824: True, predicate = bijection image: True
+   High=[(0, 0), (0, 1), (1, 0), (1, 1)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True, nodes 524288 <= 786432: True, predicate = bijection image: True
+   largest (pairs at one level)/|Leaves_Low+(U)| = 1.000
+== L+L = 4+4, m = 2: K_g = 4 good sets of 6
+   R20 Lemma 1 (Leaves(U) = Leaves'(U'_v) x Leaves''(U''), |Leaves''_d2| = 2^(L-m) C(m,d2) 4^d2): True
+   R20 Lemma 3(a) d1=0: avg_v D'(v) = 16.00 <= bound 24: True; max_v/avg = 1.000
+   R20 Lemma 3(a) d1=1: avg_v D'(v) = 96.00 <= bound 160: True; max_v/avg = 1.000
+   R20 Lemma 3(a) d1=2: avg_v D'(v) = 144.00 <= bound 288: True; max_v/avg = 1.000
+   Step 4: D'_d1(v) from the (Q,Z,A2,R) enumeration equals the direct count for all v, d1: True
+   High=[]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(1, 2), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(0, 2), (1, 2), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(1, 2), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(0, 2), (1, 2), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(1, 1), (1, 2), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(0, 2), (1, 1), (1, 2), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(0, 1), (0, 2), (1, 1), (1, 2), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(0, 2), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(0, 2), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(0, 1), (0, 2), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   High=[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: A True, B(b) children nodes True, DP=cube sums True, C values True, C pairs<=|Leaves_Low+| & injective True
+   largest (pairs at one level)/|Leaves_Low+(U)| = 1.000
+FAILURES: 0

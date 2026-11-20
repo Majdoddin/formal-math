@@ -1,0 +1,14 @@
+Corollary 5 (a): claimed gamma = 0.018619..., q = 0.459024..., Lambda = 30.9438..., ratio 1.03413, analytic from d = 895, exact from d = 731, shape for d >= 6
+c = 4.9, theta = 0.066667, N >= D^5: gamma = 0.018619, q = 0.459024, x = 14.0000, Lambda = 30.9438, 2^5 = 32, ratio = 1.03413
+  analytic bound 4(cd+2)^3 Lambda^d <= 2^(k(d-1)) fails last at d = 894 (checked d <= 3000); holds for all d from 895 to 3000
+  exact E(d) <= 2^(k(d-1)) fails last at d = 730; holds from 731 to 3000
+  shape conditions fail at d in [1, 2, 5] (of 1..3000); largest failing d = 5
+  rounding: gamma 0.018619 -> claimed, q 0.459024 -> claimed
+  claimed exponents: preprocessing 0.018 < 0.018619: True; query 0.46 > 0.459024: True; 0.46 + 0.018 < 1/2: True
+Corollary 5 (b): claimed gamma = 0.049871, q = 0.436350, Lambda = 246.99, valid from d = 936
+c = 7.5, theta = 0.062500, N >= D^8: gamma = 0.049871, q = 0.436350, x = 15.0000, Lambda = 246.9914, 2^8 = 256, ratio = 1.03647
+  analytic bound 4(cd+2)^3 Lambda^d <= 2^(k(d-1)) fails last at d = 935 (checked d <= 3000); holds for all d from 936 to 3000
+  exact E(d) <= 2^(k(d-1)) fails last at d = 767; holds from 768 to 3000
+  shape conditions fail at d in [] (of 1..3000); largest failing d = None
+  rounding: gamma 0.049871 -> claimed, q 0.436350 -> claimed
+  claimed exponents: preprocessing 0.049 < 0.049871: True; query 0.437 > 0.436350: True; 0.437 + 0.049 < 1/2: True

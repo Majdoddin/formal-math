@@ -1,0 +1,57 @@
+L=3+3, m=1+1: K_g=3, 48 columns, 6 up-closed sets High
+   High=[]: wrong=0 predicate=True dp=True level-bound=True nodes=0 <= 0: True
+   High=[(1, 1)]: wrong=0 predicate=True dp=True level-bound=True nodes=4096 <= 12288: True
+   High=[(0, 1), (1, 1)]: wrong=0 predicate=True dp=True level-bound=True nodes=10240 <= 21504: True
+   High=[(1, 0), (1, 1)]: wrong=0 predicate=True dp=True level-bound=True nodes=7168 <= 21504: True
+   High=[(0, 1), (1, 0), (1, 1)]: wrong=0 predicate=True dp=True level-bound=True nodes=13312 <= 30720: True
+   High=[(0, 0), (0, 1), (1, 0), (1, 1)]: wrong=0 predicate=True dp=True level-bound=True nodes=20224 <= 37632: True
+L=4+4, m=1+1: K_g=4, 256 columns, 6 up-closed sets High
+   High=[]: wrong=0 predicate=True dp=True level-bound=True nodes=0 <= 0: True
+   High=[(1, 1)]: wrong=0 predicate=True dp=True level-bound=True nodes=65536 <= 196608: True
+   High=[(0, 1), (1, 1)]: wrong=0 predicate=True dp=True level-bound=True nodes=196608 <= 393216: True
+   High=[(1, 0), (1, 1)]: wrong=0 predicate=True dp=True level-bound=True nodes=131072 <= 393216: True
+   High=[(0, 1), (1, 0), (1, 1)]: wrong=0 predicate=True dp=True level-bound=True nodes=262144 <= 589824: True
+   High=[(0, 0), (0, 1), (1, 0), (1, 1)]: wrong=0 predicate=True dp=True level-bound=True nodes=458752 <= 786432: True
+L=3+3, m=2+2: K_g=3, 12 columns, 20 up-closed sets High
+   High=[]: wrong=0 predicate=True dp=True level-bound=True nodes=0 <= 0: True
+   High=[(2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=4096 <= 20480: True
+   High=[(1, 2), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=9216 <= 35840: True
+   High=[(0, 2), (1, 2), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=11520 <= 39680: True
+   High=[(2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=7168 <= 35840: True
+   High=[(1, 2), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=12288 <= 51200: True
+   High=[(0, 2), (1, 2), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=14592 <= 55040: True
+   High=[(1, 1), (1, 2), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=16128 <= 62720: True
+   High=[(0, 2), (1, 1), (1, 2), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=18432 <= 66560: True
+   High=[(0, 1), (0, 2), (1, 1), (1, 2), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=20544 <= 69440: True
+   High=[(2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=7936 <= 39680: True
+   High=[(1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=13056 <= 55040: True
+   High=[(0, 2), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=15360 <= 58880: True
+   High=[(1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=16896 <= 66560: True
+   High=[(0, 2), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=19200 <= 70400: True
+   High=[(0, 1), (0, 2), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=21312 <= 73280: True
+   High=[(1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=17856 <= 69440: True
+   High=[(0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=20160 <= 73280: True
+   High=[(0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=22272 <= 76160: True
+   High=[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=22992 <= 76880: True
+L=4+4, m=2+2: K_g=5, 80 columns, 20 up-closed sets High
+   High=[]: wrong=0 predicate=True dp=True level-bound=True nodes=0 <= 0: True
+   High=[(2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=65536 <= 327680: True
+   High=[(1, 2), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=180224 <= 655360: True
+   High=[(0, 2), (1, 2), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=241664 <= 778240: True
+   High=[(2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=131072 <= 655360: True
+   High=[(1, 2), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=245760 <= 983040: True
+   High=[(0, 2), (1, 2), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=307200 <= 1105920: True
+   High=[(1, 1), (1, 2), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=360448 <= 1310720: True
+   High=[(0, 2), (1, 1), (1, 2), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=421888 <= 1433600: True
+   High=[(0, 1), (0, 2), (1, 1), (1, 2), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=498688 <= 1556480: True
+   High=[(2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=151552 <= 778240: True
+   High=[(1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=266240 <= 1105920: True
+   High=[(0, 2), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=327680 <= 1228800: True
+   High=[(1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=380928 <= 1433600: True
+   High=[(0, 2), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=442368 <= 1556480: True
+   High=[(0, 1), (0, 2), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=519168 <= 1679360: True
+   High=[(1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=416768 <= 1556480: True
+   High=[(0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=478208 <= 1679360: True
+   High=[(0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=555008 <= 1802240: True
+   High=[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]: wrong=0 predicate=True dp=True level-bound=True nodes=587008 <= 1848320: True
+ALL OK

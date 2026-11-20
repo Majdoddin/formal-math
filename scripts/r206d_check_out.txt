@@ -1,0 +1,72 @@
+(A) v1's own range (main.tex Corollary m:cor:tradeoff, Theorem m:thm:general)
+  es = ln4/(5 ln5) = 0.172270623229
+  theta_1 (q(theta_1) = 1) = 0.17053566085; q is increasing on (0, 0.8): q(0.1) = 0.66899559, q(0.3) = 1.4812909
+  R'_5(0) = 0.172270623229 (should equal es)
+  kappa > 1: F_v1(kappa) = R'_c(kappa-1), c = 1 + 4*2^((kappa-1)/theta_1)
+   kappa      F_v1         c            kappa*F    (kappa+1)*F
+   1.0001   0.17221165   5.0016261    0.172229   0.344441
+   1.001    0.17168153   5.0162912    0.171853   0.343535
+   1.01     0.16644629   5.1659305    0.168111   0.334557
+   1.0238   0.15865208   5.4062772    0.162428   0.32108
+   1.05     0.14462896   5.9013997    0.15186    0.296489
+   1.1      0.12062986   7.0059298    0.132693   0.253323
+   1.2      0.08266868   10.017798    0.0992024  0.181871
+   1.3      0.055884692  14.540066    0.0726501  0.128535
+   1.5      0.025015446  31.525396    0.0375232  0.0625386
+   2        0.0032614704 233.94995    0.00652294 0.00978441
+   3        5.5770683e-05 13567.419    0.000167312 0.000223083
+   4        9.5747286e-07 790075.16    3.82989e-06 4.78736e-06
+   5        1.6440754e-08 46011934     8.22038e-08 9.86445e-08
+  scan kappa in (1, 11], step 5e-4: max kappa*F_v1 = 0.17206188 at 1.0005; max (kappa+1)*F_v1 = 0.34403777 at 1.0005
+  (for kappa > 11: F_v1 < R'_c(0) with c > 1 + 4*2^(10/theta_1), below 1e-15; both products far below 1)
+   F_v1(11) = 4.2141e-19, c = 1.7951e+18
+  random feasible (theta, c) exceeding F_v1: 0 of the sampled points
+  sample triples, case kappa <= 1 (eps = a/min(b,c) < es, kappa = (b+c-1)/a):
+   (a,b,c) = (0.03704, 0.51852, 0.51852): eps = 0.07143, kappa = 1.00000, in region: True
+   (a,b,c) = (0.05000, 0.52000, 0.52000): eps = 0.09615, kappa = 0.80000, in region: True
+   (a,b,c) = (0.01000, 0.10000, 0.91000): eps = 0.10000, kappa = 1.00000, in region: True
+   (a,b,c) = (0.06000, 0.60000, 0.46000): eps = 0.13043, kappa = 1.00000, in region: True
+  explicit point (1/27, 14/27, 14/27): m = N^(27/14); saving in m-units a*min(0.077, kappa - 0.421) = 0.002852; hypothesised exponent 28/27 = 1.037037; algorithm exponent 1.034185
+
+(B) alpha-parametric composite on r79b's certified grid
+  alpha(P0) lower end a = 0.294597647050; 96 grid points t in (0,1)
+  C = max_t (a t - M_t)/(1 - t) = 0.007012511 at t = 3/50
+  kappa* = max_t (1 - M_t/a)/(1 - t) = 1.023803691 at t = 3/50
+  grid points with a t > M_t: 16
+  F(kappa; e, g) (sup over grid t of phi(x_min)); direct re-check at eps = F - 1e-7 with x = (1-eps/e)/(eps-a):
+   kappa 0.1000, e 0.500000, g 0.000000: F = 0.306590 (t = 1/10000)
+      re-check at eps = F - 1e-7: x = 32.255, savings: sub 7.97e-10, needed 0.0001, enc 0.0952, io 2.26, range slack 0 -> all positive: True
+   kappa 0.5000, e 0.500000, g 0.000000: F = 0.370242 (t = 1/10000)
+      re-check at eps = F - 1e-7: x = 3.4307, savings: sub 1.05e-10, needed 0.0001, enc 0.497, io 1.7, range slack 0 -> all positive: True
+   kappa 0.9000, e 0.500000, g 0.000000: F = 0.467249 (t = 1/10000)
+      re-check at eps = F - 1e-7: x = 0.37939, savings: sub 3.63e-11, needed 0.0001, enc 0.899, io 1.14, range slack 0 -> all positive: True
+   kappa 1.0000, e 0.500000, g 0.000000: F = 0.500000 (t = 1/10000); closed form (C e + a g)/(C + g) = 0.500000
+      re-check at eps = F - 1e-7: x = 9.737e-07, savings: sub 2.85e-11, needed 0.0001, enc 1, io 1, range slack 0 -> all positive: True
+   kappa 0.5000, e 0.321334, g 0.000000: F = 0.307315 (t = 1/10000)
+      re-check at eps = F - 1e-7: x = 3.4308, savings: sub 7.5e-10, needed 0.0001, enc 1.05, io 2.25, range slack 0 -> all positive: True
+   kappa 1.0000, e 0.321334, g 0.000000: F = 0.321334 (t = 1/10000); closed form (C e + a g)/(C + g) = 0.321334
+      re-check at eps = F - 1e-7: x = 1.164e-05, savings: sub 3.41e-10, needed 0.0001, enc 2.11, io 2.11, range slack 0 -> all positive: True
+   kappa 1.0000, e 0.350000, g 0.001363: F = 0.340984 (t = 3/50); closed form (C e + a g)/(C + g) = 0.340984
+      re-check at eps = F - 1e-7: x = 0.55534, savings: sub 4.85e-08, needed 0.0637, enc 1.6, io 1.93, range slack 0 -> all positive: True
+   kappa 1.0050, e 0.500000, g 0.000000: F = 0.436127 (t = 3/50)
+      re-check at eps = F - 1e-7: x = 0.90261, savings: sub 1.07e-08, needed 0.06, enc 0.785, io 1.29, range slack 0 -> all positive: True
+   kappa 1.0200, e 0.500000, g 0.000000: F = 0.315295 (t = 3/50)
+      re-check at eps = F - 1e-7: x = 17.848, savings: sub 1.01e-07, needed 0.06, enc 0.14, io 2.15, range slack 0 -> all positive: True
+  ABFK Thm 1.10 triples (sigma-1, 2-sigma, 1+r-sigma): eps*(kappa+1) = c/min(b,c) >= 1; region needs F(kappa) > 1/(kappa+1).
+   alpha = 1/2 (g = 0): kappa 0.5: F = 0.370242 vs 1/(kappa+1) = 0.666667
+   alpha = 1/2 (g = 0): kappa 0.9: F = 0.467249 vs 1/(kappa+1) = 0.526316
+   alpha = 1/2 (g = 0): kappa 1.0: F = 0.500000 vs 1/(kappa+1) = 0.500000
+
+(A2) v1's data structure with the exact box count (r14.md Theorems 1-2, planned v2 Corollary m:cor:exactboxes)
+   eps_q at q = 1e-06: 0.172271
+   eps_q at q = 0.25: 0.174840
+   eps_q at q = 0.5: 0.178434
+   eps_q at q = 0.75: 0.182915
+   eps_q at q = 1.0: 0.188407
+   F_DS(1.0001) = 0.188343 (c = 4.5702); compare F_v1 = 0.172212
+   F_DS(1.0239) = 0.173589 (c = 4.9414); compare F_v1 = 0.158597
+   F_DS(1.05) = 0.158416 (c = 5.3920); compare F_v1 = 0.144629
+   F_DS(1.1) = 0.132267 (c = 6.4008); compare F_v1 = 0.120630
+   F_DS(1.2) = 0.090740 (c = 9.1518); compare F_v1 = 0.082669
+   F_DS(1.5) = 0.027446 (c = 28.7968); compare F_v1 = 0.025015
+   F_DS(2.0) = 0.003573 (c = 213.6924); compare F_v1 = 0.003261

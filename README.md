@@ -1,31 +1,54 @@
-# Majdoddin/formal-math: Lean checks of "Thin matrix products up to D ≤ N^0.172"
+# Majdoddin/formal-math: thin matrix products — papers, scripts and Lean checks
 
-This fork of [anthropics/formal-math](https://github.com/anthropics/formal-math) adds three Lean 4
-projects (Lean v4.33.1, Mathlib v4.33.1) and an addition to `3sum-apsp/`. They accompany the paper
-*Thin matrix products up to D ≤ N^0.172 and lossless reductions for 3SUM, Exact Triangle and APSP,
-with 3SUM over abelian groups and a dichotomy for coordinatewise problems* by Ruhollah Majdoddin
-(12 October 2026), whose Section 22.2 describes them. The paper builds on the preprint of Alman and
-Vassilevska Williams (arXiv:2610.06783) that `3sum-apsp/` formalises.
+This fork of [anthropics/formal-math](https://github.com/anthropics/formal-math) holds two papers by Ruhollah
+Majdoddin on thin matrix products and fine-grained reductions, the scripts behind their computer checks, and Lean 4
+checks of the first version of the first paper.
+
+## Papers
+
+| Paper | PDF and LaTeX source | Scripts with recorded outputs |
+|---|---|---|
+| *Thin matrix products and lossless reductions from 3SUM, Exact Triangle and APSP, with a dichotomy for coordinatewise problems*, version 2, November 2026 | [PDF](papers/thin-matrix-products-v2/main.pdf), [`papers/thin-matrix-products-v2/`](papers/thin-matrix-products-v2/) | [`scripts/`](scripts/) |
+| *Prescribed entries of thin matrix products via the laser method*, November 2026 | [PDF](papers/prescribed-entries/main.pdf), [`papers/prescribed-entries/`](papers/prescribed-entries/) | [`papers/prescribed-entries/scripts/`](papers/prescribed-entries/scripts/) |
+
+Version 1 of the first paper, *Thin matrix products up to D ≤ N^0.172 and lossless reductions for 3SUM, Exact
+Triangle and APSP, with 3SUM over abelian groups and a dichotomy for coordinatewise problems* (12 October 2026), is
+[arXiv:2610.17420](https://arxiv.org/abs/2610.17420). The second paper builds on version 2 of the first and cites it
+by its statement numbers. Both cite a third paper, *Thicker rectangular matrix multiplication with polylogarithmic
+overhead over fields of characteristic 2 and 3*, which has its own repository,
+[Majdoddin/thin-matrix-products-polylog](https://github.com/Majdoddin/thin-matrix-products-polylog).
+
+Each PDF is built from the `main.tex` beside it by running `pdflatex main.tex` three times; no other file is needed.
+The README of each scripts folder says how to run the scripts and which statement each one supports.
+
+## Lean checks of version 1 of the first paper
+
+The fork adds three Lean 4 projects (Lean v4.33.1, Mathlib v4.33.1) and an addition to `3sum-apsp/`. They accompany
+version 1 of the first paper, whose Section 22.2 describes them (Section 30.2 in version 2). The paper builds on the
+preprint of Alman and Vassilevska Williams (arXiv:2610.06783) that `3sum-apsp/` formalises.
 
 | Project | What it checks |
 |---|---|
 | [`thin-matrix-products/`](thin-matrix-products/) | the mathematics of the paper outside Sections 18–21: the matrix theorem of Part I, the reductions of Part II, and Appendix A |
 | [`xor-3xor/`](xor-3xor/) | Section 18 (3XOR), and the route for 3XOR that the preprint's Remark 23 sketches |
 | [`groups/`](groups/) | Sections 19–21: 3SUM over finite abelian groups, the dichotomy for coordinatewise problems, the triangle versions |
-| [`scripts/`](scripts/) | the Python scripts of the paper (its arXiv ancillary files) with their recorded outputs |
 | [`3sum-apsp/`](3sum-apsp/) (addition) | `ThreeSumApsp/Remark23/`: the remark's route for 3XOR item by item, with an explicit construction of the biased sets of Alon, Goldreich, Håstad and Peralta; and the statement `Remark_23` in `EndStatement.lean` (its running time), which is not proved (see that project's README) |
 
-Each project's README lists, item by item in the paper's numbering, what is proved and what is not.
-No file of the three new projects contains `sorry`, and their theorems depend on no axiom beyond
-Lean's three standard ones (`propext`, `Classical.choice`, `Quot.sound`). Running times are not
-formalised: the projects prove the identities, the counts, the correctness of the reductions and
-the arithmetic of the constants and exponents, not that an algorithm runs within a time bound.
-Results of the preprint and of other cited works enter as stated hypotheses. Build each project
-from inside its folder with `lake build`.
+Section numbers in this table are those of version 1. Each project's README lists, item by item in version 1's
+numbering, what is proved and what is not. The results that are new in version 2, and the second paper, are not formalised in
+this repository. No file of the three new projects contains `sorry`, and their theorems depend on no axiom beyond
+Lean's three standard ones (`propext`, `Classical.choice`, `Quot.sound`). Running times are not formalised: the
+projects prove the identities, the counts, the correctness of the reductions and the arithmetic of the constants and
+exponents, not that an algorithm runs within a time bound. Results of the preprint and of other cited works enter as
+stated hypotheses. Build each project from inside its folder with `lake build`.
 
-Some files of `thin-matrix-products/` are adapted from `3sum-apsp/` (Apache 2.0, Anthropic PBC);
-their headers and the README of `thin-matrix-products/` say which. The files added in this fork are
-released, like the rest of the repository, under the Apache-2.0 licence in `LICENSE`.
+## Licences of the added files
+
+The two papers (`main.tex` and `main.pdf` in each folder of `papers/`) are under the Creative Commons Attribution 4.0
+International License (CC BY 4.0, the `LICENSE` file beside them). Some files of `thin-matrix-products/` are adapted
+from `3sum-apsp/` (Apache 2.0, Anthropic PBC); their headers and the README of `thin-matrix-products/` say which.
+Every other file added in this fork is released, like the rest of the repository, under the Apache-2.0 licence in
+`LICENSE`.
 
 ---
 

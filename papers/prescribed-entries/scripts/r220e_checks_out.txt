@@ -1,0 +1,93 @@
+(A) Table cp:E7:table (Lemma cp:E7): the seven points, exact identities and certified slacks
+  ok   row 1 q=7 sigma=3/4: point valid True; E=u/pe=333/1000 (printed 333/1000); beta=999/4000 (printed 999/4000); floor6(E)=333/1000 (printed 333/1000)
+  ok         slack_X in [0.00376510148469089, 0.00376510148469089] > 0.00376; slack_Y in [0.00380229416037874, 0.00380229416037874] > 0.0038
+  ok   row 2 q=7 sigma=1/2: point valid True; E=u/pe=2757/7000 (printed 2757/7000); beta=2757/14000 (printed 2757/14000); floor6(E)=393857/1000000 (printed 393857/1000000)
+  ok         slack_X in [0.000977650257817942, 0.000977650257817942] > 0.000977; slack_Y in [0.000983571115991347, 0.000983571115991347] > 0.000983
+  ok   row 3 q=8 sigma=1/3: point valid True; E=u/pe=179/400 (printed 179/400); beta=179/1200 (printed 179/1200); floor6(E)=179/400 (printed 179/400)
+  ok         slack_X in [0.000773760109168559, 0.000773760109168559] > 0.000773; slack_Y in [0.00080117808601934, 0.00080117808601934] > 0.000801
+  ok   row 4 q=10 sigma=1/4: point valid True; E=u/pe=197/400 (printed 197/400); beta=197/1600 (printed 197/1600); floor6(E)=197/400 (printed 197/400)
+  ok         slack_X in [0.00103320988605209, 0.00103320988605209] > 0.00103; slack_Y in [0.00101941661765795, 0.00101941661765795] > 0.00101
+  ok   row 5 q=11 sigma=1/5: point valid True; E=u/pe=2853/5500 (printed 2853/5500); beta=2853/27500 (printed 2853/27500); floor6(E)=518727/1000000 (printed 518727/1000000)
+  ok         slack_X in [0.000661739834383852, 0.000661739834383852] > 0.000661; slack_Y in [0.000652437703162371, 0.000652437703162371] > 0.000652
+  ok   row 6 q=13 sigma=1/7: point valid True; E=u/pe=887/1625 (printed 887/1625); beta=887/11375 (printed 887/11375); floor6(E)=272923/500000 (printed 272923/500000)
+  ok         slack_X in [0.00060919054492632, 0.00060919054492632] > 0.000609; slack_Y in [0.000591675524436532, 0.000591675524436532] > 0.000591
+  ok   row 7 q=18 sigma=1/10: point valid True; E=u/pe=10703/18000 (printed 10703/18000); beta=10703/180000 (printed 10703/180000); floor6(E)=594611/1000000 (printed 594611/1000000)
+  ok         slack_X in [0.000509883152157827, 0.000509883152157827] > 0.000509; slack_Y in [0.00051478236520111, 0.00051478236520111] > 0.000514
+  ok   smallest slack lower end 0.000509883152158 > 5.09e-4 (E7_slack_min)
+  ok   E_7 = 10703/18000 = 0.5946111111 > 0.594611 (E13_top); so 'E(s) <= 0.594611' is FALSE for s <= 1/10
+  ok   9000/10703 = 1/(2 E_7) = 0.84088573 > 0.84 (E16_s)
+
+(B) alpha(P0), slack(P0), c_o(P0), t_pad bound (Lemma cp:L11 inputs, re-derived)
+  alpha(P0) in [0.294597647050482, 0.294597647050482]
+  ok   0.2945976 < alpha(P0) < 0.2945977
+  ok   c_o(P0) in [1.07786098810056, 1.07786098810056] <= 1.077861
+  ok   2/(c_o+2) in [0.649801926640703, 0.649801926640703] > 0.6498 (F2: t_pad > 0.6498)
+  ok   2/alpha(P0) > 6.788920 > 6.788 (F9_entry_lo)
+
+(C) Table cp:E15:table and the extremes of Remark cp:E15
+  eps*_5 = ln4/(5 ln5) in [0.172270623229357, 0.172270623229357]
+  ok   (b,c)=(1/10,91/100): s=10/91, E(s)=887/1625, lower end 1/100; Cor E13 end 6823/125000 (printed 6823/125000); square 29459/1000000 (printed 29459/1000000); v1 17227/1000000 (printed 17227/1000000)
+  ok   (b,c)=(1/20,24/25): s=5/96, E(s)=10703/18000, lower end 1/100; Cor E13 end 2973/100000 (printed 2973/100000); square 14729/1000000 (printed 14729/1000000); v1 empty (printed None)
+  ok   (b,c)=(1/5,17/20): s=4/17, E(s)=197/400, lower end 1/20; Cor E13 end 197/2000 (printed 197/2000); square 58919/1000000 (printed 58919/1000000); v1 empty (printed None)
+  ok   (b,c)=(3/10,3/4): s=2/5, E(s)=2757/7000, lower end 1/20; Cor E13 end 118157/1000000 (printed 118157/1000000); square 88379/1000000 (printed 88379/1000000); v1 51681/1000000 (printed 51681/1000000)
+  ok   (b,c)=(2/5,13/20): s=8/13, E(s)=333/1000, lower end 1/20; Cor E13 end 333/2500 (printed 333/2500); square 117839/1000000 (printed 117839/1000000); v1 17227/250000 (printed 17227/250000)
+  ok   (b,c)=(1/10,19/20): s=2/19, E(s)=887/1625, lower end 1/20; Cor E13 end 6823/125000 (printed 6823/125000); square empty (printed None); v1 empty (printed None)
+  ok   alpha/(2-alpha) in [0.172743778933441, 0.172743778933441] < 0.172744
+  ok   1/(2-alpha) in [0.586371889466721, 0.586371889466721] < 0.586372
+     step with right end 3/4: min(b,c) < 0.499917, a < 0.166472
+     step with right end 1/2: min(b,c) < 0.383709, a < 0.151126
+     step with right end 1/3: min(b,c) < 0.281492, a < 0.125968
+     step with right end 1/4: min(b,c) < 0.221852, a < 0.109262
+     step with right end 1/5: min(b,c) < 0.182439, a < 0.094636
+     step with right end 1/7: min(b,c) < 0.134153, a < 0.073227
+     step with right end 1/10: min(b,c) < 0.096104, a < 0.057145
+  ok   every step's bounds are below those at s = 1
+
+(D) Proposition cp:E16 and Remark cp:E17 numbers
+  ok   mu=2643/5000: 3(1+mu)/(16+mu)=0.277446 < 0.2775; sharper (1+mu)/(5+mu)=0.276490
+  ok      eps at sigma = 1 + r mu/(1+mu) equals mu (r=1/5): 2643/5000
+  ok   mu=527661/1000000: 3(1+mu)/(16+mu)=0.277292 < 0.2775; sharper (1+mu)/(5+mu)=0.276367
+  ok      eps at sigma = 1 + r mu/(1+mu) equals mu (r=1/5): 527661/1000000
+  ok   s(sigma) at sigma_max = r/(1+mu-r mu) >= 3r/((1+mu)(3-r)) for mu >= 1/2 (checked at 5 r, two mu)
+  ok   E(1/7) = 887/1625 = 0.545846 > 0.5286
+  ok   2r/(3-r) at r=1/5 is 1/7 (<= 1/7), at r=3/11 is 1/5 (= 1/5)
+  ok   r=1/10: (1-r/3)(1+s0) = 31/30 = 1 + r/3; scaled triple (s0/2, 1, s0)(1-r/3) = (1/30, 29/30, 1/15)
+  ok   r=1/5: (1-r/3)(1+s0) = 16/15 = 1 + r/3; scaled triple (s0/2, 1, s0)(1-r/3) = (1/15, 14/15, 2/15)
+  ok   r=3/11: (1-r/3)(1+s0) = 12/11 = 1 + r/3; scaled triple (s0/2, 1, s0)(1-r/3) = (1/11, 10/11, 2/11)
+  ok   Lemma 4.9 at mu = 1/2: the first term 1 + r/3 is the maximum on [0,1] (alpha in {1/2,3/5,9/10,1}, 101 r)
+  ok   E18: C_{3/50} >= 0.0070125064, C/(1/2 - a) >= 0.03414033 > 0.03414 (from the printed bounds alone)
+
+(E) Remark after Proposition cp:E2: 2 sigma E_i/(1+sigma) < alpha(P0) for every row
+  ok   sigma=3/4: 2 sigma E/(1+sigma) = 0.285429 < alpha(P0)
+  ok   sigma=1/2: 2 sigma E/(1+sigma) = 0.262571 < alpha(P0)
+  ok   sigma=1/3: 2 sigma E/(1+sigma) = 0.223750 < alpha(P0)
+  ok   sigma=1/4: 2 sigma E/(1+sigma) = 0.197000 < alpha(P0)
+  ok   sigma=1/5: 2 sigma E/(1+sigma) = 0.172909 < alpha(P0)
+  ok   sigma=1/7: 2 sigma E/(1+sigma) = 0.136462 < alpha(P0)
+  ok   sigma=1/10: 2 sigma E/(1+sigma) = 0.108111 < alpha(P0)
+  ok   alpha(1+sigma)/(2 sigma) < 1 iff sigma > alpha/(2-alpha): checked algebraically in the report
+
+(G) Proposition cp:F17: C_D at P0 = (sum lam_q/(q+2))/ln b_1
+  ok   C_D in [0.543815002708322, 0.543815002708322]; printed 0.5438... (truncation)
+  ln b_1 in [0.213727222670571, 0.213727222670571], ln a_1 in [0.72548855977097, 0.72548855977097]
+
+(H) Remark cp:F23: the dual bounds of Theta*_6, Theta*_7 at t0 = 49/2500 against Theorem cp:G3's bound
+  Lambda_cert(t0) <= [0.00170915330564676, 0.00170915330564676] from the dual bounds; Theorem G3 uses <= 1.70916e-3
+  ok   gamma_inf from the dual bounds >= 0.0039983470582 vs printed 0.0039983470
+
+(I) c-bar bounds of Proposition cp:E6 for the rows and the t-range 1/(2(cbar+1)) of Lemma cp:E3:top
+  q=7 sigma=3/4: cbar <= 0.517514, t-range up to 0.329486
+  q=7 sigma=1/2: cbar <= 0.517514, t-range up to 0.329486
+  q=8 sigma=1/3: cbar <= 0.471747, t-range up to 0.339732
+  q=10 sigma=1/4: cbar <= 0.408948, t-range up to 0.354875
+  q=11 sigma=1/5: cbar <= 0.386307, t-range up to 0.360670
+  q=13 sigma=1/7: cbar <= 0.351453, t-range up to 0.369972
+  q=18 sigma=1/10: cbar <= 0.297393, t-range up to 0.385388
+
+(F) Remark cp:E9 rates (COMPUTED, floating point): sup_t (t kappa - (1+sigma) Lambda_pr(t)/beta)
+  sigma=1/2 (q=7) kappa=0.5: sup ~ 8.1937e-05 at t ~ 0.00036
+  sigma=1/2 (q=7) kappa=1.0: sup ~ 3.7735e-04 at t ~ 0.00083
+  sigma=1/10 (q=18) kappa=0.5: sup ~ 4.5876e-05 at t ~ 0.00020
+  sigma=1/10 (q=18) kappa=1.0: sup ~ 2.0727e-04 at t ~ 0.00045
+
+ALL CERTIFIED CHECKS PASS

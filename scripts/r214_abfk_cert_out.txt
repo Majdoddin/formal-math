@@ -1,0 +1,13 @@
+Part 1 (exact).
+  (5/2)^4 = 625/16 = 39.0625 > 16: True  =>  A(2) = 4 ln(5/2) > 2 ln 4 = ln 16
+  25/21 = 1.190476 < 2, so A'(c) = ln(25(c-1)/(4c)) > 0 on c >= 2 and A(c) >= A(2) there
+  A(2) in [3.665162927497, 3.665162927497], 2 ln 4 in [2.772588722240, 2.772588722240]; margin >= 0.892574
+  ln4/A(2) <= 0.378235 < 1/2, so eps_kappa < 1/2 for kappa <= 1 (c_min > 2)
+  Conclusion (PROVED): kappa F(kappa) < (kappa+1) F(kappa) < 1 for every kappa > 0.
+Part 2 (interval enclosures).
+  theta_1 in [0.170535660850301, 0.170535660850301]  (q(theta_1) = 1)
+  kappa = 1.1: c(kappa) in [6.4007990479, 6.4007990479], F(kappa) in [0.1322671110, 0.1322671110]
+  kappa = 1.5: c(kappa) in [28.7968229211, 28.7968229211], F(kappa) in [0.0274463364, 0.0274463364]
+  kappa = 2.0: c(kappa) in [213.6923694298, 213.6923694298], F(kappa) in [0.0035727480, 0.0035727480]
+  eps_kappa at kappa = 0.5: theta in [0.068968595301, 0.068968595301], c_min in [4.8268085214, 4.8268085214], eps in [0.1784342075, 0.1784342075]
+  eps_kappa at kappa = 1.0: theta in [0.170535660850, 0.170535660850], c_min in [4.5686836099, 4.5686836099], eps in [0.1884067111, 0.1884067111]

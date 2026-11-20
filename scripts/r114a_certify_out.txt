@@ -1,0 +1,24 @@
+Column-degree switching threshold of v1's squared run: certified enclosures
+
+q = 1.0: float zero of L_col: c* = 4.5108850936, t* = 0.05238153, eps = 0.1907801668
+         float zero of the optimal region cut (R20 Sec. 5, by duality the same): c = 4.5108850936
+  LOWER: c0 = 5638606617/1250000000 = 4.5108852936, t0 = 104763067/2000000000 = 0.0523815335
+         ln4 * Lam_col(t0,c0) <= M1 + M2 = 0.032813783849293 + 0.039802420437210 = 0.072616204286503
+         t0 q ln4 >= 0.072616224517863;  certified: True;  gamma >= 1.459e-08
+         => range eps >= ln4/A(c0) >= 0.1907801585  (certified lower bound)
+  UPPER: c1 = 5638606117/1250000000 = 4.5108848936; point x1 = 0.182204833563, x2 = 0.202756123031
+         g1+g2 in [1.38629436607014, 1.38629436607014] vs q ln4 = 1.386294361119891; F(x1,c1)+F(x2,c1) in [2.10726215512134e-08, 2.10726215512134e-08]; certified: True
+         => no up-closed order-class cut with query exponent <= q saves at c <= c1; eps of this construction <= ln4/A(c1) <= 0.1907801751
+
+q = 0.5: float zero of L_col: c* = 4.8104010867, t* = 0.01371809, eps = 0.1790391672
+         float zero of the optimal region cut (R20 Sec. 5, by duality the same): c = 4.8104010867
+  LOWER: c0 = 48104012867/10000000000 = 4.8104012867, t0 = 137180889/10000000000 = 0.0137180889
+         ln4 * Lam_col(t0,c0) <= M1 + M2 = 0.004396162354161 + 0.005112484564542 = 0.009508646918703
+         t0 q ln4 >= 0.009508654643706;  certified: True;  gamma >= 5.572e-09
+         => range eps >= ln4/A(c0) >= 0.1790391598  (certified lower bound)
+  UPPER: c1 = 48104008867/10000000000 = 4.8104008867; point x1 = 0.072203556398, x2 = 0.078469602025
+         g1+g2 in [0.693147187656538, 0.693147187656538] vs q ln4 = 0.693147180559945; F(x1,c1)+F(x2,c1) in [7.73124499041068e-09, 7.73124499041068e-09]; certified: True
+         => no up-closed order-class cut with query exponent <= q saves at c <= c1; eps of this construction <= ln4/A(c1) <= 0.1790391746
+
+R20 total-order cut (Theorem 4 / Cor. 5), q = 1.0: theta = 0.19009221, c_min = 4.51851517, eps = 0.19046374  (float)
+R20 total-order cut (Theorem 4 / Cor. 5), q = 0.5: theta = 0.07447543, c_min = 4.81291095, eps = 0.17894638  (float)

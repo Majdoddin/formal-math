@@ -1,0 +1,40 @@
+(b) E(1/7) = 887/1625 = 0.5458461538461539 ; E(1/5) = 0.5187272727272727 ; E(s), s in (1/5,1/4]: 0.4925
+ mu = 0.5286
+  r = 1/100  sigma in [1.003333, 1.003458]: inside at all 201 grid sigmas: True; at sigma = 1 + r/3: True; eps at upper end = 2643/5000
+  r = 1/20   sigma in [1.016667, 1.017290]: inside at all 201 grid sigmas: True; at sigma = 1 + r/3: True; eps at upper end = 2643/5000
+  r = 1/10   sigma in [1.033333, 1.034581]: inside at all 201 grid sigmas: True; at sigma = 1 + r/3: True; eps at upper end = 2643/5000
+  r = 3/20   sigma in [1.050000, 1.051871]: inside at all 201 grid sigmas: True; at sigma = 1 + r/3: True; eps at upper end = 2643/5000
+  r = 1/5    sigma in [1.066667, 1.069161]: inside at all 201 grid sigmas: True; at sigma = 1 + r/3: True; eps at upper end = 2643/5000
+  r = 1/4    sigma in [1.083333, 1.086452]: inside at all 201 grid sigmas: False; at sigma = 1 + r/3: True; eps at upper end = 2643/5000
+  r = 3/11   sigma in [1.090909, 1.094311]: inside at all 201 grid sigmas: False; at sigma = 1 + r/3: True; eps at upper end = 2643/5000
+  r = 7/25   sigma in [1.093333, 1.096826]: inside at all 201 grid sigmas: False; at sigma = 1 + r/3: False; eps at upper end = 2643/5000
+  r211f threshold 3(1+mu)/(16+mu) = 0.277446; sharper (1+mu)/(5+mu) = 0.276490
+  at r = 0.27: s(sigma_max) = 0.194822, r/(1+mu-r mu) = 0.194822, 3r/((1+mu)(3-r)) = 0.194101
+ mu = 0.527661
+  r = 1/100  sigma in [1.003333, 1.003454]: inside at all 201 grid sigmas: True; at sigma = 1 + r/3: True; eps at upper end = 527661/1000000
+  r = 1/20   sigma in [1.016667, 1.017270]: inside at all 201 grid sigmas: True; at sigma = 1 + r/3: True; eps at upper end = 527661/1000000
+  r = 1/10   sigma in [1.033333, 1.034540]: inside at all 201 grid sigmas: True; at sigma = 1 + r/3: True; eps at upper end = 527661/1000000
+  r = 3/20   sigma in [1.050000, 1.051811]: inside at all 201 grid sigmas: True; at sigma = 1 + r/3: True; eps at upper end = 527661/1000000
+  r = 1/5    sigma in [1.066667, 1.069081]: inside at all 201 grid sigmas: True; at sigma = 1 + r/3: True; eps at upper end = 527661/1000000
+  r = 1/4    sigma in [1.083333, 1.086351]: inside at all 201 grid sigmas: False; at sigma = 1 + r/3: True; eps at upper end = 527661/1000000
+  r = 3/11   sigma in [1.090909, 1.094201]: inside at all 201 grid sigmas: False; at sigma = 1 + r/3: True; eps at upper end = 527661/1000000
+  r = 7/25   sigma in [1.093333, 1.096713]: inside at all 201 grid sigmas: False; at sigma = 1 + r/3: False; eps at upper end = 527661/1000000
+  r211f threshold 3(1+mu)/(16+mu) = 0.277292; sharper (1+mu)/(5+mu) = 0.276367
+  at r = 0.27: s(sigma_max) = 0.194919, r/(1+mu-r mu) = 0.194919, 3r/((1+mu)(3-r)) = 0.194221
+ route 2: s0(3/11) = 1/5
+  r = 1/10 : (1 - r/3)(1 + s0) = 31/30 = 1 + r/3: True ; scaled triple: 1/29 = 1/29 , 2/29 = 2/29
+  r = 3/11 : (1 - r/3)(1 + s0) = 12/11 = 1 + r/3: True ; scaled triple: 1/10 = 1/10 , 1/5 = 1/5
+
+(b) E18: certified C >= 0.0070125113; C/(1/2 - a') = 0.03414037 (a' = alpha_lo - 1e-12; larger a' only raises it)
+   ABFK Table 2 vs 1 + r/3: r = 0.05: 1.0171 vs 1.0167; 0.10: 1.0342 vs 1.0333; 0.20: 1.0684 vs 1.0667; 0.25: 1.0855 vs 1.0833
+
+(c) N-parametrisation: c < e3/(1 + e3) = 0.154529229; floor6 = 0.154529
+
+(d) A_q = q ln q / (2 (q+2)), kappa_typ(q) = [-2 ln x - (q-1) ln(1-x)]/(q+2), (q-1)x^2 - (q+1)x + 1 = 0
+  q =  4: A_q = 0.462098120, x_q = 0.232408121, kappa_typ = 0.618668651, c_g = 1.338825
+  q =  5: A_q = 0.574799254, x_q = 0.190983006, kappa_typ = 0.594126155, c_g = 1.033624
+  q =  6: A_q = 0.671909801, x_q = 0.161483519, kappa_typ = 0.565913699, c_g = 0.842247
+  q =  7: A_q = 0.756742836, x_q = 0.139620390, kappa_typ = 0.537771729, c_g = 0.710640
+  q =  8: A_q = 0.831776617, x_q = 0.122849294, kappa_typ = 0.511112907, c_g = 0.614483
+  q =  9: A_q = 0.898864600, x_q = 0.109611797, kappa_typ = 0.486400216, c_g = 0.541127
+  q = 10: A_q = 0.959410455, x_q = 0.098914197, kappa_typ = 0.463699847, c_g = 0.483317

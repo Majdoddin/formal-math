@@ -1,0 +1,42 @@
+
+=== P1 (eps*gamma = 0.0061): 1/eps = 12, c = 52707/5000, theta = 2827/50000, gamma_c = 183/2500, gamma' = 1467/20000, q_c = 1067/2500, r = 100033/100000
+  C1     OK  margin 5.5414  [c > 5]
+  C2     OK  margin 0.74346  [0 < theta <= 4/5]
+  C3     OK  margin 1.071e-04 (gamma(theta,c) in [0.0735044438539, 0.0735044438539])  [b + gamma' ln2 < 0]
+  C4     OK  margin 0.00015  [0 <= gamma_c < gamma']
+  C5     OK  margin 1.150e-04 (q(theta) in [0.426634059008, 0.426634059008])  [H(theta)+theta ln4 < q_c ln2]
+  C6     OK  margin 0.0  [q_c + gamma_c <= 1/2]
+  C7     OK  margin 2.568e-05 (g(c) in [16.5334920182, 16.5334920182])  [ln r + g(c) + gamma' ln4 < a ln4]
+  C8     OK  margin m0 = 108012 (C_P = 157.1149)  [4^a C_P (c m0+2) <= r^m0 and induction step]
+  C9     OK  margin 108009.88014330232  [m0 >= 2/(1-theta)]
+  C10    OK  margin 0  [Hyp range]
+  ALL OK: True;  Hyp(1/12, 183/2500) with eps*gamma = 61/10000 = 0.0061000;  3SUM exponent 2 - eps*gamma = 1.9939000, Exact Triangle/APSP 3 - eps*gamma = 2.9939000
+  computed (lgamma floats, not certified): (encP) with exact binomials, exact P(L) and Kg = mu2 K holds for every m in [80919, 113012] and fails at m = 80918
+
+=== P2 (eps*gamma = 0.00612): 1/eps = 25/2, c = 110057/10000, theta = 56013/1000000, gamma_c = 153/2000, gamma' = 957/12500, q_c = 847/2000, r = 25003/25000
+  C1     OK  margin 6.0057  [c > 5]
+  C2     OK  margin 0.743987  [0 < theta <= 4/5]
+  C3     OK  margin 4.412e-05 (gamma(theta,c) in [0.0766236536955, 0.0766236536955])  [b + gamma' ln2 < 0]
+  C4     OK  margin 6e-05  [0 <= gamma_c < gamma']
+  C5     OK  margin 4.412e-05 (q(theta) in [0.423436346869, 0.423436346869])  [H(theta)+theta ln4 < q_c ln2]
+  C6     OK  margin 0.0  [q_c + gamma_c <= 1/2]
+  C7     OK  margin 3.914e-05 (g(c) in [17.2223856803, 17.2223856803])  [ln r + g(c) + gamma' ln4 < a ln4]
+  C8     OK  margin m0 = 311373 (C_P = 146.4482)  [4^a C_P (c m0+2) <= r^m0 and induction step]
+  C9     OK  margin 311370.88132675557  [m0 >= 2/(1-theta)]
+  C10    OK  margin 0  [Hyp range]
+  ALL OK: True;  Hyp(1/25/2, 153/2000) with eps*gamma = 153/25000 = 0.0061200;  3SUM exponent 2 - eps*gamma = 1.9938800, Exact Triangle/APSP 3 - eps*gamma = 2.9938800
+  computed (lgamma floats, not certified): (encP) with exact binomials, exact P(L) and Kg = mu2 K holds for every m in [187897, 316373] and fails at m = 187896
+
+=== P0 (comfortable, eps*gamma = 0.006): 1/eps = 12, c = 209/20, theta = 283/5000, gamma_c = 9/125, gamma' = 29/400, q_c = 107/250, r = 28/25
+  C1     OK  margin 5.45  [c > 5]
+  C2     OK  margin 0.7434  [0 < theta <= 4/5]
+  C3     OK  margin 2.091e-04 (gamma(theta,c) in [0.0728015979133, 0.0728015979133])  [b + gamma' ln2 < 0]
+  C4     OK  margin 0.0005  [0 <= gamma_c < gamma']
+  C5     OK  margin 6.948e-04 (q(theta) in [0.426997647397, 0.426997647397])  [H(theta)+theta ln4 < q_c ln2]
+  C6     OK  margin 0.0  [q_c + gamma_c <= 1/2]
+  C7     OK  margin 2.406e-02 (g(c) in [16.3976330797, 16.3976330797])  [ln r + g(c) + gamma' ln4 < a ln4]
+  C8     OK  margin m0 = 262 (C_P = 159.4781)  [4^a C_P (c m0+2) <= r^m0 and induction step]
+  C9     OK  margin 259.8800084799661  [m0 >= 2/(1-theta)]
+  C10    OK  margin 0  [Hyp range]
+  ALL OK: True;  Hyp(1/12, 9/125) with eps*gamma = 3/500 = 0.0060000;  3SUM exponent 2 - eps*gamma = 1.9940000, Exact Triangle/APSP 3 - eps*gamma = 2.9940000
+  computed (lgamma floats, not certified): (encP) with exact binomials, exact P(L) and Kg = mu2 K holds for every m in [184, 5262] and fails at m = 183

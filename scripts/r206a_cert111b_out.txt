@@ -1,0 +1,60 @@
+mu_inf >= 0.288788095087, mu_inf^2 >= 0.083398563864, claim mu^2 >= 0.08339 holds: True
+====================================================================================================
+P0: a = 1/eps = 12, c = 209/20, theta = 283/5000, gamma_c = 9/125, gamma' = 29/400, q_c = 107/250, r = 28/25, m0 = 262
+  C1 c-5 > 0                                       lower bound  5.450000e+00   width 0.0e+00   ok
+  C2 theta in (0,4/5]: 4/5-theta                   lower bound  7.434000e-01   width 0.0e+00   ok
+  C3 -(b + gamma' ln2) > 0                         lower bound  2.090517e-04   width 1.7e-56   ok
+  C4 gamma'-gamma_c > 0 (gamma_c >= 0)             lower bound  5.000000e-04   width 0.0e+00   ok
+  C5 q_c ln2 - (H+theta ln4) > 0                   lower bound  6.947779e-04   width 6.2e-58   ok
+  C6 1/2 - q_c - gamma_c >= 0                      lower bound  0.000000e+00   width 0.0e+00   ok
+  C7 a ln4 - ln r - g - gamma' ln4 > 0             lower bound  2.406423e-02   width 2.7e-56   ok
+  C8a m0 ln r - ln(4^a C_P (c m0+2)) >= 0          lower bound  6.899977e-02   width 7.0e-56   ok
+  C8b (r-1)(c m0+2) - c >= 0                       lower bound  3.183380e+02   width 0.0e+00   ok
+  C9 m0 - 2/(1-theta) >= 0                         lower bound  2.598800e+02   width 0.0e+00   ok
+  C10 1/2-gamma_c, 1/2-1/a >= 0                    lower bound  4.166667e-01   width 0.0e+00   ok
+  C8 exact big-integer form r^m0 >= 4^a C_P (c m0 + 2): True  (0.0 s, r^m0 has 524 digits approx)
+  closed form at m0-1: margin upper bound -4.051e-02  (negative = m0 is the least m of the closed form)
+  gamma(theta,c) in [0.0728015979132782, 0.0728015979132782], q(theta) in [0.426997647396543, 0.426997647396543], g(c) in [16.3976330797476, 16.3976330797476]
+  full encoding: A(c)/ln4 + gamma' in [12.5082566283386, 12.5082566283386]  vs a = 12.0
+  pruned rate: g(c)/ln4 + gamma' in [11.9008919632344, 11.9008919632344]  vs a = 12.0
+  C_P (with mu^2 = 0.08339) = 159.4781;  eps*gamma_c = 3/500 = 0.00600000; 3SUM exponent 2 - eps*gamma = 1.994000
+====================================================================================================
+P1: a = 1/eps = 12, c = 52707/5000, theta = 2827/50000, gamma_c = 183/2500, gamma' = 1467/20000, q_c = 1067/2500, r = 100033/100000, m0 = 108012
+  C1 c-5 > 0                                       lower bound  5.541400e+00   width 0.0e+00   ok
+  C2 theta in (0,4/5]: 4/5-theta                   lower bound  7.434600e-01   width 0.0e+00   ok
+  C3 -(b + gamma' ln2) > 0                         lower bound  1.070523e-04   width 1.7e-56   ok
+  C4 gamma'-gamma_c > 0 (gamma_c >= 0)             lower bound  1.500000e-04   width 0.0e+00   ok
+  C5 q_c ln2 - (H+theta ln4) > 0                   lower bound  1.150215e-04   width 6.2e-58   ok
+  C6 1/2 - q_c - gamma_c >= 0                      lower bound  0.000000e+00   width 0.0e+00   ok
+  C7 a ln4 - ln r - g - gamma' ln4 > 0             lower bound  2.567824e-05   width 2.8e-56   ok
+  C8a m0 ln r - ln(4^a C_P (c m0+2)) >= 0          lower bound  2.605015e-04   width 2.5e-53   ok
+  C8b (r-1)(c m0+2) - c >= 0                       lower bound  3.651965e+02   width 0.0e+00   ok
+  C9 m0 - 2/(1-theta) >= 0                         lower bound  1.080099e+05   width 0.0e+00   ok
+  C10 1/2-gamma_c, 1/2-1/a >= 0                    lower bound  4.166667e-01   width 0.0e+00   ok
+  C8 exact big-integer form r^m0 >= 4^a C_P (c m0 + 2): True  (0.3 s, r^m0 has 648072 digits approx)
+  closed form at m0-1: margin upper bound -6.019e-05  (negative = m0 is the least m of the closed form)
+  gamma(theta,c) in [0.0735044438539159, 0.0735044438539159], q(theta) in [0.426634059008407, 0.426634059008407], g(c) in [16.5334920182477, 16.5334920182477]
+  full encoding: A(c)/ln4 + gamma' in [12.623329347794, 12.623329347794]  vs a = 12.0
+  pruned rate: g(c)/ln4 + gamma' in [11.9997434716516, 11.9997434716516]  vs a = 12.0
+  C_P (with mu^2 = 0.08339) = 157.1149;  eps*gamma_c = 61/10000 = 0.00610000; 3SUM exponent 2 - eps*gamma = 1.993900
+====================================================================================================
+P2: a = 1/eps = 25/2, c = 110057/10000, theta = 56013/1000000, gamma_c = 153/2000, gamma' = 957/12500, q_c = 847/2000, r = 25003/25000, m0 = 311373
+  C1 c-5 > 0                                       lower bound  6.005700e+00   width 0.0e+00   ok
+  C2 theta in (0,4/5]: 4/5-theta                   lower bound  7.439870e-01   width 0.0e+00   ok
+  C3 -(b + gamma' ln2) > 0                         lower bound  4.412138e-05   width 1.8e-56   ok
+  C4 gamma'-gamma_c > 0 (gamma_c >= 0)             lower bound  6.000000e-05   width 0.0e+00   ok
+  C5 q_c ln2 - (H+theta ln4) > 0                   lower bound  4.412099e-05   width 6.2e-58   ok
+  C6 1/2 - q_c - gamma_c >= 0                      lower bound  0.000000e+00   width 0.0e+00   ok
+  C7 a ln4 - ln r - g - gamma' ln4 > 0             lower bound  3.914462e-05   width 2.9e-56   ok
+  C8a m0 ln r - ln(4^a C_P (c m0+2)) >= 0          lower bound  6.589799e-06   width 7.2e-53   ok
+  C8b (r-1)(c m0+2) - c >= 0                       lower bound  4.002199e+02   width 0.0e+00   ok
+  C9 m0 - 2/(1-theta) >= 0                         lower bound  3.113709e+05   width 0.0e+00   ok
+  C10 1/2-gamma_c, 1/2-1/a >= 0                    lower bound  4.200000e-01   width 0.0e+00   ok
+  C8 exact big-integer form r^m0 >= 4^a C_P (c m0 + 2): True  (1.0 s, r^m0 has 1556865 digits approx)
+  closed form at m0-1: margin upper bound -1.102e-04  (negative = m0 is the least m of the closed form)
+  gamma(theta,c) in [0.0766236536955223, 0.0766236536955223], q(theta) in [0.423436346869043, 0.423436346869043], g(c) in [17.2223856802955, 17.2223856802955]
+  full encoding: A(c)/ln4 + gamma' in [13.2076788272821, 13.2076788272821]  vs a = 12.5
+  pruned rate: g(c)/ln4 + gamma' in [12.4998852066197, 12.4998852066197]  vs a = 12.5
+  C_P (with mu^2 = 0.08339) = 146.4482;  eps*gamma_c = 153/25000 = 0.00612000; 3SUM exponent 2 - eps*gamma = 1.993880
+====================================================================================================
+ALL INEQUALITIES HOLD

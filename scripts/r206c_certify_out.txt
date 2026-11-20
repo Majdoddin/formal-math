@@ -1,0 +1,119 @@
+ln2 (M) = [0.693147180559945, 0.693147180559945] width 1.2e-66;  ln2 (D) = [0.693147180559945, 0.693147180559945]
+(M) and (D) enclosures overlap on test values: True
+
+=== eta0=0.0069: tau = 3279/100000 (0.03279), eta0 = 69/10000, x = 0.07248, K = 3
+  [Mercator] all 21 checks positive: True; smallest lower bound 4.6614e-07 (Q  tau-q d, structure 2); max enclosure width 1.2e-64
+    S  (2-eta0)-(1+2tau)         Pi_0: lower bound  9.275200e-01
+    B  -b                        Pi_1: lower bound  7.234310e-02
+    R  ln4-eps(A-2b)             Pi_1: lower bound  1.401038e-06
+    Q  tau-q d                   Pi_1: lower bound  4.963172e-07
+    C2 (1+tau-x)-(M-gam d)       Pi_1: lower bound  1.695554e-05
+    C3 (2-x)-(2M-gam d)          Pi_1: lower bound  3.289379e-05
+    V  d_prev-(x-gam d)          Pi_1: lower bound  1.017285e-06
+    B  -b                        Pi_2: lower bound  6.264674e-02
+    R  ln4-eps(A-2b)             Pi_2: lower bound  1.399773e-06
+    Q  tau-q d                   Pi_2: lower bound  4.661419e-07
+    C2 (1+tau-x)-(M-gam d)       Pi_2: lower bound  2.046857e-05
+    C3 (2-x)-(2M-gam d)          Pi_2: lower bound  5.812136e-04
+    V  d_prev-(x-gam d)          Pi_2: lower bound  1.032570e-06
+    B  -b                        Pi_3: lower bound  1.195771e-02
+    R  ln4-eps(A-2b)             Pi_3: lower bound  1.387257e-06
+    Q  tau-q d                   Pi_3: lower bound  5.986318e-07
+    C2 (1+tau-x)-(M-gam d)       Pi_3: lower bound  7.839007e-06
+    C3 (2-x)-(2M-gam d)          Pi_3: lower bound  4.801011e-03
+    V  d_prev-(x-gam d)          Pi_3: lower bound  1.045291e-06
+    Vend d_K - x                 Pi_3: lower bound  5.009992e-02
+    VX vertex cost margin (min)  Pi_-: lower bound  1.017285e-06
+  [decimal] all 21 checks positive: True; smallest lower bound 4.6614e-07 (Q  tau-q d, structure 2); max enclosure width 5.9e-67
+  [wide 2e-9 + Mathlib ln2] all 21 checks positive: True; smallest lower bound 4.6581e-07 (Q  tau-q d, structure 2); max enclosure width 1.4e-07
+    decimals: (12.1135, 0.068257, 0.068364056, 0.066121309); (11.4169, 0.063126, 0.072794116, 0.070366378); (6.7115, 0.03188, 0.127366765, 0.122579918)
+    Pi_1: gamma 0.1043690 q 0.4958992  serves p in [0.065578983, 0.066121309]
+    Pi_2: gamma 0.0903801 q 0.4659830  serves p in [0.066120276, 0.070366378]
+    Pi_3: gamma 0.0172513 q 0.2674941  serves p in [0.070365333, 0.122579918]
+
+=== eta0=0.00697: tau = 3279/100000 (0.03279), eta0 = 697/100000, x = 0.07255, K = 4
+  [Mercator] all 27 checks positive: True; smallest lower bound 4.4111e-07 (Q  tau-q d, structure 4); max enclosure width 1.2e-64
+    S  (2-eta0)-(1+2tau)         Pi_0: lower bound  9.274500e-01
+    B  -b                        Pi_1: lower bound  7.366163e-02
+    R  ln4-eps(A-2b)             Pi_1: lower bound  1.393494e-06
+    Q  tau-q d                   Pi_1: lower bound  5.000836e-07
+    C2 (1+tau-x)-(M-gam d)       Pi_1: lower bound  1.803757e-05
+    C3 (2-x)-(2M-gam d)          Pi_1: lower bound  3.501886e-05
+    V  d_prev-(x-gam d)          Pi_1: lower bound  1.056283e-06
+    B  -b                        Pi_2: lower bound  7.334412e-02
+    R  ln4-eps(A-2b)             Pi_2: lower bound  1.405320e-06
+    Q  tau-q d                   Pi_2: lower bound  5.944347e-07
+    C2 (1+tau-x)-(M-gam d)       Pi_2: lower bound  1.462122e-05
+    C3 (2-x)-(2M-gam d)          Pi_2: lower bound  4.503799e-05
+    V  d_prev-(x-gam d)          Pi_2: lower bound  1.019458e-06
+    B  -b                        Pi_3: lower bound  7.101956e-02
+    R  ln4-eps(A-2b)             Pi_3: lower bound  1.389097e-06
+    Q  tau-q d                   Pi_3: lower bound  4.919799e-07
+    C2 (1+tau-x)-(M-gam d)       Pi_3: lower bound  1.866245e-05
+    C3 (2-x)-(2M-gam d)          Pi_3: lower bound  1.778089e-04
+    V  d_prev-(x-gam d)          Pi_3: lower bound  1.038955e-06
+    B  -b                        Pi_4: lower bound  5.496925e-02
+    R  ln4-eps(A-2b)             Pi_4: lower bound  1.394917e-06
+    Q  tau-q d                   Pi_4: lower bound  4.411070e-07
+    C2 (1+tau-x)-(M-gam d)       Pi_4: lower bound  1.527273e-05
+    C3 (2-x)-(2M-gam d)          Pi_4: lower bound  1.105218e-03
+    V  d_prev-(x-gam d)          Pi_4: lower bound  1.041797e-06
+    Vend d_K - x                 Pi_4: lower bound  1.788468e-03
+    VX vertex cost margin (min)  Pi_-: lower bound  1.019458e-06
+  [decimal] all 27 checks positive: True; smallest lower bound 4.4111e-07 (Q  tau-q d, structure 4); max enclosure width 5.9e-67
+  [wide 2e-9 + Mathlib ln2] all 27 checks positive: True; smallest lower bound 4.4076e-07 (Q  tau-q d, structure 4); max enclosure width 1.4e-07
+    decimals: (12.2048, 0.068945, 0.067821845, 0.065596815); (12.1828, 0.06878, 0.067951727, 0.065721523); (12.0202, 0.067569, 0.068926793, 0.066655714); (10.8347, 0.058937, 0.076945373, 0.074338468)
+    Pi_1: gamma 0.1062713 q 0.4998642  serves p in [0.065578944, 0.065596815]
+    Pi_2: gamma 0.1058132 q 0.4989143  serves p in [0.065595796, 0.065721523]
+    Pi_3: gamma 0.1024596 q 0.4919234  serves p in [0.065720484, 0.066655714]
+    Pi_4: gamma 0.0793039 q 0.4410847  serves p in [0.066654672, 0.074338468]
+
+=== eta0=0.006973: tau = 131/4000 (0.03275), eta0 = 6973/1000000, x = 0.072473, K = 5
+  [Mercator] all 33 checks positive: True; smallest lower bound 4.3574e-08 (Q  tau-q d, structure 5); max enclosure width 1.2e-64
+    S  (2-eta0)-(1+2tau)         Pi_0: lower bound  9.275270e-01
+    B  -b                        Pi_1: lower bound  7.378924e-02
+    R  ln4-eps(A-2b)             Pi_1: lower bound  1.584612e-07
+    Q  tau-q d                   Pi_1: lower bound  5.027862e-08
+    C2 (1+tau-x)-(M-gam d)       Pi_1: lower bound  1.497424e-05
+    C3 (2-x)-(2M-gam d)          Pi_1: lower bound  2.984406e-05
+    V  d_prev-(x-gam d)          Pi_1: lower bound  1.044300e-07
+    B  -b                        Pi_2: lower bound  7.373957e-02
+    R  ln4-eps(A-2b)             Pi_2: lower bound  1.410357e-07
+    Q  tau-q d                   Pi_2: lower bound  5.009995e-08
+    C2 (1+tau-x)-(M-gam d)       Pi_2: lower bound  8.279497e-06
+    C3 (2-x)-(2M-gam d)          Pi_2: lower bound  1.906165e-05
+    V  d_prev-(x-gam d)          Pi_2: lower bound  1.073447e-07
+    B  -b                        Pi_3: lower bound  7.336951e-02
+    R  ln4-eps(A-2b)             Pi_3: lower bound  1.455823e-07
+    Q  tau-q d                   Pi_3: lower bound  5.007324e-08
+    C2 (1+tau-x)-(M-gam d)       Pi_3: lower bound  6.647507e-06
+    C3 (2-x)-(2M-gam d)          Pi_3: lower bound  3.540592e-05
+    V  d_prev-(x-gam d)          Pi_3: lower bound  1.090916e-07
+    B  -b                        Pi_4: lower bound  7.066380e-02
+    R  ln4-eps(A-2b)             Pi_4: lower bound  1.432597e-07
+    Q  tau-q d                   Pi_4: lower bound  4.918563e-08
+    C2 (1+tau-x)-(M-gam d)       Pi_4: lower bound  9.905107e-06
+    C3 (2-x)-(2M-gam d)          Pi_4: lower bound  1.871221e-04
+    V  d_prev-(x-gam d)          Pi_4: lower bound  1.440821e-07
+    B  -b                        Pi_5: lower bound  5.220490e-02
+    R  ln4-eps(A-2b)             Pi_5: lower bound  1.551110e-07
+    Q  tau-q d                   Pi_5: lower bound  4.357450e-08
+    C2 (1+tau-x)-(M-gam d)       Pi_5: lower bound  1.312241e-05
+    C3 (2-x)-(2M-gam d)          Pi_5: lower bound  1.283710e-03
+    V  d_prev-(x-gam d)          Pi_5: lower bound  1.035117e-07
+    Vend d_K - x                 Pi_5: lower bound  3.414644e-03
+    VX vertex cost margin (min)  Pi_-: lower bound  1.035117e-07
+  [decimal] all 33 checks positive: True; smallest lower bound 4.3574e-08 (Q  tau-q d, structure 5); max enclosure width 5.9e-67
+  [wide 2e-9 + Mathlib ln2] all 33 checks positive: True; smallest lower bound 4.3227e-08 (Q  tau-q d, structure 5); max enclosure width 1.4e-07
+    decimals: (12.222, 0.068965, 0.067721496, 0.06550261); (12.2186, 0.068939, 0.067741484, 0.06552222); (12.1929, 0.068747, 0.067892901, 0.065667456); (12.0033, 0.067337, 0.069030553, 0.066757569); (10.6244, 0.057354, 0.078560312, 0.075887644)
+    Pi_1: gamma 0.1064554 q 0.4999793  serves p in [0.065499896, 0.065502610]
+    Pi_2: gamma 0.1063837 q 0.4998297  serves p in [0.065502503, 0.065522220]
+    Pi_3: gamma 0.1058498 q 0.4987242  serves p in [0.065522111, 0.065667456]
+    Pi_4: gamma 0.1019463 q 0.4905803  serves p in [0.065667312, 0.066757569]
+    Pi_5: gamma 0.0753157 q 0.4315585  serves p in [0.066757465, 0.075887644]
+
+=== r82a construction numbers (eta = 2 g eps/(4 + (2 - 2 gamma - g) eps), g = min(2 gamma, 1 - 2q))
+  cor:zt: g = 63/500, lambda = 500/18437 = 0.0271194, eta = 63/18437 = 0.0034170, T exp = 0.0237023, S exp = 1.949178; padding term exp = 1.996583; eta == 63/18437: True
+  eta_r14_witness (theta 0.05654, c 10.525, eps 0.079346): b [-0.0508524193161119, -0.0508524193161119], q [0.426634059008407, 0.426634059008407], R-margin [2.03972783866782e-05, 2.03972783866782e-05], 2gamma [0.146729066329121, 0.146729066329121], 1-2q [0.146731881983187, 0.146731881983187]
+    eta in [0.00563057698262353, 0.00563057698262353]; eta > 0.00563: True; margin 5.770e-07
+  eta_split_witness (theta 0.05656, c 10.815, eps 0.077126): gamma [0.0732445364206282, 0.0732445364206282], q [0.426755265951197, 0.426755265951197], R-margin [3.20909238917269e-05, 3.20909238917269e-05], eta in [0.0054690501182253, 0.0054690501182253]; eta > 0.00546: True

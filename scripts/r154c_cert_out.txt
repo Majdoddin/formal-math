@@ -1,0 +1,125 @@
+R154(c) independent interval certificates (mpmath iv, 240 bits); separable Lagrange bound for Lam,
+weak dual Phi for E_side; conditions of r155 Theorems P/G (folded: at 1/eps' = 1/e0 + 1/4).
+
+[P] covering product, pruned encodings, unfolded; p = (6901129/16000000, 3606871/16000000, 3606871/16000000, 1885129/16000000)
+   (eps0, gamma0) = (62457/500000, 68459/1000000) = (0.124914, 0.068459); s0 = 4275743763/500000000000 = 0.0085514875; APSP exponent 3 - s0 = 2.9914485125
+   Lam <= UB = -0.00559093210344 (mu = 0.1796920139, C = 0.0970355511); LB = -0.00559093244384 at the float maximiser, gap 3.4e-10
+   leaf bound on gamma: -UB/(pw ln2) >= 0.0684601214629  (gamma0 = 0.06845900)
+   H(p) in [1.286335370392, 1.286335370392]; H2r = 0.643167685196, H2c = 0.643167685196
+   E_side^L <= 1.291353133919 via float multipliers (0.0, 0.0, 1.0692962473, 0.5281418938, 0.6488444037) (B_side = 1.088071 > 1); rd_L = 0.90521103
+   E_side^R <= 1.286335370392 via lambda0 (Prop 1.5 applies: pw <= min p_i, B_side = 0.882179 <= 1, exact rational check); rd_R = 0.90521103
+   1/eps' = 8.00550778936; E = rate/(pw ln2) <= 7.93693318557; T = max(H2r,H2c)/(pw ln2) <= 7.875491427
+   margins (upper ends; all must be < 0): Lf -9.159e-8, En -9.441e-6, Tf -0.01062
+   checks {'Lf': True, 'En': True, 'Tf': True, 'Hy': True}  ->  CERTIFIED
+
+[U] covering unsplit_rows, pruned encodings, unfolded; p = (3073/10000, 5579/20000, 5923/20000, 147/1250)
+   (eps0, gamma0) = (120191/1000000, 81093/1000000) = (0.120191, 0.081093); s0 = 9746648763/1000000000000 = 0.0097466488; APSP exponent 3 - s0 = 2.9902533512
+   Lam <= UB = -0.00661037042981 (mu = 0.2029267436, C = 0.0902553989); LB = -0.0066103709133 at the float maximiser, gap 4.83e-10
+   leaf bound on gamma: -UB/(pw ln2) >= 0.0810948013395  (gamma0 = 0.08109300)
+   H(p) in [1.330835107628, 1.330835107628]; H2r = 0.678194376854, H2c = 0.671587991508
+   E_side^L <= 1.330835107628 via lambda0 (Prop 1.5 applies: pw <= min p_i, B_side = 0.893550 <= 1, exact rational check); rd_L = 0.95905398
+   E_side^R <= 1.330835107628 via lambda0 (Prop 1.5 applies: pw <= min p_i, B_side = 0.882400 <= 1, exact rational check); rd_R = 0.94806373
+   1/eps' = 8.32009052258; E = rate/(pw ln2) <= 8.23891721827; T = max(H2r,H2c)/(pw ln2) <= 8.31996313134
+   margins (upper ends; all must be < 0): Lf -1.468e-7, En -6.546e-6, Tf -1.038e-5, Sc -0.0152
+   checks {'Lf': True, 'En': True, 'Tf': True, 'Hy': True, 'Sc': True, 'X>=0': True}  ->  CERTIFIED
+
+[S] covering split, pruned encodings, unfolded; p = (30697/100000, 23/80, 23/80, 11803/100000)
+   (eps0, gamma0) = (7573/62500, 2023/25000) = (0.121168, 0.080920); s0 = 15320179/1562500000 = 0.0098049146; APSP exponent 3 - s0 = 2.9901950854
+   Lam <= UB = -0.00662033674304 (mu = 0.2024544569, C = 0.0903552213); LB = -0.00662033722523 at the float maximiser, gap 4.82e-10
+   leaf bound on gamma: -UB/(pw ln2) >= 0.0809211809556  (gamma0 = 0.08092000)
+   H(p) in [1.331497769764, 1.331497769764]; H2r = 0.675190275144, H2c = 0.675190275144
+   E_side^L <= 1.331497769764 via lambda0 (Prop 1.5 applies: pw <= min p_i, B_side = 0.901440 <= 1, exact rational check); rd_L = 0.95461647
+   E_side^R <= 1.331497769764 via lambda0 (Prop 1.5 applies: pw <= min p_i, B_side = 0.881970 <= 1, exact rational check); rd_R = 0.95461647
+   1/eps' = 8.25300409349; E = rate/(pw ln2) <= 8.13752956618; T = max(H2r,H2c)/(pw ln2) <= 8.25293282731
+   margins (upper ends; all must be < 0): Lf -9.662e-8, En -0.002827, Tf -5.83e-6, Sc -0.0154
+   checks {'Lf': True, 'En': True, 'Tf': True, 'Hy': True, 'Sc': True, 'X>=0': True}  ->  CERTIFIED
+
+[Pf] covering product, pruned encodings, FOLDED; p = (1708249/4000000, 905751/4000000, 905751/4000000, 480249/4000000)
+   (e0, gamma0) = (13121/100000, 33647/500000) = (0.131210, 0.067294); s0 = 441482287/50000000000 = 0.0088296457; APSP exponent 3 - s0 = 2.9911703543
+   Lam <= UB = -0.00560035925152 (mu = 0.1770309813, C = 0.0977301078); LB = -0.00560036013578 at the float maximiser, gap 8.84e-10
+   leaf bound on gamma: -UB/(pw ln2) >= 0.0672951782876  (gamma0 = 0.06729400)
+   H(p) in [1.290506073939, 1.290506073939]; H2r = 0.645253036969, H2c = 0.645253036969
+   E_side^L <= 1.294708747777 via float multipliers (0.0, 0.0, 1.0598724381, 0.5244835717, 0.6344596803) (B_side = 1.080562 > 1); rd_L = 0.91131001
+   E_side^R <= 1.290506073939 via lambda0 (Prop 1.5 applies: pw <= min p_i, B_side = 0.879938 <= 1, exact rational check); rd_R = 0.91131001
+   1/eps' = 7.87137032238; E = rate/(pw ln2) <= 7.80400611565; T = max(H2r,H2c)/(pw ln2) <= 7.75350584013
+   margins (upper ends; all must be < 0): Lf -9.806e-8, En -5.843e-6, Tf -0.009809
+   checks {'Lf': True, 'En': True, 'Tf': True, 'Hy': True}  ->  CERTIFIED
+
+[Uf] covering unsplit_rows, pruned encodings, FOLDED; p = (15299/50000, 13911/50000, 29581/100000, 11999/100000)
+   (e0, gamma0) = (126377/1000000, 4971/62500) = (0.126377, 0.079536); s0 = 628220067/62500000000 = 0.0100515211; APSP exponent 3 - s0 = 2.9899484789
+   Lam <= UB = -0.00661520662172 (mu = 0.1994524782, C = 0.0910856218); LB = -0.0066152071249 at the float maximiser, gap 5.03e-10
+   leaf bound on gamma: -UB/(pw ln2) >= 0.0795376763698  (gamma0 = 0.07953600)
+   H(p) in [1.333019449745, 1.333019449745]; H2r = 0.67890011127, H2c = 0.672279205921
+   E_side^L <= 1.333019449745 via lambda0 (Prop 1.5 applies: pw <= min p_i, B_side = 0.890180 <= 1, exact rational check); rd_L = 0.96386628
+   E_side^R <= 1.333019449745 via lambda0 (Prop 1.5 applies: pw <= min p_i, B_side = 0.880010 <= 1, exact rational check); rd_R = 0.95270017
+   1/eps' = 8.16283224004; E = rate/(pw ln2) <= 8.08312256417; T = max(H2r,H2c)/(pw ln2) <= 8.16272875896
+   margins (upper ends; all must be < 0): Lf -1.394e-7, En -1.444e-5, Tf -8.607e-6, Sc -0.01681
+   checks {'Lf': True, 'En': True, 'Tf': True, 'Hy': True, 'Sc': True, 'X>=0': True}  ->  CERTIFIED
+
+[Sf] covering split, pruned encodings, FOLDED; p = (15281/50000, 3587/12500, 3587/12500, 6023/50000)
+   (e0, gamma0) = (31867/250000, 79347/1000000) = (0.127468, 0.079347); s0 = 2528550849/250000000000 = 0.0101142034; APSP exponent 3 - s0 = 2.9898857966
+   Lam <= UB = -0.00662532717278 (mu = 0.1989373393, C = 0.0911900751); LB = -0.00662532731146 at the float maximiser, gap 1.39e-10
+   leaf bound on gamma: -UB/(pw ln2) >= 0.0793485526851  (gamma0 = 0.07934700)
+   H(p) in [1.333720789356, 1.333720789356]; H2r = 0.675905748608, H2c = 0.675905748608
+   E_side^L <= 1.333720789356 via lambda0 (Prop 1.5 applies: pw <= min p_i, B_side = 0.898200 <= 1, exact rational check); rd_L = 0.95942329
+   E_side^R <= 1.333720789356 via lambda0 (Prop 1.5 applies: pw <= min p_i, B_side = 0.879540 <= 1, exact rational check); rd_R = 0.95942329
+   1/eps' = 8.09510622274; E = rate/(pw ln2) <= 7.98668590708; T = max(H2r,H2c)/(pw ln2) <= 8.09501802776
+   margins (upper ends; all must be < 0): Lf -1.296e-7, En -0.002428, Tf -7.364e-6, Sc -0.01703
+   checks {'Lf': True, 'En': True, 'Tf': True, 'Hy': True, 'Sc': True, 'X>=0': True}  ->  CERTIFIED
+
+[C1] covering product, full encodings, unfolded; p = (9966649/25000000, 5818351/25000000, 5818351/25000000, 3396649/25000000)
+   (eps0, gamma0) = (3209/25000, 11859/200000) = (0.128360, 0.059295); s0 = 38055531/5000000000 = 0.0076111062; APSP exponent 3 - s0 = 2.9923888938
+   Lam <= UB = -0.00558422230687 (mu = 0.1586503124, C = 0.1019617855); LB = -0.00558422233173 at the float maximiser, gap 2.49e-11
+   leaf bound on gamma: -UB/(pw ln2) >= 0.059296160932  (gamma0 = 0.05929500)
+   H(p) in [1.316412741487, 1.316412741487]; H2r = 0.658206370744, H2c = 0.658206370744
+   E_side^L <= 1.38629436112 via full encoding ln 4; rd_L = 0.952102
+   E_side^R <= 1.38629436112 via full encoding ln 4; rd_R = 0.952102
+   1/eps' = 7.79058896853; E = rate/(pw ln2) <= 7.73121489037; T = max(H2r,H2c)/(pw ln2) <= 6.98917570636
+   margins (upper ends; all must be < 0): Lf -1.093e-7, En -7.447e-6, Tf -0.07547
+   checks {'Lf': True, 'En': True, 'Tf': True, 'Hy': True}  ->  CERTIFIED
+
+[C2] covering unsplit_cols, full encodings, unfolded; p = (1487/5000, 1487/5000, 1383/5000, 643/5000)
+   (eps0, gamma0) = (6127/50000, 74073/1000000) = (0.122540, 0.074073); s0 = 453845271/50000000000 = 0.0090769054; APSP exponent 3 - s0 = 2.9909230946
+   Lam <= UB = -0.00660293081233 (mu = 0.1871877056, C = 0.0938548155); LB = -0.00660293091613 at the float maximiser, gap 1.04e-10
+   leaf bound on gamma: -UB/(pw ln2) >= 0.0740747709042  (gamma0 = 0.07407300)
+   H(p) in [1.340546837186, 1.340546837186]; H2r = 0.67506383238, H2c = 0.682154843984
+   E_side^L <= 1.38629436112 via full encoding ln 4; rd_L = 0.96979158
+   E_side^R <= 1.38629436112 via full encoding ln 4; rd_R = 0.98249105
+   1/eps' = 8.16060062021; E = rate/(pw ln2) <= 8.08639944923; T = max(H2r,H2c)/(pw ln2) <= 7.6527325858
+   margins (upper ends; all must be < 0): Lf -1.579e-7, En -1.142e-5, Tf -0.04527, Sc -0.02129
+   checks {'Lf': True, 'En': True, 'Tf': True, 'Hy': True, 'Sc': True, 'X>=0': True}  ->  CERTIFIED
+
+[C1f] covering product, full encodings, FOLDED; p = (39425841/100000000, 23364159/100000000, 23364159/100000000, 13845841/100000000)
+   (e0, gamma0) = (13559/100000, 29007/500000) = (0.135590, 0.058014); s0 = 393305913/50000000000 = 0.0078661183; APSP exponent 3 - s0 = 2.9921338817
+   Lam <= UB = -0.00556783311755 (mu = 0.1556884017, C = 0.1025498387); LB = -0.00556783313634 at the float maximiser, gap 1.88e-11
+   leaf bound on gamma: -UB/(pw ln2) >= 0.0580151485719  (gamma0 = 0.05801400)
+   H(p) in [1.32012776776, 1.32012776776]; H2r = 0.66006388388, H2c = 0.66006388388
+   E_side^L <= 1.38629436112 via full encoding ln 4; rd_L = 0.95845413
+   E_side^R <= 1.38629436112 via full encoding ln 4; rd_R = 0.95845413
+   1/eps' = 7.62517516041; E = rate/(pw ln2) <= 7.56710342157; T = max(H2r,H2c)/(pw ln2) <= 6.87766739444
+   margins (upper ends; all must be < 0): Lf -1.102e-7, En -5.541e-6, Tf -0.07174
+   checks {'Lf': True, 'En': True, 'Tf': True, 'Hy': True}  ->  CERTIFIED
+
+[C2f] covering unsplit_cols, full encodings, FOLDED; p = (741/2500, 741/2500, 2763/10000, 1309/10000)
+   (e0, gamma0) = (25791/200000, 18159/250000) = (0.128955, 0.072636); s0 = 468338769/50000000000 = 0.0093667754; APSP exponent 3 - s0 = 2.9906332246
+   Lam <= UB = -0.00659062333858 (mu = 0.1839506592, C = 0.0945446103); LB = -0.00659062398319 at the float maximiser, gap 6.45e-10
+   leaf bound on gamma: -UB/(pw ln2) >= 0.0726375829407  (gamma0 = 0.07263600)
+   H(p) in [1.342429364195, 1.342429364195]; H2r = 0.675823227281, H2c = 0.682539036258
+   E_side^L <= 1.38629436112 via full encoding ln 4; rd_L = 0.97436778
+   E_side^R <= 1.38629436112 via full encoding ln 4; rd_R = 0.98656896
+   1/eps' = 8.00464309255; E = rate/(pw ln2) <= 7.9319376016; T = max(H2r,H2c)/(pw ln2) <= 7.52250330651
+   margins (upper ends; all must be < 0): Lf -1.436e-7, En -6.305e-6, Tf -0.04375, Sc -0.02284
+   checks {'Lf': True, 'En': True, 'Tf': True, 'Hy': True, 'Sc': True, 'X>=0': True}  ->  CERTIFIED
+
+[C3f] covering split, full encodings, FOLDED; p = (2901/10000, 2901/10000, 2901/10000, 1297/10000)
+   (e0, gamma0) = (128527/1000000, 73597/1000000) = (0.128527, 0.073597); s0 = 9459201619/1000000000000 = 0.0094592016; APSP exponent 3 - s0 = 2.9905407984
+   Lam <= UB = -0.0066165672425 (mu = 0.1859418105, C = 0.0940785702); LB = -0.00661656845832 at the float maximiser, gap 1.22e-9
+   leaf bound on gamma: -UB/(pw ln2) >= 0.0735982170275  (gamma0 = 0.07359700)
+   H(p) in [1.341938295349, 1.341938295349]; H2r = 0.680227363408, H2c = 0.680227363408
+   E_side^L <= 1.38629436112 via full encoding ln 4; rd_L = 0.98050914
+   E_side^R <= 1.38629436112 via full encoding ln 4; rd_R = 0.98050914
+   1/eps' = 8.03046636115; E = rate/(pw ln2) <= 7.95679366276; T = max(H2r,H2c)/(pw ln2) <= 7.56638892726
+   margins (upper ends; all must be < 0): Lf -1.094e-7, En -6.805e-6, Tf -0.04172, Sc -0.01982
+   checks {'Lf': True, 'En': True, 'Tf': True, 'Hy': True, 'Sc': True, 'X>=0': True}  ->  CERTIFIED
+
+ALL CERTIFIED: True

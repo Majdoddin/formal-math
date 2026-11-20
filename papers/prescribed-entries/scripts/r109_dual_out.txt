@@ -1,0 +1,40 @@
+(1) merged structure (r74a's F_q = r78 Lemma 4.2), dual solver vs r78's printed values
+  t=0.0196 q=6: dual V = 0.001294433152078  primal(feasible) = 0.001294433152078  gap = -7.8e-18  r78 = 0.0012944331521  |V - r78| = 2.2e-14  IPF iters = 293
+  t=0.0196 q=7: dual V = 0.001208201680678  primal(feasible) = 0.001208201680678  gap = -7.5e-16  r78 = 0.0012082016806  |V - r78| = 7.8e-14  IPF iters = 285
+  t=0.02   q=6: dual V = 0.001339298142954  primal(feasible) = 0.001339298142954  gap = 3.8e-16  r78 = 0.0013393  |V - r78| = 1.9e-09  IPF iters = 288
+  t=0.02   q=7: dual V = 0.001250241473512  primal(feasible) = 0.001250241473512  gap = 2.4e-17  r78 = 0.0012502  |V - r78| = 4.1e-08  IPF iters = 280
+  t=0.05   q=6: dual V = 0.006182618690464  primal(feasible) = 0.006182618690463  gap = 4.7e-16  r78 = 0.0061826  |V - r78| = 1.9e-08  IPF iters = 136
+  t=0.05   q=7: dual V = 0.005810792611504  primal(feasible) = 0.005810792611505  gap = -6.1e-16  r78 = 0.0058108  |V - r78| = 7.4e-09  IPF iters = 132
+  t=0.1    q=6: dual V = 0.019258907802731  primal(feasible) = 0.019258907802731  gap = 3.0e-16  r78 = 0.0192589  |V - r78| = 7.8e-09  IPF iters = 78
+  t=0.1    q=7: dual V = 0.018222378526223  primal(feasible) = 0.018222378526223  gap = -1.3e-16  r78 = 0.0182224  |V - r78| = 2.1e-08  IPF iters = 75
+  t=0.2    q=6: dual V = 0.059017655651977  primal(feasible) = 0.059017655651977  gap = 5.7e-16  r78 = 0.0590177  |V - r78| = 4.4e-08  IPF iters = 44
+  t=0.2    q=7: dual V = 0.056357151417718  primal(feasible) = 0.056357151417719  gap = -6.2e-16  r78 = 0.0563572  |V - r78| = 4.9e-08  IPF iters = 43
+  t=0.3    q=6: dual V = 0.113010848908391  primal(feasible) = 0.113010848908391  gap = 0.0e+00  r78 = 0.1130108  |V - r78| = 4.9e-08  IPF iters = 32
+  t=0.3    q=7: dual V = 0.108724663960846  primal(feasible) = 0.108724663960846  gap = 1.7e-16  r78 = 0.1087247  |V - r78| = 3.6e-08  IPF iters = 30
+  IPF convergence (t = 0.0196, q = 6): (iter, V, max marginal error):
+         0  0.015340402009923  3.88e-01
+        10  0.001363053618379  7.51e-03
+       100  0.001294433152398  4.52e-07
+  IPF without Newton, iterations to 1e-15: 293
+
+(2) mixture P0 (lam_6 = 7/19): Lambda per coordinate and t/2 - Lambda/ln b_1 (r78 prints 0.0012400, 0.003998)
+  t=0.0196: Lambda = 0.0012400, per ln a = 0.0017092, t/2 - Lambda/ln b_1 = 0.003998
+  t=0.02  : Lambda = 0.0012831, per ln a = 0.0017685, t/2 - Lambda/ln b_1 = 0.003997
+  t=0.05  : Lambda = 0.0059478, per ln a = 0.0081983, t/2 - Lambda/ln b_1 = -0.002829
+  t=0.1   : Lambda = 0.0186043, per ln a = 0.0256438, t/2 - Lambda/ln b_1 = -0.037047
+  t=0.2   : Lambda = 0.0573373, per ln a = 0.0790327, t/2 - Lambda/ln b_1 = -0.168273
+  t=0.3   : Lambda = 0.1103038, per ln a = 0.1520407, t/2 - Lambda/ln b_1 = -0.366096
+
+(3) all 67 minimal structures of r78 Section 4: dual vs r78_family_out.txt (6 printed digits)
+  268 (structure, t) pairs: max |dual - printed| = 5.0e-07 (printed to 6 decimals), max duality gap = 5.7e-16, dual below printed by > 6e-7: 0
+
+(4) rigorous rational certificates (y rounded to 1e-12, t = 49/2500): upper bounds on Lemma 4.2's G_q(t)
+  q=6: y = (1, 36305547428501/500000000000, 5015838619868339/1000000000000)
+         certified G_6(0.0196) <= 0.0012944331520783  (r78: 0.0012944331521; excess -2.2e-14)
+  q=7: y = (1, 5159531168803/62500000000, 644505079111601/100000000000)
+         certified G_7(0.0196) <= 0.0012082016806783  (r78: 0.0012082016806; excess 7.8e-14)
+  P0 mixture: Lambda(0.0196) <= 0.0012399711701415; gamma_D >= 0.0098 - Lambda/ln b_1 = 0.003998347 (ln b_1 = 0.213727222670571 taken as given)
+  sanity: float V at the rounded y: {6: '0.0012944331520783', 7: '0.0012082016806780'}
+  enclosure self-test: ln 2 in [0.6931471805599453, 0.6931471805599453]  exp(1) in [2.718281828459045, 2.718281828459045]  ln 10 in [2.302585092994046, 2.302585092994046]
+
+(time 14.1 s)

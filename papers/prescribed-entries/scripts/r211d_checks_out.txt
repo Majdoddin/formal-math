@@ -1,0 +1,29 @@
+(1) Prop 4.1 instances, exact rationals
+  alpha_C = 0.29459 (certified lower bound at P0); alpha_B = 0.321334; cbar_B = 2.0: theta* = 0.074143222, range = 0.296572886, floor6 = 74143/250000 = 0.296572
+  alpha_C = 0.29459 (certified lower bound at P0); alpha_B = 0.321334; cbar_B = 0.321334: theta* = 0.478289529, range = 0.307381375, floor6 = 307381/1000000 = 0.307381
+  alpha_C = 0.29459 (certified lower bound at P0); alpha_B = 0.31389; cbar_B = 2.0: theta* = 0.074004572, range = 0.296018288, floor6 = 148009/500000 = 0.296018
+  alpha_C = 0.29459 (certified lower bound at P0); alpha_B = 0.31389; cbar_B = 0.31389: theta* = 0.484140810, range = 0.303933918, floor6 = 303933/1000000 = 0.303933
+  alpha_C = 0.2945976 (computed alpha(P0)); alpha_B = 0.321334; cbar_B = 2.0: theta* = 0.074144993, range = 0.296579970, floor6 = 296579/1000000 = 0.296579
+  alpha_C = 0.2945976 (computed alpha(P0)); alpha_B = 0.321334; cbar_B = 0.321334: theta* = 0.478295967, range = 0.307385512, floor6 = 61477/200000 = 0.307385
+  alpha_C = 0.2945976 (computed alpha(P0)); alpha_B = 0.31389; cbar_B = 2.0: theta* = 0.074006340, range = 0.296025360, floor6 = 11841/40000 = 0.296025
+  alpha_C = 0.2945976 (computed alpha(P0)); alpha_B = 0.31389; cbar_B = 0.31389: theta* = 0.484147253, range = 0.303937962, floor6 = 303937/1000000 = 0.303937
+  alpha_C = 0.294629 (computed sup, not certified); alpha_B = 0.321334; cbar_B = 2.0: theta* = 0.074152309, range = 0.296609237, floor6 = 296609/1000000 = 0.296609
+  alpha_C = 0.294629 (computed sup, not certified); alpha_B = 0.321334; cbar_B = 0.321334: theta* = 0.478322562, range = 0.307402604, floor6 = 153701/500000 = 0.307402
+  alpha_C = 0.294629 (computed sup, not certified); alpha_B = 0.31389; cbar_B = 2.0: theta* = 0.074013644, range = 0.296054577, floor6 = 148027/500000 = 0.296054
+  alpha_C = 0.294629 (computed sup, not certified); alpha_B = 0.31389; cbar_B = 0.31389: theta* = 0.484173871, range = 0.303954673, floor6 = 151977/500000 = 0.303954
+  monotonicity grid violations (cbar = 2): 0
+(2) kappa_typ(q), standard CW_q
+  q= 2: closed 0.601514781 at x=0.381966, x0=0.236068; line max 0.601514781; random max 0.601507560 (<= closed: True); A=0.17328680; kappa/A=3.471210; (q+1)ln2/(q+2)=0.519860
+  q= 3: closed 0.629808307 at x=0.292893, x0=0.121320; line max 0.629808307; random max 0.629453699 (<= closed: True); A=0.32958369; kappa/A=1.910921; (q+1)ln2/(q+2)=0.554518
+  q= 4: closed 0.618668651 at x=0.232408, x0=0.070368; line max 0.618668651; random max 0.617765594 (<= closed: True); A=0.46209812; kappa/A=1.338825; (q+1)ln2/(q+2)=0.577623
+  q= 5: closed 0.594126155 at x=0.190983, x0=0.045085; line max 0.594126155; random max 0.591732252 (<= closed: True); A=0.57479925; kappa/A=1.033624; (q+1)ln2/(q+2)=0.594126
+  q= 6: closed 0.565913699 at x=0.161484, x0=0.031099; line max 0.565913699; random max 0.560194256 (<= closed: True); A=0.67190980; kappa/A=0.842247; (q+1)ln2/(q+2)=0.606504
+  q= 7: closed 0.537771729 at x=0.139620, x0=0.022657; line max 0.537771729; random max 0.533168029 (<= closed: True); A=0.75674284; kappa/A=0.710640; (q+1)ln2/(q+2)=0.616131
+  q= 8: closed 0.511112907 at x=0.122849, x0=0.017206; line max 0.511112907; random max 0.503582782 (<= closed: True); A=0.83177662; kappa/A=0.614483; (q+1)ln2/(q+2)=0.623832
+  q= 9: closed 0.486400216 at x=0.109612, x0=0.013494; line max 0.486400216; random max 0.473600197 (<= closed: True); A=0.89886460; kappa/A=0.541127; (q+1)ln2/(q+2)=0.630134
+  q=10: closed 0.463699847 at x=0.098914, x0=0.010858; line max 0.463699847; random max 0.450739236 (<= closed: True); A=0.95941046; kappa/A=0.483317; (q+1)ln2/(q+2)=0.635385
+  q=11: closed 0.442915220 at x=0.090098, x0=0.008921; line max 0.442915220; random max 0.429263759 (<= closed: True); A=1.01449415; kappa/A=0.436587; (q+1)ln2/(q+2)=0.639828
+  q=12: closed 0.423889643 at x=0.082712, x0=0.007458; line max 0.423889643; random max 0.409037246 (<= closed: True); A=1.06495999; kappa/A=0.398033; (q+1)ln2/(q+2)=0.643637
+(3) q = 5 identity: 7 kappa_typ(5) - 6 ln 2 = 8.881784197001252e-16
+    x_5 - (3 - sqrt 5)/4 = 0.0
+DONE

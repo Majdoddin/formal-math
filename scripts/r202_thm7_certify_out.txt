@@ -1,0 +1,45 @@
+R202 certificate for r61b 6.4 / Theorem 7: Lagrange dual with closed-form inner suprema, iv 200 bits
+columns: rho, theta | LB <= B <= UB | certified (UB<0) | gamma_box = -UB/(pw ln2) | q(theta) | eps(rho)
+rho=1/2 theta=1/100  active=True
+   LB = -1.67039209961e-5   UB = -1.67039209961e-5   gap = 1.15e-36
+   certified B < 0: True ;  B > 0 proved (LB > 0): False
+   gamma_box <= 9.6394656e-5   q(theta) = [0.0966427609, 0.0966427609]   eps(rho) = [0.25, 0.25]
+   optimum t = (0.250833333, 0.250833333, 0.250833333, 0.2475)
+rho=101/200 theta=1/20  active=True
+   LB = -6.02981596433e-5   UB = -6.02981596433e-5   gap = 4.28e-37
+   certified B < 0: True ;  B > 0 proved (LB > 0): False
+   gamma_box <= 0.00034111109   q(theta) = [0.365645082, 0.365645082]   eps(rho) = [0.255006605, 0.255006605]
+   optimum t = (0.252575417, 0.252575417, 0.252575417, 0.24227375)
+rho=51/100 theta=1/10  active=True
+   LB = -0.000284895566015   UB = -0.000284895566015   gap = 1.95e-36
+   certified B < 0: True ;  B > 0 proved (LB > 0): False
+   gamma_box <= 0.0015802285   q(theta) = [0.627491844, 0.627491844]   eps(rho) = [0.260024968, 0.260024968]
+   optimum t = (0.255303333, 0.255303333, 0.255303333, 0.23409)
+rho=261/500 theta=37/200  active=True
+   LB = -0.000198153194384   UB = -0.000198153194384   gap = 1.12e-36
+   certified B < 0: True ;  B > 0 proved (LB > 0): False
+   gamma_box <= 0.0010491428   q(theta) = [0.984111934, 0.984111934]   eps(rho) = [0.272103876, 0.272103876]
+   optimum t = (0.259308513, 0.259308513, 0.259308513, 0.22207446)
+rho=523/1000 theta=189/1000  active=True
+   LB = -5.5781406142e-5   UB = -5.5781406142e-5   gap = 7.45e-37
+   certified B < 0: True ;  B > 0 proved (LB > 0): False
+   gamma_box <= 0.00029421216   q(theta) = [0.998932757, 0.998932757]   eps(rho) = [0.273111983, 0.273111983]
+   optimum t = (0.259389327, 0.259389327, 0.259389327, 0.221832019)
+rho=13/25 theta=3/20  active=True
+   LB = 0.000496245477502   UB = 0.000496245477502   gap = 1.07e-37
+   certified B < 0: False ;  B > 0 proved (LB > 0): True
+   gamma_box <= -   q(theta) = [0.84758468, 0.84758468]   eps(rho) = [0.270088193, 0.270088193]
+   optimum t = (0.25672, 0.25672, 0.25672, 0.22984)
+rho=1047/2000 theta=473/2500  active=True
+   LB = 9.46907897296e-5   UB = 9.46907897296e-5   gap = 3.46e-37
+   certified B < 0: False ;  B > 0 proved (LB > 0): True
+   gamma_box <= -   q(theta) = [0.999669824, 0.999669824]   eps(rho) = [0.273616094, 0.273616094]
+   optimum t = (0.259266145, 0.259266145, 0.259266145, 0.222201564)
+
+Theorem 7 at (rho, theta) = (0.523, 0.189):
+   B <= -5.5781406142e-5 < 0: True
+   eps(rho) > 0.2731: True (eps(rho) in [0.273111982553, 0.273111982553])
+   q(theta) < 0.99894: True (q in [0.9989327566, 0.9989327566])
+   margin 0.99894 - q(theta) >= 7.2434e-6
+   gamma_box >= 0.00029421216 ; at eps = 0.2731 the encoding margin 1/eps - 1/eps(rho) >= 0.00016065228
+   so any gamma < min of the two works at eps = 0.2731 (asymptotically, poly(L) factors absorbed)

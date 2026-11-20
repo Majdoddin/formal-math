@@ -1,0 +1,31 @@
+R155 with residue folding (Shr26 Lemma fold; r156-shr26-levers.md 3.1): folded savings of the pruned-encoding
+certificates, s_fold = gamma/(max(E + gamma, T) - 1/4) (numerical optima) and certified s0 = e0 gamma0.
+A. numerical optima of the folded saving (tile fit imposed; pruned encodings):
+  product, deterministic covering: 0.0088299 at r = 0.34654
+  unsplit p1 = p2   : 0.0100132 at p = (0.30562, 0.28696, 0.28696, 0.12046)
+  unsplit p1,p2 free: 0.0100519 at p = (0.30598, 0.27822, 0.29580, 0.11999)
+  split   p1 = p2   : 0.0101145 at p = (0.30562, 0.28696, 0.28696, 0.12046)
+  split   p1,p2 free: 0.0101145 at p = (0.30562, 0.28696, 0.28696, 0.12046)
+B. certificates, at the unfolded certified points of r155_cert_out.txt:
+  (P): p = (6901129/16000000, 3606871/16000000, 3606871/16000000, 1885129/16000000) = (0.43132, 0.22543, 0.22543, 0.11782), product
+    unfolded (r155_cert): (eps0, gamma0) = (62457/500000, 68459/1000000), s = 0.0085515, APSP exponent 3 - s = 2.9914485
+    folded: E = [7.93693318557, 7.93693318557], T = [7.875491427, 7.875491427] (per unit of d), gamma0 = 68459/1000000, e0 = 128941/1000000 (1/e0 = 7.755485); s0 = e0 gamma0 = 8827171919/1000000000000 = 0.00882717; encoding line 1 - e0 (E - 1/4) >= 0.00883915; checks Lf -9.159e-08, EnF -1.198e-05, TfF -1.676e-02; APSP exponent 3 - s0 = 2.99117283; ALL CHECKS PASS
+  (U): p = (3073/10000, 5579/20000, 5923/20000, 147/1250) = (0.30730, 0.27895, 0.29615, 0.11760), unsplit (rows relabeled)
+    unfolded (r155_cert): (eps0, gamma0) = (120191/1000000, 81093/1000000), s = 0.0097466, APSP exponent 3 - s = 2.9902534
+    folded: E = [8.23891721827, 8.23891721827], T = [8.31996313134, 8.31996313134] (per unit of d), gamma0 = 81093/1000000, e0 = 61957/500000 (1/e0 = 8.070113); s0 = e0 gamma0 = 5024279001/500000000000 = 0.01004856; encoding line 1 - e0 (E - 1/4) >= 0.01006131; checks Lf -1.468e-07, EnF -1.275e-05, TfF -1.859e-05, Sc -1.520e-02; APSP exponent 3 - s0 = 2.98995144; ALL CHECKS PASS
+  (S): p = (30697/100000, 23/80, 23/80, 11803/100000) = (0.30697, 0.28750, 0.28750, 0.11803), split
+    unfolded (r155_cert): (eps0, gamma0) = (7573/62500, 2023/25000), s = 0.0098049, APSP exponent 3 - s = 2.9901951
+    folded: E = [8.13752956618, 8.13752956618], T = [8.25293282731, 8.25293282731] (per unit of d), gamma0 = 2023/25000, e0 = 124953/1000000 (1/e0 = 8.003009); s0 = e0 gamma0 = 252779919/25000000000 = 0.01011120; encoding line 1 - e0 (E - 1/4) >= 0.01442952; checks Lf -9.662e-08, EnF -4.318e-03, TfF -9.534e-06, Sc -1.540e-02; APSP exponent 3 - s0 = 2.98988880; ALL CHECKS PASS
+C. certificates near the folded optima:
+  (Pf): p = (1708249/4000000, 905751/4000000, 905751/4000000, 480249/4000000) = (0.42706, 0.22644, 0.22644, 0.12006), product
+    unfolded (r155_cert): (eps0, gamma0) = (63521/500000, 33647/500000), s = 0.0085492, APSP exponent 3 - s = 2.9914508
+    folded: E = [7.80400611565, 7.80400611565], T = [7.75350584013, 7.75350584013] (per unit of d), gamma0 = 33647/500000, e0 = 13121/100000 (1/e0 = 7.621370); s0 = e0 gamma0 = 441482287/50000000000 = 0.00882965; encoding line 1 - e0 (E - 1/4) >= 0.00883886; checks Lf -9.806e-08, EnF -9.212e-06, TfF -1.546e-02; APSP exponent 3 - s0 = 2.99117035; ALL CHECKS PASS
+  (Pf2): p = (1723969/4000000, 902031/4000000, 902031/4000000, 471969/4000000) = (0.43099, 0.22551, 0.22551, 0.11799), product
+    unfolded (r155_cert): (eps0, gamma0) = (62539/500000, 68369/1000000), s = 0.0085515, APSP exponent 3 - s = 2.9914485
+    folded: E = [7.92656735858, 7.92656735858], T = [7.86601366672, 7.86601366672] (per unit of d), gamma0 = 68369/1000000, e0 = 25823/200000 (1/e0 = 7.745033); s0 = e0 gamma0 = 1765492687/200000000000 = 0.00882746; encoding line 1 - e0 (E - 1/4) >= 0.00884001; checks Lf -1.309e-07, EnF -1.254e-05, TfF -1.666e-02; APSP exponent 3 - s0 = 2.99117254; ALL CHECKS PASS
+  (Uf): p = (15299/50000, 13911/50000, 29581/100000, 11999/100000) = (0.30598, 0.27822, 0.29581, 0.11999), unsplit (rows relabeled)
+    unfolded (r155_cert): (eps0, gamma0) = (122507/1000000, 4971/62500), s = 0.0097437, APSP exponent 3 - s = 2.9902563
+    folded: E = [8.08312256417, 8.08312256417], T = [8.16272875896, 8.16272875896] (per unit of d), gamma0 = 4971/62500, e0 = 126377/1000000 (1/e0 = 7.912832); s0 = e0 gamma0 = 628220067/62500000000 = 0.01005152; encoding line 1 - e0 (E - 1/4) >= 0.01007347; checks Lf -1.394e-07, EnF -2.195e-05, TfF -1.308e-05, Sc -1.681e-02; APSP exponent 3 - s0 = 2.98994848; ALL CHECKS PASS
+  (Sf): p = (15281/50000, 3587/12500, 3587/12500, 6023/50000) = (0.30562, 0.28696, 0.28696, 0.12046), split
+    unfolded (r155_cert): (eps0, gamma0) = (123531/1000000, 79347/1000000), s = 0.0098018, APSP exponent 3 - s = 2.9901982
+    folded: E = [7.98668590708, 7.98668590708], T = [8.09501802776, 8.09501802776] (per unit of d), gamma0 = 79347/1000000, e0 = 31867/250000 (1/e0 = 7.845106); s0 = e0 gamma0 = 2528550849/250000000000 = 0.01011420; encoding line 1 - e0 (E - 1/4) >= 0.01382012; checks Lf -1.296e-07, EnF -3.706e-03, TfF -1.124e-05, Sc -1.703e-02; APSP exponent 3 - s0 = 2.98988580; ALL CHECKS PASS

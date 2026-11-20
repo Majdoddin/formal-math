@@ -1,0 +1,40 @@
+(i) R82a one-family construction
+pruned (Theorem B, c > 5): c = 112403/10000, theta = 55757/1000000, gamma_c = 97651/1250000, q_c = 1054701/2500000, eps = 78419061/1000000000
+   c - cmin                       lower bound  6.2403e+00
+   4/5 - theta                    lower bound  7.4424e-01
+   -b                             lower bound  5.4149e-02
+   R: ln4 - eps(enc - 2b)         lower bound  1.3937e-06
+   -(b + gamma_c ln2)             lower bound  7.0589e-08
+   q_c ln2 - (H + theta ln4)      lower bound  9.1099e-08
+   1/2 - q_c                      lower bound  7.8120e-02
+   G > 0                          lower bound  1.5624e-01
+   1 - lambda(2-G)                lower bound  9.3002e-01
+   G = min(2 gamma_c, 1-2q_c) = 195299/1250000 = 0.1562392;  lambda = 0.03795389;  eta = G lambda = 0.00592988 (exact rational);  T exponent lambda(1-G) = 0.032024;  S exponent 2 - eta + ... : S T^2 = O~(N^(2-0.005930))
+   ALL CONDITIONS HOLD
+full (r14.md Theorem 1, c >= 2): c = 5239/500, theta = 11319/200000, gamma_c = 182589/2500000, q_c = 170787/400000, eps = 79720721/1000000000
+   c - cmin                       lower bound  8.4780e+00
+   4/5 - theta                    lower bound  7.4340e-01
+   -b                             lower bound  5.0625e-02
+   R: ln4 - eps(enc - 2b)         lower bound  1.3921e-06
+   -(b + gamma_c ln2)             lower bound  1.2463e-07
+   q_c ln2 - (H + theta ln4)      lower bound  1.0253e-07
+   1/2 - q_c                      lower bound  7.3033e-02
+   G > 0                          lower bound  1.4607e-01
+   1 - lambda(2-G)                lower bound  9.2853e-01
+   G = min(2 gamma_c, 1-2q_c) = 29213/200000 = 0.146065;  lambda = 0.03854825;  eta = G lambda = 0.00563055 (exact rational);  T exponent lambda(1-G) = 0.032918;  S exponent 2 - eta + ... : S T^2 = O~(N^(2-0.005631))
+   ALL CONDITIONS HOLD
+   pruned eta >= 0.00592: True;  full eta >= 0.00563: True
+
+(ii) R100 polylog form with Hyp(2/25, 0.0765) (r111b P2, re-certified)
+   r = 5000: 3SUM exponent 2 - eps*gamma + eps/r = 249237/125000 = 1.99389600;  ExactTriangle/(min,+)/APSP 3 - eps*gamma + eps/(2r) = 93559/31250 = 2.99388800
+      3SUM: 1.99389600 < 19939/10000: True (slack 4.00e-06 absorbs (log n)^5004)
+      3SUM: 1.99389600 < 199389/100000: False (slack -6.00e-06 absorbs (log n)^5004)
+      APSP etc.: 2.99388800 < 29939/10000: True (slack 1.20e-05 absorbs (log n)^5005)
+      APSP etc.: 2.99388800 < 299389/100000: True (slack 2.00e-06 absorbs (log n)^5005)
+   r = 10000: 3SUM exponent 2 - eps*gamma + eps/r = 62309/31250 = 1.99388800;  ExactTriangle/(min,+)/APSP 3 - eps*gamma + eps/(2r) = 748471/250000 = 2.99388400
+      3SUM: 1.99388800 < 19939/10000: True (slack 1.20e-05 absorbs (log n)^10004)
+      3SUM: 1.99388800 < 199389/100000: True (slack 2.00e-06 absorbs (log n)^10004)
+      APSP etc.: 2.99388400 < 29939/10000: True (slack 1.60e-05 absorbs (log n)^10005)
+      APSP etc.: 2.99388400 < 299389/100000: True (slack 6.00e-06 absorbs (log n)^10005)
+   v1 / unpruned R100 for comparison (r85.md lines 143-146): Hyp(1/14, 0.0773), r = 5000:
+      3SUM 1.99449286 < 1.9945: True;  APSP 2.99448571 < 2.9945: True

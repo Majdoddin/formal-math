@@ -1,0 +1,142 @@
+(0) self-tests
+  CHECK OK    ln(2) enclosure [0.69314718055994530941, 0.69314718055994530942] contains mpmath's 60-digit value (width 5.9e-70)
+  CHECK OK    ln(3) enclosure [1.09861228866810969139, 1.09861228866810969140] contains mpmath's 60-digit value (width 1.8e-69)
+  CHECK OK    ln(7/19) enclosure [-0.99852883011112715491, -0.99852883011112715490] contains mpmath's 60-digit value (width 1.2e-69)
+  CHECK OK    ln(10) enclosure [2.30258509299404568401, 2.30258509299404568402] contains mpmath's 60-digit value (width 2.3e-69)
+  CHECK OK    ln(1/7) enclosure [-1.94591014905531330511, -1.94591014905531330510] contains mpmath's 60-digit value (width 2.3e-69)
+  CHECK OK    ln(979/9000) enclosure [-2.21844821378784605247, -2.21844821378784605246] contains mpmath's 60-digit value (width 2.3e-69)
+  CHECK OK    ln(123456789/1000) enclosure [11.72364648718588098113, 11.72364648718588098114] contains mpmath's 60-digit value (width 1.1e-68)
+  CHECK OK    ln(1/1000000000) enclosure [-20.72326583694641115617, -20.72326583694641115616] contains mpmath's 60-digit value (width 1.8e-68)
+  largest enclosure width 1.8e-68
+  CHECK OK    F_6(49/2500; z0): own enclosure [0.0012944331520783420895, 0.0012944331520783420896] overlaps mpmath iv [0.001294433152078342089530927520422975169994719251843591385, 0.001294433152078342089530927520422975169994719251857550316]
+  CHECK OK    F_7(49/2500; z0): own enclosure [0.0012082016806783223563, 0.0012082016806783223564] overlaps mpmath iv [0.001208201680678322356312166287033465421449092684923242806, 0.001208201680678322356312166287033465421449092684945371418]
+
+(1) r74a: Theorem D at the level-1 point P0, t = 49/2500
+  P0: parts [(6, '7/19', '97/100'), (7, '12/19', '979/1000')]
+    slack [0.000034663663, 0.000034663664]  alpha [0.2945976470504, 0.2945976470505]  ln a_1 [0.7254885597709, 0.7254885597710]  ln b_1 [0.2137272226705, 0.2137272226706]  cbar [1.077860988, 1.077860989]
+  CHECK OK    slack(P) > 0 (P admissible)
+  CHECK OK    0.2945976 < alpha(P0) < 0.2945977
+  CHECK OK    cbar(P0) <= 1.077861
+  CHECK OK    t = 49/2500 <= 1/(cbar + 2) (>= 0.3249)
+    G_6(49/2500) <= 0.0012944331520783420896  (z0 = ['1.0882192e-02', '1.0204395e-02', '2.4921057e-05'], max|g_i| = 4.2e-46)
+    G_7(49/2500) <= 0.0012082016806783223564  (z0 = ['9.9795350e-03', '9.3181755e-03', '1.7239757e-05'], max|g_i| = 5.3e-47)
+    Lambda_cert(t) in [0.001709153305646, 0.001709153305647];  gamma_inf in [0.003998347058237, 0.003998347058238]
+  CHECK OK    Lambda_cert(49/2500) <= 0.00170915331 (r74a.md:5)
+  CHECK OK    gamma_inf >= 0.0039983470 (r74a.md:8)
+  CHECK FAILS gamma_inf >= 0.00399834705824 (r74a.md:103)
+    eps1 = 1/(1/alpha + gamma_inf) >= 0.294251047671;  eps1*gamma_inf >= 0.001176517810841
+  CHECK OK    eps1 >= 0.2942510 (r74a.md:8)
+  CHECK FAILS eps1*gamma_inf >= 1.176517811e-3 (r74a.md:109)
+  CHECK OK    Hyp(eps, 0.003998) for every eps <= 0.29425: 0.003998 < gamma_inf and 0.003998 < 1/0.29425 - 1/alpha (>= 0.004010447)
+    other tilts (r74a.md:105-107):
+  CHECK OK    t = 3/200: gamma_inf >= 0.0038136469 vs printed lower bound 0.0038136
+  CHECK OK    t = 9/500: gamma_inf >= 0.0039770091 vs printed lower bound 0.003977
+  CHECK FAILS t = 19/1000: gamma_inf >= 0.0039955571 vs printed lower bound 0.00399556
+  CHECK OK    t = 39/2000: gamma_inf >= 0.0039983120 vs printed lower bound 0.00399831
+  CHECK OK    t = 197/10000: gamma_inf >= 0.0039982109 vs printed lower bound 0.00399821
+  CHECK FAILS t = 1/50: gamma_inf >= 0.0039967786 vs printed lower bound 0.00399678
+  CHECK OK    t = 21/1000: gamma_inf >= 0.0039810124 vs printed lower bound 0.00398101
+  CHECK FAILS t = 1/40: gamma_inf >= 0.0037541580 vs printed lower bound 0.0037542
+
+(2) R74(e): certified level-1 points (r74e.md:207-213)
+  q 13/14: parts [(13, '33/50', '999999/1000000'), (14, '17/50', '999999/1000000')]
+    slack [0.215425042691, 0.215425042692]  alpha [0.1500153418002, 0.1500153418003]  ln a_1 [1.1261352940142, 1.1261352940143]  ln b_1 [0.1689375710448, 0.1689375710449]  cbar [0.693312070, 0.693312071]
+  CHECK OK    slack(P) > 0 (P admissible)
+  CHECK OK    t = 23/1000 <= 1/(cbar + 2) (>= 0.3712)
+    G_13(23/1000) <= 0.0011498107332957911346  (z0 = ['7.7527588e-03', '7.0361104e-03', '4.8788653e-06'], max|g_i| = 7.6e-47)
+    G_14(23/1000) <= 0.0011017927240312737360  (z0 = ['7.3701048e-03', '6.6745677e-03', '4.0451118e-06'], max|g_i| = 5.7e-47)
+    gamma_inf in [0.004790511973, 0.004790511974];  eps1 >= 0.14990761;  eps1*gamma >= 0.0007181342
+  CHECK FAILS gamma_inf >= printed 0.004790512
+  CHECK FAILS eps1 >= printed 0.149908, so Hyp(eps, 0.004790512) for every eps <= 0.149908
+  q 11/12: parts [(11, '73/200', '999999/1000000'), (12, '127/200', '999999/1000000')]
+    slack [0.174219823763, 0.174219823764]  alpha [0.1720274558057, 0.1720274558058]  ln a_1 [1.0465399615714, 1.0465399615715]  ln b_1 [0.1800336069881, 0.1800336069882]  cbar [0.748238924, 0.748238925]
+  CHECK OK    slack(P) > 0 (P admissible)
+  CHECK OK    t = 1133/50000 <= 1/(cbar + 2) (>= 0.3638)
+    G_11(1133/50000) <= 0.0012302579904026092813  (z0 = ['8.5528503e-03', '7.8092581e-03', '7.2363040e-06'], max|g_i| = 8.6e-47)
+    G_12(1133/50000) <= 0.0011726508741140104208  (z0 = ['8.0755219e-03', '7.3547597e-03', '5.8204393e-06'], max|g_i| = 8.7e-47)
+    gamma_inf in [0.004699696405, 0.004699696406];  eps1 >= 0.17188848;  eps1*gamma >= 0.0008078237
+  CHECK OK    gamma_inf >= printed 0.004699696
+  CHECK FAILS eps1 >= printed 0.171889, so Hyp(eps, 0.004699696) for every eps <= 0.171889
+  q 10: parts [(10, '1', '999999/1000000')]
+    slack [0.127062162451, 0.127062162452]  alpha [0.1999997999999, 0.1999998000001]  ln a_1 [0.9594104554141, 0.9594104554142]  ln b_1 [0.1918818992007, 0.1918818992008]  cbar [0.817896240, 0.817896241]
+  CHECK OK    slack(P) > 0 (P admissible)
+  CHECK OK    t = 2221/100000 <= 1/(cbar + 2) (>= 0.3548)
+    G_10(2221/100000) <= 0.0012512305900535831389  (z0 = ['8.9391095e-03', '8.1968830e-03', '8.8695598e-06'], max|g_i| = 3.3e-47)
+    gamma_inf in [0.004584162988, 0.004584162989];  eps1 >= 0.19981660;  eps1*gamma >= 0.0009159918
+  CHECK FAILS gamma_inf >= printed 0.004584163
+  CHECK FAILS eps1 >= printed 0.199817, so Hyp(eps, 0.004584163) for every eps <= 0.199817
+  q 8: parts [(8, '1', '999999/1000000')]
+    slack [0.054116176814, 0.054116176815]  alpha [0.2499997499999, 0.2499997500001]  ln a_1 [0.8317766166719, 0.8317766166720]  ln b_1 [0.2079439462238, 0.2079439462239]  cbar [0.943494007, 0.943494008]
+  CHECK OK    slack(P) > 0 (P admissible)
+  CHECK OK    t = 1067/50000 <= 1/(cbar + 2) (>= 0.3397)
+    G_8(1067/50000) <= 0.0013095597570345986849  (z0 = ['9.9181844e-03', '9.1789327e-03', '1.4359696e-05'], max|g_i| = 3.4e-47)
+    gamma_inf in [0.004372342478, 0.004372342479];  eps1 >= 0.24972677;  eps1*gamma >= 0.0010918909
+  CHECK OK    gamma_inf >= printed 0.004372342
+  CHECK FAILS eps1 >= printed 0.249727, so Hyp(eps, 0.004372342) for every eps <= 0.249727
+  q 6/7: parts [(6, '41/400', '999999/1000000'), (7, '359/400', '999999/1000000')]
+    slack [0.004091220242, 0.004091220243]  alpha [0.2900981556636, 0.2900981556637]  ln a_1 [0.7480474496784, 0.7480474496785]  ln b_1 [0.2170071855006, 0.2170071855007]  cbar [1.046585871, 1.046585872]
+  CHECK OK    slack(P) > 0 (P admissible)
+  CHECK OK    t = 2051/100000 <= 1/(cbar + 2) (>= 0.3282)
+    G_6(2051/100000) <= 0.0013973715609271491580  (z0 = ['1.1306611e-02', '1.0576580e-02', '2.6847890e-05'], max|g_i| = 4.3e-46)
+    G_7(2051/100000) <= 0.0013046673099908001686  (z0 = ['1.0371841e-02', '9.6592238e-03', '1.8580160e-05'], max|g_i| = 2.9e-46)
+    gamma_inf in [0.004199119902, 0.004199119903];  eps1 >= 0.28974520;  eps1*gamma >= 0.0012166748
+  CHECK FAILS gamma_inf >= printed 0.00419912
+  CHECK OK    eps1 >= printed 0.289745, so Hyp(eps, 0.00419912) for every eps <= 0.289745
+
+(3) R117: certified product points (r117.md:91-96, :101-103), Theorem D_x with f_dir = 0
+  P (sharp rows): parts [(6, '9/50', '999999/1000000'), (7, '41/50', '999999/1000000')]
+    slack [0.000070293700, 0.000070293701]  alpha [0.2934812713161, 0.2934812713162]  ln a_1 [0.7414728894827, 0.7414728894828]  ln b_1 [0.2176084062518, 0.2176084062519]  cbar [1.055504194, 1.055504195]
+  CHECK OK    slack(P) > 0 (P admissible)
+  P (closed-form rows): parts [(6, '21/100', '9957/10000'), (7, '79/100', '4987/5000')]
+    slack [0.000038067150, 0.000038067151]  alpha [0.2939326155863, 0.2939326155864]  ln a_1 [0.7389278984392, 0.7389278984393]  ln b_1 [0.2171950099179, 0.2171950099180]  cbar [1.058999055, 1.058999056]
+  CHECK OK    slack(P) > 0 (P admissible)
+  row eps~0.172: c = 603/100, t = 53/1000, f_G = 663/1000, CW profile sharp
+  CHECK OK    t = 53/1000 <= 1/(cbar + 2) (>= 0.3272)
+    CW part q = 6: G_q(53/1000) <= 0.006806973158986
+    CW part q = 7: G_q(53/1000) <= 0.006400794307361
+    Lambda_CW/alpha <= 0.029750259249;  Lambda_G(53/1000, 603/100) <= 0.003358136103 (x0 = 3.213571e-02);  A(c)/ln4 in [7.0172244118, 7.0172244119]
+    query term Q >= 0.014247718397;  encoding sum f_i a_i <= 5.8007043025;  eps1 = 1/(sum f_i a_i + Q) >= 0.171970464;  eps1*Q >= 0.002450186
+  CHECK OK    Q >= printed 0.014247718
+  CHECK OK    eps1 >= printed 0.1716089: Hyp(eps, gamma) for every gamma < 0.014247718 and every eps < 0.1716089
+  row eps~0.20: c = 146/25, t = 79/2000, f_G = 187/400, CW profile sharp
+  CHECK OK    t = 79/2000 <= 1/(cbar + 2) (>= 0.3272)
+    CW part q = 6: G_q(79/2000) <= 0.004183882402792
+    CW part q = 7: G_q(79/2000) <= 0.003924695896131
+    Lambda_CW/alpha <= 0.018249981863;  Lambda_G(79/2000, 146/25) <= 0.001548762241 (x0 = 2.064166e-02);  A(c)/ln4 in [6.7913494913, 6.7913494914]
+    query term Q >= 0.009307838310;  encoding sum f_i a_i <= 4.9893817196;  eps1 = 1/(sum f_i a_i + Q) >= 0.200052431;  eps1*Q >= 0.001862055
+  CHECK OK    Q >= printed 0.0093078383
+  CHECK OK    eps1 >= printed 0.1996354: Hyp(eps, gamma) for every gamma < 0.0093078383 and every eps < 0.1996354
+  row eps~0.25: c = 563/100, t = 1313/50000, f_G = 3/16, CW profile sharp
+  CHECK OK    t = 1313/50000 <= 1/(cbar + 2) (>= 0.3272)
+    CW part q = 6: G_q(1313/50000) <= 0.002116955451154
+    CW part q = 7: G_q(1313/50000) <= 0.001979815293344
+    Lambda_CW/alpha <= 0.009211503160;  Lambda_G(1313/50000, 563/100) <= 0.000507937216 (x0 = 1.073599e-02);  A(c)/ln4 in [6.5427735958, 6.5427735959]
+    query term Q >= 0.005550415454;  encoding sum f_i a_i <= 3.9952601691;  eps1 = 1/(sum f_i a_i + Q) >= 0.249949348;  eps1*Q >= 0.001387322
+  CHECK FAILS Q >= printed 0.0055504155
+  CHECK OK    eps1 >= printed 0.2494767: Hyp(eps, gamma) for every gamma < 0.0055504155 and every eps < 0.2494767
+  row eps~0.29: c = 553/100, t = 13/625, f_G = 31/2500, CW profile sharp
+  CHECK OK    t = 13/625 <= 1/(cbar + 2) (>= 0.3272)
+    CW part q = 6: G_q(13/625) <= 0.001430825509040
+    CW part q = 7: G_q(13/625) <= 0.001336024690821
+    Lambda_CW/alpha <= 0.006217998934;  Lambda_G(13/625, 553/100) <= 0.000270501256 (x0 = 7.405003e-03);  A(c)/ln4 in [6.4248271301, 6.4248271302]
+    query term Q >= 0.004255750037;  encoding sum f_i a_i <= 3.4447888932;  eps1 = 1/(sum f_i a_i + Q) >= 0.289935359;  eps1*Q >= 0.001233892
+  CHECK OK    Q >= printed 0.00425575
+  CHECK OK    eps1 >= printed 0.2894198: Hyp(eps, gamma) for every gamma < 0.00425575 and every eps < 0.2894198
+  row eps~0.20pr: c = 2519/500, t = 143/100000, f_G = 653/1000, CW profile crude
+  CHECK OK    t = 143/100000 <= 1/(cbar + 2) (>= 0.3269)
+    CW part q = 6: t^2 ln^2(4eq/t)(143/100000) <= 0.000235353416799
+    CW part q = 7: t^2 ln^2(4eq/t)(143/100000) <= 0.000242165512287
+    Lambda_CW/alpha <= 0.001108381691;  Lambda_G(143/100000, 2519/500) <= 0.000005049534 (x0 = 1.485065e-03);  A(c)/ln4 in [5.8489627641, 5.8489627642]
+    query term Q >= 0.000327094208;  encoding sum f_i a_i <= 4.9999153727;  eps1 = 1/(sum f_i a_i + Q) >= 0.199990301;  eps1*Q >= 0.000065415
+  CHECK FAILS Q >= printed 0.00032709421
+  CHECK OK    eps1 >= printed 0.1999748: Hyp(eps, gamma) for every gamma < 0.00032709421 and every eps < 0.1999748
+  row eps~0.18pr: c = 101/20, t = 83/20000, f_G = 1749/2000, CW profile crude
+  CHECK OK    t = 83/20000 <= 1/(cbar + 2) (>= 0.3269)
+    CW part q = 6: t^2 ln^2(4eq/t)(83/20000) <= 0.001608026699016
+    CW part q = 7: t^2 ln^2(4eq/t)(83/20000) <= 0.001659742184673
+    Lambda_CW/alpha <= 0.007591711860;  Lambda_G(83/20000, 101/20) <= 0.000150017660 (x0 = 9.992468e-03);  A(c)/ln4 in [5.8629131885, 5.8629131886]
+    query term Q >= 0.000991049718;  encoding sum f_i a_i <= 5.5540861924;  eps1 = 1/(sum f_i a_i + Q) >= 0.180015498;  eps1*Q >= 0.000178404
+  CHECK FAILS Q >= printed 0.00099104972
+  CHECK OK    eps1 >= printed 0.1799804: Hyp(eps, gamma) for every gamma < 0.00099104972 and every eps < 0.1799804
+
+DONE

@@ -1,0 +1,73 @@
+R211f certification (calc/r211f_certify.py). ln enclosures: atanh series, 60 terms, outward rounding 1e-45.
+ln 2 in [ 0.69314718055994528623 , 0.69314718055994528623 ]; width 1e-45
+
+(A) Theorem R87.1 rows (CERTIFIED: exact rationals; slack enclosures rigorous)
+ q=7 sigma=3/4: pe=1/3 pl=4/9 u=111/1000 vx=1/18000 vy=1/18000
+    slack_X in [0.00376510148469, 0.00376510148469], slack_Y in [0.00380229416038, 0.00380229416038]
+    eps=u/pe=333/1000=0.333, beta_A=u/pl=999/4000=0.24975, sigma_A=3/4; checks: pe+pl=q/(q+2)=ok, u+vx+vy=w=ok, all six > 0=ok, u<pe<=pl=ok, pe/pl=sigma=ok, eps=u/pe printed=ok, Lean values equal=ok, slack_X > 0=ok, slack_Y > 0=ok
+ q=7 sigma=1/2: pe=7/27 pl=14/27 u=919/9000 vx=79/15000 vy=7/1875
+    slack_X in [0.000977650257818, 0.000977650257818], slack_Y in [0.000983571115991, 0.000983571115991]
+    eps=u/pe=2757/7000=0.39385714, beta_A=u/pl=2757/14000=0.19692857, sigma_A=1/2; checks: pe+pl=q/(q+2)=ok, u+vx+vy=w=ok, all six > 0=ok, u<pe<=pl=ok, pe/pl=sigma=ok, eps=u/pe printed=ok, Lean values equal=ok, slack_X > 0=ok, slack_Y > 0=ok
+ q=8 sigma=1/3: pe=1/5 pl=3/5 u=179/2000 vx=337/50000 vy=47/12500
+    slack_X in [0.000773760109169, 0.000773760109169], slack_Y in [0.000801178086019, 0.000801178086019]
+    eps=u/pe=179/400=0.4475, beta_A=u/pl=179/1200=0.14916667, sigma_A=1/3; checks: pe+pl=q/(q+2)=ok, u+vx+vy=w=ok, all six > 0=ok, u<pe<=pl=ok, pe/pl=sigma=ok, eps=u/pe printed=ok, Lean values equal=ok, slack_X > 0=ok, slack_Y > 0=ok
+ q=10 sigma=1/4: pe=1/6 pl=2/3 u=197/2400 vx=47/60000 vy=7/15000
+    slack_X in [0.00103320988605, 0.00103320988605], slack_Y in [0.00101941661766, 0.00101941661766]
+    eps=u/pe=197/400=0.4925, beta_A=u/pl=197/1600=0.123125, sigma_A=1/4; checks: pe+pl=q/(q+2)=ok, u+vx+vy=w=ok, all six > 0=ok, u<pe<=pl=ok, pe/pl=sigma=ok, eps=u/pe printed=ok, Lean values equal=ok, slack_X > 0=ok, slack_Y > 0=ok
+ q=11 sigma=1/5: pe=11/78 pl=55/78 u=951/13000 vx=83/32500 vy=79/65000
+    slack_X in [0.000661739834384, 0.000661739834384], slack_Y in [0.000652437703162, 0.000652437703162]
+    eps=u/pe=2853/5500=0.51872727, beta_A=u/pl=2853/27500=0.10374545, sigma_A=1/5; checks: pe+pl=q/(q+2)=ok, u+vx+vy=w=ok, all six > 0=ok, u<pe<=pl=ok, pe/pl=sigma=ok, eps=u/pe printed=ok, Lean values equal=ok, slack_X > 0=ok, slack_Y > 0=ok
+ q=13 sigma=1/7: pe=13/120 pl=91/120 u=887/15000 vx=53/9375 vy=47/25000
+    slack_X in [0.000609190544926, 0.000609190544926], slack_Y in [0.000591675524437, 0.000591675524437]
+    eps=u/pe=887/1625=0.54584615, beta_A=u/pl=887/11375=0.077978022, sigma_A=1/7; checks: pe+pl=q/(q+2)=ok, u+vx+vy=w=ok, all six > 0=ok, u<pe<=pl=ok, pe/pl=sigma=ok, eps=u/pe printed=ok, Lean values equal=ok, slack_X > 0=ok, slack_Y > 0=ok
+ q=18 sigma=1/10: pe=9/110 pl=9/11 u=973/20000 vx=49/50000 vy=37/100000
+    slack_X in [0.000509883152158, 0.000509883152158], slack_Y in [0.000514782365201, 0.000514782365201]
+    eps=u/pe=10703/18000=0.59461111, beta_A=u/pl=10703/180000=0.059461111, sigma_A=1/10; checks: pe+pl=q/(q+2)=ok, u+vx+vy=w=ok, all six > 0=ok, u<pe<=pl=ok, pe/pl=sigma=ok, eps=u/pe printed=ok, Lean values equal=ok, slack_X > 0=ok, slack_Y > 0=ok
+ all rows pass: True
+
+(B) square point P0 = (lam_6, u_6(q+2), u_7(q+2)) = (7/19, 97/100, 979/1000) (CERTIFIED)
+ alpha(P0) in [0.294597647050482, 0.294597647050482]; > 0.2945976: True; < 0.2945977: True
+ slack(P0) in [3.46636633031e-05, 3.46636633031e-05]; > 0: True
+
+(C) per row: cbar bound (Prop. 4.1), t-range t <= 1/(2(cbar+1)), and x->inf query rate sup_t [t kappa - (1+sigma) Lam_pr(t)/beta], Lam_pr(t) = t^2 ln^2(4 e q/t)/((q/(q+2)) ln q) (COMPUTED, grid)
+ q=7 sigma=3/4: cbar<=0.517514, t<=0.32949; rate(kappa=1/2)=9.054e-05 at t=0.000397; rate(kappa=1)=0.0004176 at t=0.000924
+ q=7 sigma=1/2: cbar<=0.517514, t<=0.32949; rate(kappa=1/2)=8.194e-05 at t=0.000359; rate(kappa=1)=0.0003774 at t=0.000835
+ q=8 sigma=1/3: cbar<=0.471747, t<=0.33973; rate(kappa=1/2)=7.386e-05 at t=0.000323; rate(kappa=1)=0.000339 at t=0.000747
+ q=10 sigma=1/4: cbar<=0.408948, t<=0.35487; rate(kappa=1/2)=7.213e-05 at t=0.000316; rate(kappa=1)=0.00033 at t=0.000726
+ q=11 sigma=1/5: cbar<=0.386307, t<=0.36067; rate(kappa=1/2)=6.488e-05 at t=0.000283; rate(kappa=1)=0.000296 at t=0.000651
+ q=13 sigma=1/7: cbar<=0.351453, t<=0.36997; rate(kappa=1/2)=5.304e-05 at t=0.000231; rate(kappa=1)=0.0002409 at t=0.000527
+ q=18 sigma=1/10: cbar<=0.297393, t<=0.38539; rate(kappa=1/2)=4.588e-05 at t=0.000198; rate(kappa=1)=0.0002073 at t=0.000453
+
+(D) Cor. R87.2 samples, kappa <= 1 (exact rationals): refuted a in (b+c-1, min(b,c)*F)
+ (b,c)=(0.1,0.91) s=0.1099 E(s)=0.545846: R87.2 a in (0.01, 0.0545846); square Thm D (alpha(P0)) a in (0.01, 0.0294598); v1 (0.17227, kappa<=1 part) a in (0.01, 0.017227); ceiling a < 0.1
+ (b,c)=(0.05,0.96) s=0.05208 E(s)=0.594611: R87.2 a in (0.01, 0.0297306); square Thm D (alpha(P0)) a in (0.01, 0.0147299); v1 (0.17227, kappa<=1 part) a in empty; ceiling a < 0.05
+ (b,c)=(0.2,0.85) s=0.2353 E(s)=0.4925: R87.2 a in (0.05, 0.0985); square Thm D (alpha(P0)) a in (0.05, 0.0589195); v1 (0.17227, kappa<=1 part) a in empty; ceiling a < 0.2
+ (b,c)=(0.3,0.75) s=0.4 E(s)=0.393857: R87.2 a in (0.05, 0.118157); square Thm D (alpha(P0)) a in (0.05, 0.0883793); v1 (0.17227, kappa<=1 part) a in (0.05, 0.051681); ceiling a < 0.3
+ (b,c)=(0.4,0.65) s=0.6154 E(s)=0.333: R87.2 a in (0.05, 0.1332); square Thm D (alpha(P0)) a in (0.05, 0.117839); v1 (0.17227, kappa<=1 part) a in (0.05, 0.068908); ceiling a < 0.4
+ (b,c)=(0.55,0.6) s=0.9167 E(s)=0.294598: R87.2 a in (0.15, 0.162029); square Thm D (alpha(P0)) a in (0.15, 0.162029); v1 (0.17227, kappa<=1 part) a in empty; ceiling a < 0.55
+ (b,c)=(0.1,0.95) s=0.1053 E(s)=0.545846: R87.2 a in (0.05, 0.0545846); square Thm D (alpha(P0)) a in empty; v1 (0.17227, kappa<=1 part) a in empty; ceiling a < 0.1
+
+(E) ABFK Thm 1.10 triples (a,b,c)=(s-1,2-s,1+r-s), s=sigma(r) in [1+r/3, 1+r mu/(1+mu)], mu=0.5286 [GU18]
+ r=0.01: sigma in [1.00333, 1.00346], eps in [0.5, 0.5286], shape in [0.0065646, 0.006689], kappa in [0.89179, 1], E(shape_max)=0.594611 -> in R87.2 region for every sigma(r) in the interval: True
+ r=0.05: sigma in [1.01667, 1.01729], eps in [0.5, 0.5286], shape in [0.033285, 0.033898], kappa in [0.89179, 1], E(shape_max)=0.594611 -> in R87.2 region for every sigma(r) in the interval: True
+ r=0.1: sigma in [1.03333, 1.03458], eps in [0.5, 0.5286], shape in [0.067763, 0.068966], kappa in [0.89179, 1], E(shape_max)=0.594611 -> in R87.2 region for every sigma(r) in the interval: True
+ r=0.15: sigma in [1.05, 1.05187], eps in [0.5, 0.5286], shape in [0.1035, 0.10526], kappa in [0.89179, 1], E(shape_max)=0.545846 -> in R87.2 region for every sigma(r) in the interval: True
+ r=0.2: sigma in [1.06667, 1.06916], eps in [0.5, 0.5286], shape in [0.14056, 0.14286], kappa in [0.89179, 1], E(shape_max)=0.545846 -> in R87.2 region for every sigma(r) in the interval: True
+ r=0.25: sigma in [1.08333, 1.08645], eps in [0.5, 0.5286], shape in [0.17903, 0.18182], kappa in [0.89179, 1], E(shape_max)=0.518727 -> in R87.2 region for every sigma(r) in the interval: False
+ r=0.2727: sigma in [1.09091, 1.09431], eps in [0.5, 0.5286], shape in [0.197, 0.2], kappa in [0.89179, 1], E(shape_max)=0.518727 -> in R87.2 region for every sigma(r) in the interval: False
+ r=0.3: sigma in [1.1, 1.10374], eps in [0.5, 0.5286], shape in [0.21897, 0.22222], kappa in [0.89179, 1], E(shape_max)=0.4925 -> in R87.2 region for every sigma(r) in the interval: False
+ r=0.5: sigma in [1.16667, 1.1729], eps in [0.5, 0.5286], shape in [0.39548, 0.4], kappa in [0.89179, 1], E(shape_max)=0.393857 -> in R87.2 region for every sigma(r) in the interval: False
+ r=1: sigma in [1.33333, 1.34581], eps in [0.5, 0.5286], shape in [1, 1], kappa in [0.89179, 1], E(shape_max)=0.294598 -> in R87.2 region for every sigma(r) in the interval: False
+ route 2 (sigma(r) = 1 + r/3 forced by R87.1 + Prop. 2.1): at sigma0 = 1 + r/3, eps = 1/2 and shape = 2r/(3-r); eps*(shape) >= E(shape) > 1/2 iff shape <= 1/5 iff r <= 3/11 = 0.272727
+
+(F) wedge extremes under E (kappa <= 1): at shape s (min side beta0, max side beta0/s), b+c-1 <= a < beta0 E(s)
+    => beta0 < 1/(1 + 1/s - E(s)), a < E(s)/(1 + 1/s - E(s)); value at the right end of each step of E
+  s=1: E=0.294598: min(b,c) < 0.586372, a < 0.172744
+  s=3/4: E=0.333: min(b,c) < 0.499917, a < 0.166472
+  s=1/2: E=0.393857: min(b,c) < 0.383709, a < 0.151126
+  s=1/3: E=0.4475: min(b,c) < 0.281492, a < 0.125968
+  s=1/4: E=0.4925: min(b,c) < 0.221852, a < 0.109262
+  s=1/5: E=0.518727: min(b,c) < 0.182439, a < 0.0946363
+  s=1/7: E=0.545846: min(b,c) < 0.134153, a < 0.0732271
+  s=1/10: E=0.594611: min(b,c) < 0.096104, a < 0.0571445
+  largest a over the steps: 0.172744 at s=1 (E is constant on each step and 1 + 1/s grows as s falls, so the right end of each step is its maximum)

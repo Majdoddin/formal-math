@@ -1,0 +1,72 @@
+R215 (a) certificate; alpha_lo = 0.294597647050482 ; a' = alpha_lo - 1e-12; grid points: 97
+alpha_lo exact: 7574402668713630329056139899716730243838872463390998440235897/25711008708143844408671393477458601640355247900524685364822016
+
+== A11.1 VXXZ alpha > 0.321334, kappa = 1/2
+   sup over grid of phi(x_min) (exact rational, float shown): F = 0.3073146634 at t = 1/10000
+   floor to 6 digits: 0.307314
+   eps = 153657/500000 at t = 1/10000: CERTIFIED (all margins > 0)
+      sub       = 4.974645e-09
+      enc       = 1.050350e+00
+      need      = 4.973434e-05
+      buck      = 5.000000e-01
+      io        = 2.254001e+00
+      x         = 3.431064e+00
+      delta_max = 1.598682e-09
+      delta_B must be < (1/e - 1)/x = 6.155604e-01
+   grid points certifying eps = v: ['1/10000']
+   eps = v + 1e-6 = 61463/200000 certifies at: no grid point (so v is the 6-digit floor on this grid)
+
+== A11.1' same with e = 0.321334 - 1e-9 (no use of alpha > e)
+   sup over grid of phi(x_min) (exact rational, float shown): F = 0.3073146630 at t = 1/10000
+   floor to 6 digits: 0.307314
+   eps = 153657/500000 at t = 1/10000: CERTIFIED (all margins > 0)
+      sub       = 4.971233e-09
+      enc       = 1.050350e+00
+      need      = 4.973434e-05
+      buck      = 5.000000e-01
+      io        = 2.254001e+00
+      x         = 3.431063e+00
+      delta_max = 1.597586e-09
+      delta_B must be < (1/e - 1)/x = 6.155604e-01
+   grid points certifying eps = v: ['1/10000']
+   eps = v + 1e-6 = 61463/200000 certifies at: no grid point (so v is the 6-digit floor on this grid)
+
+== A11.3 VXXZ Table 1 omega(1,0.33,1) <= 2.000100, kappa = 1/2
+   sup over grid of phi(x_min) (exact rational, float shown): F = 0.3082628333 at t = 1/250
+   floor to 6 digits: 0.308262
+   eps = 154131/500000 at t = 1/250: CERTIFIED (all margins > 0)
+      sub       = 2.286112e-07
+      enc       = 8.389030e-01
+      need      = 1.777567e-03
+      buck      = 5.000000e-01
+      io        = 2.243994e+00
+      x         = 4.820772e+00
+      delta_max = 7.574466e-08
+      delta_B must be < (1/e - 1)/x = 4.211573e-01
+   grid points certifying eps = v: ['1/250']
+   eps = v + 1e-6 = 308263/1000000 certifies at: no grid point (so v is the 6-digit floor on this grid)
+
+== A11.4 VXXZ Table 1 omega(1,0.35,1) <= 2.001363, kappa = 1
+   sup over grid of phi(x_min) (exact rational, float shown): F = 0.3409840242 at t = 3/50
+   floor to 6 digits: 0.340984
+   eps = 42623/125000 at t = 3/50: CERTIFIED (all margins > 0)
+      sub       = 1.175494e-08
+      enc       = 1.596031e+00
+      need      = 5.471004e-02
+      buck      = 9.545126e-01
+      io        = 1.932689e+00
+      x         = 5.553357e-01
+      delta_max = 4.376839e-09
+      delta_B must be < (1/e - 1)/x = 3.344180e+00
+   grid points certifying eps = v: ['3/50']
+   eps = v + 1e-6 = 68197/200000 certifies at: no grid point (so v is the 6-digit floor on this grid)
+
+== A11.2 kappa = 1, g = 0, e = 0.321334: every eps < e
+   grid points with a' t - M' > 0: 16 ; best (a't - M')/(1-t) = 0.0070125113 at t = 3/50
+   a' < e: True
+   Argument: for any eps in (a', e), x = (1 - eps/e)/(eps - a') > 0 and the sub-entry margin is
+   x (a' t - M') > 0 (t - s = 0, g = 0), so delta in (0, e x (a't - M')/(1-t)) works; eps <= a' by monotonicity.
+   eps = e - 1e-06: sub margin 7.673e-07, all lines > 0: True
+   eps = e - 1e-09: sub margin 7.673e-10, all lines > 0: True
+
+closed form kappa = 1: C = 0.0070125113; F(1; 0.35, 0.001363) = 0.3409840242

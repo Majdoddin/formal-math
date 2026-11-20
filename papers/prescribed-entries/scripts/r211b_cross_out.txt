@@ -1,0 +1,7 @@
+level-1 11/12, lam_11 = 17/50, t = 1133/50000: gamma < 0.0047012892 for every eps <= 0.1715158  covers 0.171511: True
+level-1 11/12, lam_11 = 341/1000, t = 1133/50000: gamma < 0.0047012254 for every eps <= 0.1715307  covers 0.171511: True
+level-1 11/12, lam_11 = 171/500, t = 1133/50000: gamma < 0.0047011616 for every eps <= 0.1715456  covers 0.171511: True
+pure tile c = 2509/500, t = 449/20000: gamma < 0.0047000551 for every eps < 0.1715141  covers 0.171511: True
+pure tile c = 50179/10000, t = 449/20000: gamma < 0.0046976826 for every eps < 0.1715176  covers 0.171511: True
+pure tile c = 25089/5000, t = 449/20000: gamma < 0.0046953096 for every eps < 0.1715211  covers 0.171511: True
+DONE
